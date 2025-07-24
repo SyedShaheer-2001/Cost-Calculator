@@ -8,8 +8,8 @@
 @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat-ExtraLight.ttf') format('truetype');
-  font-weight: 250;
-  font-style: normal;
+  font-weight: 200;
+  font-style: thin;
 }
 @font-face {
   font-family: 'Montserrat';
@@ -21,14 +21,14 @@
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
   font-weight: 500;
-  font-style: normal;
+  font-style: medium;
 }
 
 @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
   font-weight: 600;
-  font-style: normal;
+  font-style: bold;
 }
 
 @theme inline {
@@ -49,13 +49,25 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Montserrat',Arial, Helvetica, sans-serif;
-  
 }
 .bgBlack {
   background-color: #202020;
+  color:#ffffff;
 }
-.bgBlue{
+.bgLightBlue{
   background-color: #0066FF;
+  color:#ffffff;
+}
+.bgDarkBlue{
+  background-color: #0044A4;
+  color:#ffffff;
+}
+.bg-gradient-blue {
+  background-image: linear-gradient(to right, #0055CC, #0044A4);
+  color:#ffffff;
+}
+.bgGray{
+  background-color: #F8F8FB;
 }
 .textsm{
   font-size: 18px;
@@ -67,3 +79,10 @@ body {
 max-width: 1440px;
   margin: auto;
 }
+.gray-text {
+  color: rgba(0, 0, 0, 0.3); /* 30% opacity */
+}
+.gray-bg {
+  background-color: rgba(0, 0, 0, 0.1); /* 30% opacity */
+}
+

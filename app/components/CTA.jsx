@@ -17,23 +17,35 @@ export default function CTA() {
         }));
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(form , 'form')
+        setForm({
+        name: '',
+        email: '',
+        project: '',
+        sendNDA: false,
+    })
+
+    }
+
     return (
         <div className="relative w-full pt-[121px]">
             {/* Background split */}
             <div className="absolute inset-0 z-0">
                 <div className="h-1/2 bg-white" />
-                <div className="h-1/2 bg-[#1C1C1C]" />
+                <div className="h-1/2 bgBlack" />
             </div>
 
             {/* Blue Card */}
-            <div className="relative z-10  mx-auto ">
-                <div className="max-w-[1260px] mx-auto bg-gradient-to-r from-[#0055CC] to-[#0044A4] text-white rounded-[64px]  flex flex-col lg:flex-row shadow-2xl overflow-hidden">
+            <div className="relative z-10  xl:mx-auto mx-4">
+                <div className="max-w-[1260px] mx-auto bg-gradient-blue text-white rounded-[64px]  flex flex-col lg:flex-row shadow-2xl overflow-hidden">
                     {/* Left Side (Form) */}
-                    <div className="lg:w-2/3 w-full pr-6 pl-[100px] pt-[45px] pb-[65px] py-10">
-                        <h2 className="text-[58px] font-thin mb-[76px] leading-[64px]">
+                    <div className="lg:w-7/11 w-full pr-6 lg:pl-[100px] pl-[25px] pt-[45px] pb-[65px] py-10">
+                        <h2 className="md:text-[58px] text-[38px] font-thin mb-[30px] md:mb-[76px] leading-[64px]">
                             Start growing your <br /> business with us
                         </h2>
-                        <form className="space-y-5 max-w-[620px]">
+                        <form className="space-y-5 lg:max-w-[620px]" onSubmit={handleSubmit}>
                             <div className="flex gap-8 flex-col md:flex-row">
                                 <input
                                     type="text"
@@ -65,18 +77,18 @@ export default function CTA() {
                                 <span className="absolute right-0 top-0 text-[#80AAE5] text-lg">✎</span>
                             </div>
 
-                            <label className="flex items-center space-x-2 text-white text-sm">
+                            <label className="flex items-center space-x-2 text-white ">
                                 <input
                                     type="checkbox"
                                     name="sendNDA"
                                     checked={form.sendNDA}
                                     onChange={handleChange}
-                                    className="form-checkbox"
+                                    className="form-checkbox bg-black"
                                 />
-                                <span>Send me NDA</span>
+                                <span className='leading-[28px] text-[16px] font-thin'>Send me NDA</span>
                             </label>
 
-                            <div className="flex justify-between items-center mt-[29px]">
+                            <div className="flex flex-col xl:flex-row justify-between xl:items-center gap-4 xl:gap-0 mt-[29px]">
                                 <p className="text-sm leading-[24px] max-w-[360px] font-light">
                                     By sending this form I confirm that I have read and accept the{' '}
                                     <span className="underline cursor-pointer">Privacy Policy</span>
@@ -92,7 +104,7 @@ export default function CTA() {
                     </div>
 
                     {/* Right Side (Testimonial) */}
-                    <div className="lg:w-1/3 w-full lg:mt-0 flex flex-col justify-between bg-[#0044A4] pt-[100px] px-[44px] pb-[65px]">
+                    <div className="lg:w-4/11 w-full lg:mt-0 flex flex-col justify-between bgDarkBlue pt-[100px] px-[44px] pb-[65px]">
                         <div >
                             <div className="flex items-center gap-4 ">
                                 <img
@@ -110,21 +122,25 @@ export default function CTA() {
                                 <p className="text-[18px] leading-[28px]">CTO at NURSING</p>
                             </div>
 
-
                             </div>
                             
                             <div className='mt-[20px] '>
-                            <p className="max-w-[290px] font-extralight text-[18px] leading-[28px]">
-                                “The team is very organized, communicative, and proactive.
-                                They keep the project on track and provide excellent suggestions
-                                to improve the product.”
+                            <p className="max-w-[369px] font-extralight text-[22px] leading-[28px] hidden lg:block">
+                                    "The team is very organized, <br />
+                                    communicative, and proactive. <br />
+                                    They keep the project on track <br />
+                                    and provide excellent suggestions <br />
+                                    to improve the product." 
+                            </p>
+                            <p className=" font-extralight text-[22px] leading-[28px] lg:hidden">
+                                    "The team is very organized, 
+                                    communicative, and proactive. 
+                                    They keep the project on track 
+                                    and provide excellent suggestions 
+                                    to improve the product." 
                             </p>
                         </div>  
-
                         </div>
-                        
-
-
                         <div className="flex justify-center mt-4">
                             <div className="w-2 h-2 bg-white rounded-[3px] mx-1 opacity-70" />
                             <div className="w-2 h-2 bg-white rounded-[3px]  mx-1 opacity-40" />
