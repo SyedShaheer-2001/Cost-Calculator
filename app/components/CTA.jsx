@@ -34,7 +34,7 @@ export default function CTA() {
             {/* Background split */}
             <div className="absolute inset-0 z-0">
                 <div className="h-1/2 bg-white" />
-                <div className="h-1/2 bgBlack" />
+                <div className="h-1/2 bgBlue" />
             </div>
 
             {/* Blue Card */}
@@ -104,7 +104,7 @@ export default function CTA() {
                     </div>
 
                     {/* Right Side (Testimonial) */}
-                    <div className="lg:w-4/11 w-full lg:mt-0 flex flex-col justify-between bgDarkBlue pt-[100px] px-[44px] pb-[65px]">
+                    <div className="lg:w-4/11 w-full lg:mt-0 flex flex-col justify-between bgOrange pt-[100px] px-[44px] pb-[65px]">
                         <div >
                             <div className="flex items-center gap-4 ">
                                 <img

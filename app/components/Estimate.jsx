@@ -12,7 +12,7 @@ function Estimate() {
           <p className='leading-[38px] text-[28px] font-light pb-[40px]'>Rough Estimate of My App</p>
           <div className='flex overflow-hidden max-w-[730px] mx-auto text-white rounded-[18px]'>
             {/* Left Light blue section */}
-            <div className='w-2/5 bg-[#0055CC] pt-[60px] px-[60px] pb-[95px] flex flex-col justify-center items-center'>
+            <div className='w-2/5 bg-[#174273] pt-[60px] px-[60px] pb-[95px] flex flex-col justify-center items-center'>
               <p className='leading-[28px] text-[22px] font-light text-center'>Summary time</p>
               <p className='leading-[62px] text-[52px] text-center' style={{ letterSpacing: '-1px', fontWeight: 200 }} >733.7 h</p>
               <div className='flex flex-col justify-center items-center py-[40px] text-[18px] leading-[30px]'>
@@ -32,7 +32,7 @@ function Estimate() {
             </div>
 
                {/* Right Dark blue section */}
-            <div className='w-3/5 bgDarkBlue'>
+            <div className='w-3/5 bgOrange'>
               <div className="p-8 rounded-3xl w-full max-w-[400px] mx-auto text-center ">
                 {/* Headings */}
                 <h2 className="text-[22px] font-thin leading-[28px] mb-1">Download</h2>

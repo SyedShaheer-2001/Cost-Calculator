@@ -5,7 +5,7 @@ import { FaArrowUp } from "react-icons/fa";
 
 function Footer() {
     return (
-        <div className='bgBlack'>
+        <div className='bgBlue'>
             <div className='pt-[150px] max-w-[1260px] lg:mx-auto text-white  flex items-baseline justify-center flex-col lg:flex-row mx-8 lg:gap-0 gap-4 lg:pl-8'>
                 <div className='flex flex-col gap-4 items-baseline pb-[28px] w-[323px]'>
                     <p className='text-[18px]'>Services</p>

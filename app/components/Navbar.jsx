@@ -32,7 +32,7 @@ export default function Navbar() {
           <li><Link href="#">Blog</Link></li>
           <li>
             <Link href="#">
-              <button className="bgLightBlue text-white px-[23px] py-[17px] rounded-[100px] text-[18px] cursor-pointer hover:bg-blue-700 font-[500px]">
+              <button className="bgPink text-white px-[23px] py-[17px] rounded-[100px] text-[18px] cursor-pointer hover:bg-blue-700 font-[500px]">
                 Contact us
               </button>
             </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
           <li><Link href="#">Blog</Link></li>
           <li>
             <Link href="#">
-              <button className="bgLightBlue text-white px-[23px] py-[14px] rounded-[100px] text-[18px] cursor-pointer hover:bg-blue-700 w-full">
+              <button className="bgPink text-white px-[23px] py-[14px] rounded-[100px] text-[18px] cursor-pointer hover:bg-blue-700 w-full">
                 Contact us
               </button>
             </Link>
