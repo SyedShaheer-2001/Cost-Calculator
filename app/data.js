@@ -16,7 +16,7 @@ export const data = {
       title: 'Do you need Registration & Authorization?',
       conditional: true,
       featuresForMVP: [
-        {text:'Integration' , hours: 2},
+        {text:'Integration' , hours: 2.23},
         { text: 'via Email', hours: 2 },
         { text: 'via Phone', hours: 4 },
         { text: 'via Facebook', hours: 3 },
@@ -30,6 +30,22 @@ export const data = {
     {
       id: 'q2',
       title: 'Will you allow users to complete a Profile?',
+      conditional: false,
+      featuresForMVP: [
+        { text: 'Integration', hours: 3.3 },
+        { text: 'View Profile', hours: 2.1 },
+        { text: 'Edit Profile', hours: 3.3 },
+        { text: 'Edit profile details', hours: 4.3 },
+        { text: 'Change Password', hours: 1.2 },
+      ],
+      additionalFeatures: [
+        { text: 'Online Status', hours: 6.5 },
+        { text: 'Edit Phone', hours: 12.3 },
+      ],
+    },
+    {
+      id: 'q3',
+      title: 'Dummy question 4?',
       conditional: false,
       featuresForMVP: [
         { text: 'Integration', hours: 3.3 },
@@ -143,6 +159,18 @@ export const data = {
       additionalFeatures: [
         { text: 'Online Status', hours: 0.5 },
         { text: 'Edit Phone', hours: 2.3 },
+      ],
+    },
+    {
+      id: 'q2',
+      title: 'Will you allow users to Call?',
+      conditional: false,
+      featuresForMVP: [
+        { text: 'Video Call', hours: 2.1 },
+        { text: 'Audio call', hours: 3.3 },
+      ],
+      additionalFeatures: [
+        { text: 'Group Call', hours: 0.5 },
       ],
     },
    
