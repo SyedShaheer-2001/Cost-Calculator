@@ -9,11 +9,11 @@ function Estimate({estimate}) {
 
         {/* Right container - 940px */}
         <div className="xl:w-3/4 bgGray rounded-[18px] pt-[40px] pb-[50px] px-[104px] w-full">
-          <p className='leading-[38px] text-[28px] font-light pb-[40px]'>Rough Estimate of My App</p>
+          <p className='leading-[38px] text-[28px]  pb-[40px]'>Rough Estimate of My App</p>
           <div className='flex overflow-hidden max-w-[730px] mx-auto text-white rounded-[18px]'>
             {/* Left Light blue section */}
             <div className='w-2/5 bg-[#174273] pt-[60px] px-[60px] pb-[95px] flex flex-col justify-center items-center'>
-              <p className='leading-[28px] text-[22px] font-light text-center'>Summary time</p>
+              <p className='leading-[28px] text-[22px]  text-center'>Summary time</p>
               <p className='leading-[62px] text-[52px] text-center' style={{ letterSpacing: '-1px', fontWeight: 200 }} >{estimate} h</p>
               <div className='flex flex-col justify-center items-center py-[40px] text-[18px] leading-[30px]'>
                 <div className='flex flex-row gap-[10px]'>
@@ -35,20 +35,20 @@ function Estimate({estimate}) {
             <div className='w-3/5 bgOrange'>
               <div className="p-8 rounded-3xl w-full max-w-[400px] mx-auto text-center ">
                 {/* Headings */}
-                <h2 className="text-[22px] font-thin leading-[28px] mb-1">Download</h2>
-                <h2 className="text-[22px] font-thin leading-[28px] mb-1">rough cost estimation</h2>
-                <p className="text-[16px] font-thin  mb-8 leading-[28px]">with full features list</p>
+                <h2 className="text-[22px]  leading-[28px] mb-1">Download</h2>
+                <h2 className="text-[22px]  leading-[28px] mb-1">rough cost estimation</h2>
+                <p className="text-[16px]   mb-8 leading-[28px]">with full features list</p>
 
                 {/* Form */}
                 <form className="space-y-6 ">
-                  <div className='text-[#80AAE5] text-[18px] mb-10 font-thin'>
+                  <div className='text-[#80AAE5] text-[18px] mb-10 '>
                     <input
                       type="text"
                       placeholder="Your name"
                       className="w-full bg-transparent border-b border-[#AFCBFF] outline-none text-white placeholder-white pb-2"
                     />
                   </div>
-                  <div className='text-[#80AAE5] text-[18px] font-thin'>
+                  <div className='text-[#80AAE5] text-[18px] '>
                     <input
                       type="email"
                       placeholder="Your business email"
