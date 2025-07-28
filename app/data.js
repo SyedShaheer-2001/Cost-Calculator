@@ -499,8 +499,14 @@ export const data = {
   ],
   '+ Add New Category': [
     {
-        title:'+ Add New Category'
+      id: 'q0',
+      title: 'What type of app are you building?',
+      conditional: true,
+      options: [
+        { text: 'Android', hours: 2 },
+        { text: 'IOS', hours: 4 },
+        { text: 'Both', hours: 3 },
+      ],
     }
-   
   ],
 };

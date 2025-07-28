@@ -10,17 +10,14 @@ export default function ChooseBusiness() {
   const router = useRouter();
   const [category, setCategory] = useState('');
   const [selectedPlatform, setSelectedPlatform] = useState(null);
-  const [yesNo1, setyesNo1] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [yesNo2, setyesNo2] = useState(null);
-  const [yesNo3, setyesNo3] = useState(null);
   const [lenght, setLenght] = useState(0);
+  const [yesNo, setYesNo] = useState([]);
+  const [selectedMVP, setSelectedMVP] = useState([]);
+  const [selectedAdditional, setSelectedAdditional] = useState([]);
 
   
-  
-
-
   const handleCategorySelect = (categoryName) => {
     setCategory(categoryName);
     setCurrentStep(0);
@@ -39,204 +36,175 @@ export default function ChooseBusiness() {
     }
   }, [category, currentStep])
 
-  console.log('lenght', lenght)
 
   // states and functions for question 2
-  const [selectedMVP1, setselectedMVP1] = useState(new Set(null));
-  const [selectedAdditional1, setselectedAdditional1] = useState(new Set(null));
+ 
 
   const toggleFeature = (type, text) => {
-    if (currentStep === 1) {
-      const updateFn = type === 'mvp' ? setselectedMVP1 : setselectedAdditional1;
-      const currentSet = type === 'mvp' ? selectedMVP1 : selectedAdditional1;
-      const updated = new Set(currentSet);
+  const isMVP = type === 'mvp';
+  const stateSetter = isMVP ? setSelectedMVP : setSelectedAdditional;
+  const currentState = isMVP ? selectedMVP : selectedAdditional;
 
-      if (updated.has(text)) {
-        updated.delete(text);
-      } else {
-        updated.add(text);
-      }
-      updateFn(updated);
-    }
+  // Clone current set for the current step or initialize a new one
+  const updatedSet = new Set(currentState[currentStep] || []);
 
-    if (currentStep === 2) {
-      const updateFn = type === 'mvp' ? setselectedMVP2 : setselectedAdditional2;
-      const currentSet = type === 'mvp' ? selectedMVP2 : selectedAdditional2;
-      const updated = new Set(currentSet);
+  if (updatedSet.has(text)) {
+    updatedSet.delete(text);
+  } else {
+    updatedSet.add(text);
+  }
 
-      if (updated.has(text)) {
-        updated.delete(text);
-      } else {
-        updated.add(text);
-      }
-
-      updateFn(updated);
-    }
+  // Create a new object with the updated set for the current step
+  const newState = {
+    ...currentState,
+    [currentStep]: updatedSet,
   };
 
-  // states and functions for question 3
-  const [selectedMVP2, setselectedMVP2] = useState(new Set(null));
-  const [selectedAdditional2, setselectedAdditional2] = useState(new Set(null));
+  stateSetter(newState);
+};
 
-  //question 4
-   const [selectedMVP3, setselectedMVP3] = useState(new Set(null));
-  const [selectedAdditional3, setselectedAdditional3] = useState(new Set(null));
-
-  // total hours
-  function calculateTotalHours({
-    category,
-    selectedPlatform,
-    selectedMVP1,
-    selectedAdditional1,
-    yesNo1,
-    selectedMVP2,
-    selectedAdditional2,
-    yesNo2,
-    selectedMVP3,
-    selectedAdditional3,
-    yesNo3,
-
-  }) {
-    const categoryData = data[category];
-    let total = 0;
-
-    for (let i = 0; i < categoryData?.length; i++) {
-      const question = categoryData[i];
-
-      // if (question.id === 'q0') {
-      //   // Step 1: Platform
-      //   const selected = question?.options.find(opt => opt.text === selectedPlatform);
-      //   if (selected) total += selected.hours;
-      // }
-
-      if (question.id === 'q1') {
-        // Step 2: Registration & Authorization
-        if (yesNo1 === 'yes') {
-          question.featuresForMVP.forEach(f => {
-            if (selectedMVP1?.has(f.text)) total += f.hours;
-          });
-          question.additionalFeatures.forEach(f => {
-            if (selectedAdditional1?.has(f.text)) total += f.hours;
-          });
-        }
-      }
-
-      if (question?.id === 'q2' && question?.title.includes('Profile')) {
-        // Step 3: Profile
-        if (yesNo2 === 'yes') {
-          question.featuresForMVP.forEach(f => {
-            if (selectedMVP2?.has(f.text)) total += f.hours;
-          });
-          question.additionalFeatures.forEach(f => {
-            if (selectedAdditional2?.has(f.text)) total += f.hours;
-          });
-        }
-      }
-
-      if (
-        question.id.startsWith('q') &&
-        question.id !== 'q0' &&
-        question.id !== 'q1' &&
-        !(question.title.includes('Profile')) &&
-        question.featuresForMVP &&
-        question.additionalFeatures
-      ) {
-        // Optional: Extend here for other features like Chats, Calls, etc.
-        // Add logic if you have selections stored for those questions
-      }
-    }
-
-    return total;
-  }
-  const totalHours = Number(
-    calculateTotalHours({
-      category,
-      selectedPlatform,
-      selectedMVP1,
-      selectedAdditional1,
-      yesNo1,
-      selectedMVP2,
-      selectedAdditional2,
-      yesNo2,
-      selectedMVP3,
-      selectedAdditional3,
-      yesNo3,
-    }).toFixed(2)
-  );
-  console.log('total', totalHours)
 
 
 
   // Back button and states empty
 
-  const handleBack = () => {
-    if (currentStep === 0) {
-      setCategory('')
-      setSelectedPlatform(null)
-    }
-    if (currentStep === 1) {
-      setCurrentStep(0)
-      setyesNo1(null)
-      setselectedMVP1()
-      setselectedAdditional1()
-    }
-    if (currentStep === 2) {
-      setCurrentStep(1)
-      setyesNo2(null)
-      setselectedMVP2()
-      setselectedAdditional2()
-    }
-    if (currentStep === 3) {
-      setCurrentStep(2)
-      setselectedMVP3()
-      setselectedAdditional3()
-    }
-    if (currentStep === 4) {
-      setCurrentStep(3)
-    }
+ const handleBack = () => {
+  if (currentStep === 0) {
+    setCategory('');
+    setSelectedPlatform(null);
+    return;
   }
 
-  const handleYesNo = () => {
-    if (currentStep === 1) {
-      setyesNo1('no')
-      setselectedMVP1()
-      setselectedAdditional1()
-    }
-    if (currentStep === 2) {
-      setyesNo2('no')
-      setselectedMVP2()
-      setselectedAdditional2()
-    }
-    if (currentStep === 2) {
-      setyesNo2('no')
-      setselectedMVP3()
-      setselectedAdditional3()
-    }
-  }
+  // Remove selection for the current step
+  const newMVP = { ...selectedMVP };
+  const newAdd = { ...selectedAdditional };
+  delete newMVP[currentStep];
+  delete newAdd[currentStep];
 
-  const stepConditions = {
-  0: selectedPlatform,
-  1: yesNo1,
-  2: yesNo2,
-  3: yesNo3,
-  // 4: yesNo4,
-  // 5: yesNo5,
-  // 6: yesNo6,
-  // 7: yesNo7,
-  // 8: yesNo8,
-  // 9: yesNo9,
-  // 10: yesNo10,
-  // 11: yesNo11,
-  // 12: yesNo12,
-  // 13: yesNo13,
-  // 14: yesNo14,
-  // 15: yesNo15,
-  // 16: yesNo16,
-  // 17: yesNo17,
-  // 18: yesNo18,
+  setSelectedMVP(newMVP);
+  setSelectedAdditional(newAdd);
+
+  // Go back to previous step
+  setCurrentStep(currentStep - 1);
 };
 
-const isDisabled = currentStep in stepConditions && !stepConditions[currentStep];
+
+  const handleYesNo = () => {
+  const updatedYesNo = [...yesNo];
+  updatedYesNo[currentStep] = 'no';
+  setYesNo(updatedYesNo);
+
+  const newMVP = [...selectedMVP];
+  const newAdd = [...selectedAdditional];
+  newMVP[currentStep] = new Set();
+  newAdd[currentStep] = new Set();
+  setSelectedMVP(newMVP);
+  setSelectedAdditional(newAdd);
+};
+
+
+ const isDisabled = currentStep === 0
+  ? !selectedPlatform
+  : yesNo[currentStep] == null;
+
+  const QuestionStep = ({ step }) => {
+    console.log('step', step)
+  const isYes = yesNo[step] === 'yes';
+  return (
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
+        <div
+          onClick={() => {
+            const copy = [...yesNo];
+            copy[step] = 'yes';
+            setYesNo(copy);
+          }}
+          className={clsx(
+            'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+            yesNo[step] === 'yes' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
+          )}
+        >
+          <span className="text-[23px] font-medium">Yes</span>
+        </div>
+
+        <div
+          onClick={handleYesNo}
+          className={clsx(
+            'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+            yesNo[step] === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
+          )}
+        >
+          <span className="text-[23px] font-medium">No</span>
+        </div>
+      </div>
+
+      {isYes && (
+        <div>
+          <p className="text-gray-500 text-sm mb-6">Please choose required features below:</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* MVP Features */}
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Enough for MVP</h3>
+              <ul className="space-y-3">
+                {currentQuestion?.featuresForMVP?.map((feature, index) => (
+                  <li key={index} onClick={() => toggleFeature('mvp', feature.text)} className="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" checked={selectedMVP[step]?.has(feature.text)} readOnly className="form-checkbox h-5 w-5 textBlue" />
+                    <span className="text-[15px]">{feature.text}
+                      <span className="text-gray-400 ml-2 text-[14px]">{feature.hours} hours</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Additional Features */}
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Additional Features</h3>
+              <ul className="space-y-3">
+                {currentQuestion?.additionalFeatures?.map((feature, index) => (
+                  <li key={index} onClick={() => toggleFeature('additional', feature.text)} className="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" checked={selectedAdditional[step]?.has(feature.text)} readOnly className="form-checkbox h-5 w-5 text-black" />
+                    <span className="text-[15px]">{feature.text}
+                      <span className="text-gray-400 ml-2 text-[14px]">{feature.hours} hours</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+
+console.log('selectedmvp', selectedMVP)
+console.log('selectedaddional', selectedAdditional)
+console.log('yesno', yesNo)
+
+const calculateTotalHours = () => {
+  let total = 0;
+
+  questions.forEach((question, step) => {
+    const mvp = selectedMVP[step];
+    const add = selectedAdditional[step];
+
+    if (mvp) {
+      for (const feature of question.featuresForMVP || []) {
+        if (mvp.has(feature.text)) total += feature.hours;
+      }
+    }
+
+    if (add) {
+      for (const feature of question.additionalFeatures || []) {
+        if (add.has(feature.text)) total += feature.hours;
+      }
+    }
+  });
+
+  return parseFloat(total.toFixed(2));
+};
 
 
   return (
@@ -324,187 +292,12 @@ const isDisabled = currentStep in stepConditions && !stepConditions[currentStep]
 
                 </>
               }
-              {currentStep === 1 &&
-                <>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
-                    {/* Yes Option */}
-                    <div
-                      onClick={() => setyesNo1('yes')}
-                      className={clsx(
-                        'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
-                        yesNo1 === 'yes' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
-                      )}
-                    >
-                      <span className="text-[23px] font-medium">Yes</span>
-                    </div>
 
-                    {/* No Option */}
-                    <div
-                      onClick={() => handleYesNo()}
-                      className={clsx(
-                        'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
-                        yesNo1 === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
-                      )}
-                    >
-                      <span className="text-[23px] font-medium">No</span>
-                    </div>
-                  </div>
-                  {yesNo1 === 'yes'  &&
-                  <>
-                    <div className="">
-                      <p className="text-gray-500 text-sm mb-6">Please choose required features below:</p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* MVP Features */}
-                        <div>
-                          <h3 className="font-semibold text-lg mb-4">Enough for MVP</h3>
-                          <ul className="space-y-3">
-                            {currentQuestion?.featuresForMVP?.map((feature, index) => (
-                              <li
-                                key={index}
-                                className="flex items-center space-x-3 cursor-pointer"
-                                onClick={() => toggleFeature('mvp', feature.text)}
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={Boolean(selectedMVP1?.has(feature.text))}
-                                  readOnly
-                                  className="form-checkbox h-5 w-5 textBlue"
-                                />
-                                <span className="text-[15px]">
-                                  {feature.text}
-                                  <span className="text-gray-400 ml-2 text-[14px]">
-                                    {feature.hours} hours
-                                  </span>
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                {currentStep > 0 && currentStep <= lenght && (
+                  <QuestionStep step={currentStep} />
+                )}
+              
 
-                        {/* Additional Features */}
-                        <div>
-                          <h3 className="font-semibold text-lg mb-4">Additional Features</h3>
-                          <ul className="space-y-3">
-                            {currentQuestion?.additionalFeatures?.map((feature, index) => (
-                              <li
-                                key={index}
-                                className="flex items-center space-x-3 cursor-pointer"
-                                onClick={() => toggleFeature('additional', feature.text)}
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={Boolean(selectedAdditional1?.has(feature.text))}
-                                  readOnly
-                                  className="form-checkbox h-5 w-5 text-black"
-                                />
-                                <span className="text-[15px]">
-                                  {feature.text}
-                                  <span className="text-gray-400 ml-2 text-[14px]">{feature.hours} hours</span>
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </> 
-                  }
-                </>
-              }
-              {currentStep === 2 &&
-                <>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
-                    {/* Yes Option */}
-                    <div
-                      onClick={() => setyesNo2('yes')}
-                      className={clsx(
-                        'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
-                        yesNo2 === 'yes' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
-                      )}
-                    >
-                      <span className="text-[23px] font-medium">Yes</span>
-                    </div>
-
-                    {/* No Option */}
-                    <div
-                      onClick={() => handleYesNo()}
-                      className={clsx(
-                        'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
-                        yesNo2 === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
-                      )}
-                    >
-                      <span className="text-[23px] font-medium">No</span>
-                    </div>
-                  </div>
-
-                  {yesNo2 === 'yes' && 
-                  <>
-                    <div className="">
-                      <p className="text-gray-500 text-sm mb-6">Please choose required features below:</p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* MVP Features */}
-                        <div>
-                          <h3 className="font-semibold text-lg mb-4">Enough for MVP</h3>
-                          <ul className="space-y-3">
-                            {currentQuestion?.featuresForMVP?.map((feature, index) => (
-                              <li
-                                key={index}
-                                className="flex items-center space-x-3 cursor-pointer"
-                                onClick={() => toggleFeature('mvp', feature.text)}
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={Boolean(selectedMVP2?.has(feature.text))}
-                                  readOnly
-                                  className="form-checkbox h-5 w-5 textBlue"
-                                />
-                                <span className="text-[15px]">
-                                  {feature.text}
-                                  <span className="text-gray-400 ml-2 text-[14px]">
-                                    {feature.hours} hours
-                                  </span>
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Additional Features */}
-                        <div>
-                          <h3 className="font-semibold text-lg mb-4">Additional Features</h3>
-                          <ul className="space-y-3">
-                            {currentQuestion?.additionalFeatures?.map((feature, index) => (
-                              <li
-                                key={index}
-                                className="flex items-center space-x-3 cursor-pointer"
-                                onClick={() => toggleFeature('additional', feature.text)}
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={Boolean(selectedAdditional2?.has(feature.text))}
-                                  readOnly
-                                  className="form-checkbox h-5 w-5 text-black"
-                                />
-                                <span className="text-[15px]">
-                                  {feature.text}
-                                  <span className="text-gray-400 ml-2 text-[14px]">{feature.hours} hours</span>
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </> 
-                  }
-                </>
-              }
-
-              {currentStep === 3 &&
-                <>
-
-                </>
-              }
 
                 <div className="flex justify-end mb-6">
                   <button
@@ -518,6 +311,8 @@ const isDisabled = currentStep in stepConditions && !stepConditions[currentStep]
                     Save and continue
                   </button>
                 </div>
+
+                
 
             </div>
             <hr className="mb-4 gray-text" />
@@ -536,7 +331,7 @@ const isDisabled = currentStep in stepConditions && !stepConditions[currentStep]
           <div className="flex flex-col gap-4 w-full lg:w-[220px]">
             <div className="bgBlue text-white rounded-[18px] p-8 shadow-md">
               <p className="text-sm">Summary time</p>
-              <p className="text-2xl font-bold">{totalHours} h</p>
+              <p className="text-2xl font-bold">{calculateTotalHours(currentStep)}h</p>
             </div>
             <div className="bgGray rounded-[18px] p-8 shadow-md">
               <p className="text-sm text-gray-600">Development time</p>
