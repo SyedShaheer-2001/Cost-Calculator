@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import Estimate from '../components/Estimate';
 
 export default function ChooseBusiness() {
   const router = useRouter();
@@ -16,6 +17,7 @@ export default function ChooseBusiness() {
   const [yesNo, setYesNo] = useState([]);
   const [selectedMVP, setSelectedMVP] = useState([]);
   const [selectedAdditional, setSelectedAdditional] = useState([]);
+  const[lastscreen, setLastScreen]= useState(false);
 
   
   const handleCategorySelect = (categoryName) => {
@@ -89,18 +91,20 @@ export default function ChooseBusiness() {
 };
 
 
-  const handleYesNo = () => {
+ const handleYesNo = () => {
+  // Update Yes/No array (this is fine)
   const updatedYesNo = [...yesNo];
   updatedYesNo[currentStep] = 'no';
   setYesNo(updatedYesNo);
 
-  const newMVP = [...selectedMVP];
-  const newAdd = [...selectedAdditional];
-  newMVP[currentStep] = new Set();
-  newAdd[currentStep] = new Set();
+  // Clear selected MVP and Additional features for current step
+  const newMVP = { ...selectedMVP, [currentStep]: new Set() };
+  const newAdd = { ...selectedAdditional, [currentStep]: new Set() };
+
   setSelectedMVP(newMVP);
   setSelectedAdditional(newAdd);
 };
+
 
 
  const isDisabled = currentStep === 0
@@ -178,15 +182,21 @@ export default function ChooseBusiness() {
   );
 };
 
+const handleLast = () =>{
+  setLastScreen(true)
+}
+
 
 console.log('selectedmvp', selectedMVP)
 console.log('selectedaddional', selectedAdditional)
 console.log('yesno', yesNo)
+console.log('questions', questions)
+
 
 const calculateTotalHours = () => {
   let total = 0;
 
-  questions.forEach((question, step) => {
+  questions?.forEach((question, step) => {
     const mvp = selectedMVP[step];
     const add = selectedAdditional[step];
 
@@ -206,11 +216,20 @@ const calculateTotalHours = () => {
   return parseFloat(total.toFixed(2));
 };
 
+  console.log('CurrentQuestion', currentQuestion)
+
+
 
   return (
     <div className="min-h-screen  p-6 md:p-10 max-w-[1460px] mx-auto">
 
-      {!category ? (
+      {lastscreen ? (
+        <>
+          <Estimate estimate={calculateTotalHours(currentStep)}/>
+        </>
+      ) : (
+        <>
+        {!category ? (
         // ======= Category Selection View =======
         <div className='pt-12 max-w-[1190px] mx-auto'>
           <div className="flex items-center mb-8">
@@ -293,24 +312,31 @@ const calculateTotalHours = () => {
                 </>
               }
 
-                {currentStep > 0 && currentStep <= lenght && (
+                {currentStep > 0 && currentStep <= lenght-1 && (
                   <QuestionStep step={currentStep} />
                 )}
+                
               
 
+                      <div className="flex justify-end mb-6">
+                        <button
+                          className={clsx(
+                            'px-6 py-3 rounded-full text-white transition',
+                            !isDisabled ? 'bgPink cursor-pointer' : 'bgPink cursor-not-allowed'
+                          )}
+                          disabled={isDisabled}
+                          onClick={() => {
+                            if (currentStep > questions.length - 2) {
+                              handleLast(); // Final action
+                            } else {
+                              handleNext(); // Proceed to next step
+                            }
+                          }}
+                        >
+                          Save and continue
+                        </button>
+                      </div>
 
-                <div className="flex justify-end mb-6">
-                  <button
-                    className={clsx(
-                      'px-6 py-3 rounded-full text-white transition',
-                      !isDisabled ? 'bgPink cursor-pointer' : 'bgPink cursor-not-allowed'
-                    )}
-                    disabled={isDisabled}
-                    onClick={handleNext}
-                  >
-                    Save and continue
-                  </button>
-                </div>
 
                 
 
@@ -344,6 +370,10 @@ const calculateTotalHours = () => {
           </div>
         </div>
       )}
+        </>
+      )}
+
+      
     </div>
   );
 }

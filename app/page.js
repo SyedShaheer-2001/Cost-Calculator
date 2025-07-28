@@ -8,11 +8,10 @@ import Estimate from './components/Estimate';
 export default function Home() {
   return (
     <>
-   
       <Navbar/>
       <Hero/>
-       <Estimate/>
-      <CTA/> 
+       {/* <Estimate/> */}
+       <CTA/> 
       <Footer/>
     </>
   );

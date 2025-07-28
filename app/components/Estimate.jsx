@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { FiArrowRight } from "react-icons/fi";
 
-function Estimate() {
+function Estimate({estimate}) {
   return (
     <div className='container '>
       <div className="flex xl:flex-row flex-col overflow-hidden max-w-[1260px] xl:mx-auto mx-4 pt-16 gap-8 xl:gap-0">
@@ -14,7 +14,7 @@ function Estimate() {
             {/* Left Light blue section */}
             <div className='w-2/5 bg-[#174273] pt-[60px] px-[60px] pb-[95px] flex flex-col justify-center items-center'>
               <p className='leading-[28px] text-[22px] font-light text-center'>Summary time</p>
-              <p className='leading-[62px] text-[52px] text-center' style={{ letterSpacing: '-1px', fontWeight: 200 }} >733.7 h</p>
+              <p className='leading-[62px] text-[52px] text-center' style={{ letterSpacing: '-1px', fontWeight: 200 }} >{estimate} h</p>
               <div className='flex flex-col justify-center items-center py-[40px] text-[18px] leading-[30px]'>
                 <div className='flex flex-row gap-[10px]'>
                   <p className='font-normal'>Min</p>
@@ -45,14 +45,14 @@ function Estimate() {
                     <input
                       type="text"
                       placeholder="Your name"
-                      className="w-full bg-transparent border-b border-[#AFCBFF] outline-none text-white placeholder-[#AFCBFF] pb-2"
+                      className="w-full bg-transparent border-b border-[#AFCBFF] outline-none text-white placeholder-white pb-2"
                     />
                   </div>
                   <div className='text-[#80AAE5] text-[18px] font-thin'>
                     <input
                       type="email"
                       placeholder="Your business email"
-                      className="w-full bg-transparent border-b border-[#AFCBFF] outline-none text-white placeholder-[#AFCBFF] pb-2"
+                      className="w-full bg-transparent border-b border-[#AFCBFF] outline-none text-white placeholder-white pb-2"
                     />
                   </div>
 

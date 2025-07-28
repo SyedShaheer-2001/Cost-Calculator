@@ -45,7 +45,7 @@ export const data = {
     },
     {
       id: 'q3',
-      title: 'Dummy question 4?',
+      title: 'Do you need Chats in your app?',
       conditional: false,
       featuresForMVP: [
         { text: 'Integration', hours: 3.3 },
@@ -228,7 +228,7 @@ export const data = {
     },
     {
       id: 'q1',
-      title: 'Do you need Registration & Authorization?',
+      title: 'Will you allow users to complete a Profile?',
       conditional: true,
       featuresForMVP: [
         { text: 'via Email', hours: 2 },
@@ -238,20 +238,6 @@ export const data = {
       additionalFeatures: [
         { text: 'via Twitter', hours: 3 },
         { text: 'via Google+', hours: 5 },
-      ],
-    },
-    {
-      id: 'q2',
-      title: 'Will you allow users to complete a Profile?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'View Profile', hours: 2.1 },
-        { text: 'Edit Profile', hours: 3.3 },
-        { text: 'Change Password', hours: 1.2 },
-      ],
-      additionalFeatures: [
-        { text: 'Online Status', hours: 0.5 },
-        { text: 'Edit Phone', hours: 2.3 },
       ],
     },
   ],
