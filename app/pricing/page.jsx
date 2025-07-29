@@ -17,7 +17,9 @@ export default function ChooseBusiness() {
   const [yesNo, setYesNo] = useState([]);
   const [selectedMVP, setSelectedMVP] = useState([]);
   const [selectedAdditional, setSelectedAdditional] = useState([]);
-  const[lastscreen, setLastScreen]= useState(false);
+  const[lastscreen, setLastScreen]= useState(true);
+  const [design, setDesign]= useState(null);
+  const [designHours, setDesignHours] = useState(0);
 
   
   const handleCategorySelect = (categoryName) => {
@@ -77,17 +79,28 @@ export default function ChooseBusiness() {
     return;
   }
 
+  
+
   // Remove selection for the current step
   const newMVP = { ...selectedMVP };
   const newAdd = { ...selectedAdditional };
   delete newMVP[currentStep];
   delete newAdd[currentStep];
 
+    // Remove yesNo value for the current step
+  const newYesNo = [...yesNo];
+  newYesNo.splice(currentStep, 1); // Remove the value at currentStep
+
   setSelectedMVP(newMVP);
   setSelectedAdditional(newAdd);
-
+  setYesNo(newYesNo);
   // Go back to previous step
   setCurrentStep(currentStep - 1);
+
+  if(currentQuestion.id === 'qn'){
+    setDesign(null)
+    setDesignHours(0)
+  }
 };
 
 
@@ -107,12 +120,23 @@ export default function ChooseBusiness() {
 
 
 
- const isDisabled = currentStep === 0
-  ? !selectedPlatform
-  : yesNo[currentStep] == null;
+ // const isDisabled = false
+
+  // const isDisabled = currentStep === 0
+  // ? !selectedPlatform
+  // : yesNo[currentStep] == null;
+
+  const isDisabled =
+  currentStep === 0
+    ? !selectedPlatform
+    : currentQuestion?.id === 'qn'
+      ? design == null
+      : yesNo[currentStep] == null;
+
+  console.log('design',design)
+
 
   const QuestionStep = ({ step }) => {
-    console.log('step', step)
   const isYes = yesNo[step] === 'yes';
   return (
     <>
@@ -186,13 +210,6 @@ const handleLast = () =>{
   setLastScreen(true)
 }
 
-
-console.log('selectedmvp', selectedMVP)
-console.log('selectedaddional', selectedAdditional)
-console.log('yesno', yesNo)
-console.log('questions', questions)
-
-
 const calculateTotalHours = () => {
   let total = 0;
 
@@ -211,20 +228,46 @@ const calculateTotalHours = () => {
         if (add.has(feature.text)) total += feature.hours;
       }
     }
+
+    // Add designHours if it's defined and a number
+    
   });
+
+  if ( designHours ) {
+      total += designHours;
+    }
+    
 
   return parseFloat(total.toFixed(2));
 };
 
-  console.log('CurrentQuestion', currentQuestion)
 
-
+  const handleabc = () => {
+    setYesNo([])
+    setCategory('')
+    setSelectedPlatform(null)
+    setSelectedMVP([])
+    setSelectedAdditional([])
+    setLastScreen(false)
+    setDesign(null)
+    setDesignHours(0)
+  }
 
   return (
     <div className="min-h-screen  p-6 md:p-10 max-w-[1460px] mx-auto">
 
       {lastscreen ? (
         <>
+          <div className="flex items-center ">
+            <button
+              onClick={() => handleabc()}
+              className="text-sm text-gray-600 hover:underline flex items-center gap-1"
+            >
+              <ArrowLeft size={16} />
+              Back
+            </button>
+
+          </div>
           <Estimate estimate={calculateTotalHours(currentStep)}/>
         </>
       ) : (
@@ -234,7 +277,7 @@ const calculateTotalHours = () => {
         <div className='pt-12 max-w-[1190px] mx-auto'>
           <div className="flex items-center mb-8">
             <button
-              onClick={() => router.back()}
+              onClick={() => router.push('/')}
               className="text-sm text-gray-600 hover:underline flex items-center gap-1"
             >
               <ArrowLeft size={16} />
@@ -305,19 +348,47 @@ const calculateTotalHours = () => {
                           )}
                         />
                       </div>
+                    ))}
+                  </div>
+                </>
+              }
+                {currentStep > 0 && currentStep <= lenght-2 && (
+                  <QuestionStep step={currentStep} />
+                )}
+                {currentQuestion.id === 'qn' && (
+                  <>
+                 <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 mb-24">
+                    {currentQuestion?.options?.map((platform, key) => (
+                      <div
+                        key={key}
+                        onClick={() => {
+                          setDesign(platform.text);
+                          setDesignHours(platform.hours);
+                        }}
+
+                        className={clsx(
+                          'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+                          selectedPlatform === platform.text
+                            ? 'borderBlue'
+                            : 'border-[#0000004D]'
+                        )}
+                      >
+                        <span className={`text-[23px] font-medium ${design === platform.text ? 'textBlue' : ''}`}>{platform.text}</span>
+                        <span className={`text-[15px] font-medium `}>+{platform.hours}hours</span>
+                        <div
+                          className={clsx(
+                            'w-16 h-16 border rounded-full',
+                            design === platform.text
+                              ? 'borderBlue bgBlue'
+                              : 'border-[#0000004D]'
+                          )}
+                        />
+                      </div>
 
                     ))}
                   </div>
-
-                </>
-              }
-
-                {currentStep > 0 && currentStep <= lenght-1 && (
-                  <QuestionStep step={currentStep} />
-                )}
+                </>)}
                 
-              
-
                       <div className="flex justify-end mb-6">
                         <button
                           className={clsx(
@@ -336,10 +407,6 @@ const calculateTotalHours = () => {
                           Save and continue
                         </button>
                       </div>
-
-
-                
-
             </div>
             <hr className="mb-4 gray-text" />
             <div className="flex gap-4 text-sm text-gray-600">

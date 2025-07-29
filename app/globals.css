@@ -93,12 +93,16 @@ body {
   background-color: #D8216D ;
   color:#ffffff;
 }
-.bgPink:hover{
+/* .bgPink:hover{
   background-color: #db347a ;
   color:#ffffff;
-}
+} */
 .bgOrange{
   background-color: #F28F20 ;
+  color:#ffffff;
+}
+.bgOrangeGradient{
+  background-color: #d87b11 ;
   color:#ffffff;
 }
 .blueText{
