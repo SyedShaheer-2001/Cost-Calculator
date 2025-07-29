@@ -17,7 +17,7 @@ export default function ChooseBusiness() {
   const [yesNo, setYesNo] = useState([]);
   const [selectedMVP, setSelectedMVP] = useState([]);
   const [selectedAdditional, setSelectedAdditional] = useState([]);
-  const[lastscreen, setLastScreen]= useState(true);
+  const[lastscreen, setLastScreen]= useState(false);
   const [design, setDesign]= useState(null);
   const [designHours, setDesignHours] = useState(0);
 
