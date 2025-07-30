@@ -1258,6 +1258,15 @@ export const data = {
         { text: 'Edit Phone', hours: 2.3 },
       ],
     },
+    {
+      id: "qn",
+      title: "Do you need a design for your App?",
+      options: [
+        { text: "None", hours: 0 },
+        { text: "Simple", hours: 72 },
+        { text: "Custom", hours: 216 }
+      ]
+    },
 
   ],
   'Maternity': [
@@ -1298,6 +1307,15 @@ export const data = {
         { text: 'Online Status', hours: 0.5 },
         { text: 'Edit Phone', hours: 2.3 },
       ],
+    },
+    {
+      id: "qn",
+      title: "Do you need a design for your App?",
+      options: [
+        { text: "None", hours: 0 },
+        { text: "Simple", hours: 72 },
+        { text: "Custom", hours: 216 }
+      ]
     },
   ],
   'Video': [

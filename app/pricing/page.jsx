@@ -2,7 +2,7 @@
 
 import { data } from '../data';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Estimate from '../components/Estimate';
@@ -18,7 +18,7 @@ export default function ChooseBusiness() {
   const [yesNo, setYesNo] = useState([]);
   const [selectedMVP, setSelectedMVP] = useState([]);
   const [selectedAdditional, setSelectedAdditional] = useState([]);
-  const [lastscreen, setLastScreen] = useState(false);
+  const [lastscreen, setLastScreen] = useState(true);
   const [design, setDesign] = useState(null);
   const [designHours, setDesignHours] = useState(0);
   const [features, setFeatures] = useState();
@@ -189,7 +189,7 @@ export default function ChooseBusiness() {
     const isYes = yesNo[step] === 'yes';
     return (
       <>
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
+        <div className="grid grid-cols-2 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
           <div
             onClick={() => {
               const copy = [...yesNo];
@@ -197,37 +197,37 @@ export default function ChooseBusiness() {
               setYesNo(copy);
             }}
             className={clsx(
-              'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+              'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition ',
               yesNo[step] === 'yes' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
             )}
           >
-            <span className="text-[23px] font-medium">Yes</span>
+            <span className="text-[18px] sm:text-[23px] font-medium ">Yes</span>
           </div>
 
           <div
             onClick={handleYesNo}
             className={clsx(
-              'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+              'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition',
               yesNo[step] === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
             )}
           >
-            <span className="text-[23px] font-medium">No</span>
+            <span className="text-[18px] sm:text-[23px] font-medium">No</span>
           </div>
         </div>
 
         {isYes && (
           <div>
-            <p className="text-gray-500 text-sm mb-6">Please choose required features below:</p>
+            <p className="text-gray-500 text-sm sm:mb-6 mb-4">Please choose required features below:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* MVP Features */}
               <div>
-                <h3 className="font-semibold text-lg mb-4">Enough for MVP</h3>
-                <ul className="space-y-3">
+                <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Enough for MVP</h3>
+                <ul className="space-y-3 ">
                   {currentQuestion?.featuresForMVP?.map((feature, index) => (
                     <li key={index} onClick={() => toggleFeature('mvp', feature.text)} className="flex items-center space-x-3 cursor-pointer">
-                      <input type="checkbox" checked={selectedMVP[step]?.has(feature.text)} readOnly className="form-checkbox h-5 w-5 textBlue" />
-                      <span className="text-[15px]">{feature.text}
-                        <span className="text-gray-400 ml-2 text-[14px]">{feature.hours} hours</span>
+                      <input type="checkbox" checked={selectedMVP[step]?.has(feature.text)} readOnly className="form-checkbox sm:h-5 sm:w-5 h-3 w-3 textBlue" />
+                      <span className="text-[12px] sm:text-[15px]">{feature.text}
+                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">{feature.hours} hours</span>
                       </span>
                     </li>
                   ))}
@@ -237,13 +237,13 @@ export default function ChooseBusiness() {
               {/* Additional Features */}
               {currentQuestion?.additionalFeatures && currentQuestion.additionalFeatures.length > 0 && (
               <div>
-                <h3 className="font-semibold text-lg mb-4">Additional Features</h3>
+                <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Additional Features</h3>
                 <ul className="space-y-3">
                   {currentQuestion?.additionalFeatures?.map((feature, index) => (
                     <li key={index} onClick={() => toggleFeature('additional', feature.text)} className="flex items-center space-x-3 cursor-pointer">
-                      <input type="checkbox" checked={selectedAdditional[step]?.has(feature.text)} readOnly className="form-checkbox h-5 w-5 text-black" />
-                      <span className="text-[15px]">{feature.text}
-                        <span className="text-gray-400 ml-2 text-[14px]">{feature.hours} hours</span>
+                      <input type="checkbox" checked={selectedAdditional[step]?.has(feature.text)} readOnly className="form-checkbox sm:h-5 sm:w-5 h-3 w-3 text-black" />
+                      <span className="text-[12px] sm:text-[15px]">{feature.text}
+                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">{feature.hours} hours</span>
                       </span>
                     </li>
                   ))}
@@ -306,7 +306,7 @@ export default function ChooseBusiness() {
   }
 
   return (
-    <div className="min-h-screen  p-6 md:p-10 max-w-[1460px] mx-auto">
+    <div className="min-h-screen p-4 sm:p-6 md:p-10 max-w-[1460px] mx-auto">
 
       {lastscreen ? (
         <>
@@ -337,16 +337,15 @@ export default function ChooseBusiness() {
                 </button>
 
               </div>
-              <h1 className=" text-xl md:text-2xl font-semibold text-black">
+              <h1 className=" tex-sm sm:text-xl md:text-2xl font-semibold text-black">
                 Choose your Business
               </h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4  pt-16 ">
-
+              <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-16 pt-8 mx-2 sm:mx-0">
                 {Object.entries(data).map(([categoryName, categoryData]) => (
                   <button
                     key={categoryName}
                     onClick={() => handleCategorySelect(categoryName)}
-                    className="cursor-pointer border border-gray-300 text-gray-700 py-[16px] px-[52px] rounded-[50px] hover:bg-[#174273] hover:text-white transition text-[18px] md:text-base"
+                    className="cursor-pointer border borderBlue text-[#174273] py-[16px] sm:px-[52px] px-[5px]  rounded-full hover:bg-[#174273] hover:text-white transition text-[12px] sm:text-[18px]"
                   >
                     {categoryName}
                   </button>
@@ -358,9 +357,9 @@ export default function ChooseBusiness() {
             // ======= Step One: Platform Selection =======
             <div className="flex flex-col lg:flex-row gap-6">
               {/* Left Section */}
-              <div className="flex-1 bgGray rounded-2xl p-6 shadow-md">
+              <div className="flex-1 bgGray rounded-2xl sm:p-6 p-4 shadow-md">
                 <div>
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center justify-between sm:mb-8 mb-4">
                     <button
                       onClick={() => handleBack()}
                       className="flex items-center text-sm text-gray-500 hover:underline"
@@ -368,32 +367,32 @@ export default function ChooseBusiness() {
                       <ArrowLeft size={16} className="mr-1" />
                       Back
                     </button>
-                    <span className="text-sm bg-[#F28F20]/80 text-white px-4 py-2 rounded-full">
+                    <span className="text-[12px] sm:text-sm bg-[#F28F20]/80 text-white px-4 py-2 rounded-full">
                       Step {currentStep + 1} of {questions.length}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-semibold mb-12">
+                  <h2 className="text-[15px] sm:text-2xl font-semibold sm:mb-12 mb-4">
                     {currentQuestion?.title}
                   </h2>
                   {currentStep === 0 && category !== '+ Add New Category' && (
                     <>
-                      <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 mb-24">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
                         {currentQuestion?.options?.map((platform, key) => (
                           <div
                             key={key}
                             onClick={() => setSelectedPlatform(platform.text)}
                             className={clsx(
-                              'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+                              'border rounded-[18px]  px-3 py-5 sm:px-6 sm:py-8 flex items-center justify-between cursor-pointer transition',
                               selectedPlatform === platform.text
                                 ? 'borderBlue'
                                 : 'border-[#0000004D]'
                             )}
                           >
-                            <span className={`text-[23px] font-medium ${selectedPlatform === platform.text ? 'textBlue' : ''}`}>{platform.text}</span>
+                            <span className={`text-[15px] sm:text-[23px] font-medium ${selectedPlatform === platform.text ? 'textBlue' : ''}`}>{platform.text}</span>
                             <div
                               className={clsx(
-                                'w-16 h-16 border rounded-full',
+                                ' w-8 h-8  sm:w-16 sm:h-16 border rounded-full',
                                 selectedPlatform === platform.text
                                   ? 'borderBlue bgBlue'
                                   : 'border-[#0000004D]'
@@ -409,7 +408,7 @@ export default function ChooseBusiness() {
                   )}
                   {currentQuestion.id === 'qn' && (
                     <>
-                      <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 mb-24">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
                         {currentQuestion?.options?.map((platform, key) => (
                           <div
                             key={key}
@@ -419,17 +418,17 @@ export default function ChooseBusiness() {
                             }}
 
                             className={clsx(
-                              'border rounded-[18px] px-6 py-8 flex items-center justify-between cursor-pointer transition',
+                              'border rounded-[18px] px-3 py-5 sm:px-6 sm:py-8 flex items-center justify-between cursor-pointer transition',
                               design === platform.text
                                 ? 'borderBlue'
                                 : 'border-[#0000004D]'
                             )}
                           >
-                            <span className={`text-[23px] font-medium ${design === platform.text ? 'textBlue' : ''}`}>{platform.text}</span>
-                            <span className={`text-[15px] font-medium `}>+{platform.hours}hours</span>
+                            <span className={`text-[15px] sm:text-[23px] font-medium ${design === platform.text ? 'textBlue' : ''}`}>{platform.text}</span>
+                            <span className={`text-[15px] font-medium text-gray-400`}>+{platform.hours}hours</span>
                             <div
                               className={clsx(
-                                'w-16 h-16 border rounded-full',
+                                'w-8 h-8 sm:w-16 sm:h-16  border rounded-full',
                                 design === platform.text
                                   ? 'borderBlue bgBlue'
                                   : 'border-[#0000004D]'
@@ -442,8 +441,8 @@ export default function ChooseBusiness() {
                     </>)}
 
                       {category === '+ Add New Category' &&
-                        <div className="max-w-[550px] mx-auto mb-16">
-                          <h2 className="text-[20px]  mb-8">Add new category</h2>
+                        <div className="max-w-[550px] mx-auto mb-16 sm:mt-0 mt-16">
+                          <h2 className="text-[15px] sm:text-[20px]  mb-8">Add new category</h2>
                           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                             <input
                               type="text"
@@ -486,10 +485,10 @@ export default function ChooseBusiness() {
                         </div>
                       }
                       {category !== '+ Add New Category' &&
-                        <div className="flex justify-end mb-6">
+                        <div className="flex justify-end sm:mb-6 mb-4 mt-2">
                           <button
                             className={clsx(
-                              'px-6 py-3 rounded-full text-white transition',
+                              'sm:px-6 sm:py-3 px-5 py-3 rounded-full text-white transition sm:text-[16px] text-[12px]',
                               !isDisabled ? 'bgPink cursor-pointer' : 'bgPink cursor-not-allowed'
                             )}
                             disabled={isDisabled}
@@ -501,7 +500,12 @@ export default function ChooseBusiness() {
                               }
                             }}
                           >
-                            Save and continue
+                            <div className='flex flex-row justify-center items-center gap-2'>
+                              <p>Save and continue</p>
+                            <ArrowRight size={20} />
+
+                            </div>
+                            
                           </button>
                         </div>
                       }
@@ -511,7 +515,7 @@ export default function ChooseBusiness() {
                     {category !== '+ Add New Category' &&
                       <>
                         <hr className="mb-4 gray-text" />
-                        <div className="flex gap-4 text-sm text-gray-600">
+                        <div className="flex gap-4 text-[10px] sm:text-sm text-gray-600">
                           <div>
                             <strong>Platform:</strong>{' '}
                             <span>{selectedPlatform || 'Not selected'}</span>
@@ -533,18 +537,18 @@ export default function ChooseBusiness() {
               {/* Right Panel */}
               {category !== '+ Add New Category' &&
 
-              <div className="flex flex-col gap-4 w-full lg:w-[220px]">
-                <div className="bgBlue text-white rounded-[18px] p-8 shadow-md">
-                  <p className="text-sm">Summary time</p>
-                  <p className="text-2xl font-bold">{calculateTotalHours(currentStep)}h</p>
+              <div className="flex sm:flex-col flex-row gap-4 w-full lg:w-[220px]">
+                <div className="bgBlue text-white rounded-[18px] p-4 sm:p-8 shadow-md">
+                  <p className="text-[10px] sm:text-sm">Summary time</p>
+                  <p className="text-[15px] sm:text-xl font-bold">{calculateTotalHours(currentStep)}h</p>
                 </div>
-                <div className="bgGray rounded-[18px] p-8 shadow-md">
-                  <p className="text-sm text-gray-600">Development time</p>
-                  <p className="text-xl font-semibold">0h</p>
+                <div className="bgGray rounded-[18px] p-4 sm:p-8 shadow-md">
+                  <p className="text-[10px] sm:text-sm text-gray-600">Development time</p>
+                  <p className="text-[13px] sm:text-xl font-semibold">0h</p>
                 </div>
-                <div className="bgGray rounded-[18px] p-8 shadow-md">
-                  <p className="text-sm text-gray-600">Non-dev time</p>
-                  <p className="text-xl font-semibold">0h</p>
+                <div className="bgGray rounded-[18px] p-4 sm:p-8 shadow-md">
+                  <p className="text-[10px] sm:text-sm text-gray-600">Non-dev time</p>
+                  <p className="text-[13px] sm:text-xl font-semibold">0h</p>
                 </div>
               </div>
               }
