@@ -82,7 +82,7 @@ function Estimate({estimate}) {
         {/* Left container - 320px */}
         <div className="xl:w-1/4 xl:pl-[32px]  pl-0 flex  gap-[30px] xl:flex-col w-full">
       {/* Free Quote Card */}
-      <div className="bgGray rounded-xl  pl-[40px] pt-[35px] pb-[25px]  w-1/2 xl:w-auto">
+      <div className="bgGray rounded-xl  px-4 pt-[35px] pb-[25px]  w-1/2 xl:w-auto text-center">
         <p className="text-[#202020] text-[18px] mb-2 font-thin">
           Leave request to start a project in 2 days
         </p>
@@ -95,7 +95,7 @@ function Estimate({estimate}) {
       </div>
 
       {/* Share Card */}
-      <div className="bgGray rounded-xl pt-[40px] pb-[12px] w-1/2 xl:w-auto">
+      <div className="bgGray rounded-xl pt-[20px] pb-[12px] w-1/2 xl:w-auto">
         <p className="text-[#202020] leading-[30px] text-[18px]  text-center">Share this</p>
         <p className="text-[#202020] leading-[30px] text-[18px]  mb-[20px] text-center">page</p>
         <div className="flex justify-center space-x-6 text-gray-300 text-xl">

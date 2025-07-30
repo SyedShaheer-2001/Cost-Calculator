@@ -29,7 +29,7 @@ export const data = {
     },
     {
       id: 'q2',
-      title: 'Will you allow users to complete a Profile?',
+      title: 'Will you allow users to complete a profile?',
       conditional: false,
       featuresForMVP: [
         { text: 'Integration', hours: 8.8 },
@@ -344,7 +344,7 @@ export const data = {
     },
     {
       id: "q8",
-      title: "Will you allow users to complete a Profile?",
+      title: "Will you allow users to complete a profile?",
       conditional: false,
       featuresForMVP: [
         { text: "Integration", hours: 8.8 },
@@ -433,7 +433,7 @@ export const data = {
     },
     {
       id: "q3",
-      title: "Will you allow users to complete a Profile?",
+      title: "Will you allow users to complete a profile?",
       conditional: false,
       featuresForMVP: [
         { text: "Integration", hours: 8.8 },
@@ -1148,8 +1148,6 @@ export const data = {
       ]
     }
 
-
-
   ],
   'Jobs': [
     {
@@ -1178,7 +1176,7 @@ export const data = {
     },
     {
       id: 'q2',
-      title: 'Will you allow users to complete a Profile?',
+      title: 'Will you allow users to complete a profile?',
       conditional: false,
       featuresForMVP: [
         { text: 'View Profile', hours: 2.1 },
@@ -1248,7 +1246,7 @@ export const data = {
     },
     {
       id: 'q2',
-      title: 'Will you allow users to complete a Profile?',
+      title: 'Will you allow users to complete a profile?',
       conditional: false,
       featuresForMVP: [
         { text: 'View Profile', hours: 2.1 },
@@ -1289,7 +1287,7 @@ export const data = {
     },
     {
       id: 'q2',
-      title: 'Will you allow users to complete a Profile?',
+      title: 'Will you allow users to complete a profile?',
       conditional: false,
       featuresForMVP: [
         { text: 'View Profile', hours: 2.1 },
@@ -1322,14 +1320,11 @@ export const data = {
         { text: 'via Phone', hours: 4 },
         { text: 'via Facebook', hours: 3 },
       ],
-      additionalFeatures: [
-        { text: 'via Twitter', hours: 3 },
-        { text: 'via Google+', hours: 5 },
-      ],
+      additionalFeatures: [],
     },
     {
       id: 'q2',
-      title: 'Will you allow users to complete a Profile?',
+      title: 'Will you allow users to complete a profile?',
       conditional: false,
       featuresForMVP: [
         { text: 'View Profile', hours: 2.1 },
@@ -1341,18 +1336,24 @@ export const data = {
         { text: 'Edit Phone', hours: 2.3 },
       ],
     },
+    {
+      id: "qn",
+      title: "Do you need a design for your App?",
+      options: [
+        { text: "None", hours: 0 },
+        { text: "Simple", hours: 72 },
+        { text: "Custom", hours: 216 }
+      ]
+    },
 
   ],
   '+ Add New Category': [
     {
       id: 'q0',
+      final:true,
       title: 'What type of app are you building?',
       conditional: true,
-      options: [
-        { text: 'Android', hours: 2 },
-        { text: 'IOS', hours: 4 },
-        { text: 'Both', hours: 3 },
-      ],
+     
     }
   ],
 };

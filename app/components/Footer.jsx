@@ -83,7 +83,7 @@ function Footer() {
             </div>
             <div className='max-w-[1260px] mx-auto  text-white pt-[66px] pb-[20px]'>
                 <div className='flex lg:justify-between flex-col lg:flex-row'>
-                    <div className='flex  gap-2 pl-8 text-[16px]'>
+                    <div className='flex  gap-2 pl-8 text-[16px] flex-col sm:flex-row'>
                         <p className='text-[#ABABAB]'>Cleveroad ..</p>
                         <p>Mobile App Development Cost Calculator</p>
                     </div>
