@@ -1,8 +1,43 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { FiArrowRight } from "react-icons/fi";
+import { PDFDownloadLink, pdf } from '@react-pdf/renderer';
+import { saveAs } from 'file-saver';
+import EstimatePDF from './EstimatePDF';
 
-function Estimate({ estimate }) {
+
+function Estimate({ estimate , selectedAdditional , selectedMVP }) {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+
+//   const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   if (!name.trim() || !email.trim()) {
+//     alert("Please enter both name and email.");
+//     return;
+//   }
+
+//   const blob = await pdf(
+//     <EstimatePDF
+//       name={name}
+//       email={email}
+//       // selectedMVP={selectedMVP}
+//       // selectedAdditional={selectedAdditional}
+//       estimate={estimate}
+//     />
+//   ).toBlob();
+
+//   saveAs(blob, `${name}_estimate.pdf`);
+// };
+
+  console.log("estimate xc", estimate)
+  console.log('selectedAdditional xc', selectedAdditional)
+  console.log('selectedMVP xc', selectedMVP)
+
   return (
     <div className='container'>
       <div className="flex xl:flex-row flex-col overflow-hidden max-w-[1260px] xl:mx-auto mx-4 pt-16 gap-8 xl:gap-0">
@@ -43,6 +78,8 @@ function Estimate({ estimate }) {
                 <form className="space-y-6 ">
                   <div className='text-[#80AAE5] text-[18px] mb-10 '>
                     <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       type="text"
                       placeholder="Your name"
                       className="w-full bg-transparent border-b  outline-none text-white placeholder-white pb-2"
@@ -50,6 +87,8 @@ function Estimate({ estimate }) {
                   </div>
                   <div className='text-[#80AAE5] text-[18px] '>
                     <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Your business email"
                       className="w-full bg-transparent border-b  outline-none text-white placeholder-white pb-2"
@@ -70,12 +109,7 @@ function Estimate({ estimate }) {
                   Watch the example
                 </p>
               </div>
-
-
-
-
             </div>
-
           </div>
         </div>
 
@@ -103,15 +137,8 @@ function Estimate({ estimate }) {
               <FaLinkedinIn className="hover:text-blue-700 cursor-pointer" />
             </div>
           </div>
-
-
-
-
         </div>
-
-
       </div>
-
     </div>
   )
 }

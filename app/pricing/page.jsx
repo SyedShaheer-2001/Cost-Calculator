@@ -75,28 +75,32 @@ export default function ChooseBusiness() {
   // states and functions for question 2
 
 
-  const toggleFeature = (type, text) => {
-    const isMVP = type === 'mvp';
-    const stateSetter = isMVP ? setSelectedMVP : setSelectedAdditional;
-    const currentState = isMVP ? selectedMVP : selectedAdditional;
+const toggleFeature = (type, text) => {
+  const isMVP = type === 'mvp';
+  const stateSetter = isMVP ? setSelectedMVP : setSelectedAdditional;
+  const currentState = isMVP ? selectedMVP : selectedAdditional;
 
-    // Clone current set for the current step or initialize a new one
-    const updatedSet = new Set(currentState[currentStep] || []);
+  // Get the first MVP feature (for read-only enforcement)
+  const firstFeature = currentQuestion?.featuresForMVP?.[0]?.text;
 
-    if (updatedSet.has(text)) {
-      updatedSet.delete(text);
-    } else {
-      updatedSet.add(text);
-    }
+  // Prevent unselecting the first MVP feature
+  if (isMVP && text === firstFeature) return;
 
-    // Create a new object with the updated set for the current step
-    const newState = {
-      ...currentState,
-      [currentStep]: updatedSet,
-    };
+  const updatedSet = new Set(currentState[currentStep] || []);
 
-    stateSetter(newState);
+  if (updatedSet.has(text)) {
+    updatedSet.delete(text);
+  } else {
+    updatedSet.add(text);
+  }
+
+  const newState = {
+    ...currentState,
+    [currentStep]: updatedSet,
   };
+
+  stateSetter(newState);
+};
 
 
 
@@ -201,7 +205,20 @@ export default function ChooseBusiness() {
               const copy = [...yesNo];
               copy[step] = 'yes';
               setYesNo(copy);
+
+              const mvpFeatures = currentQuestion?.featuresForMVP?.map(f => f.text) || [];
+
+              if (mvpFeatures.length > 0) {
+                // Make a new Set with all features selected
+                const allFeatures = new Set(mvpFeatures);
+
+                setSelectedMVP(prev => ({
+                  ...prev,
+                  [step]: allFeatures,
+                }));
+              }
             }}
+
             className={clsx(
               'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition hover:border-[#174273] ',
               yesNo[step] === 'yes' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
@@ -230,14 +247,38 @@ export default function ChooseBusiness() {
               <div>
                 <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Enough for MVP</h3>
                 <ul className="space-y-3 ">
-                  {currentQuestion?.featuresForMVP?.map((feature, index) => (
-                    <li key={index} onClick={() => toggleFeature('mvp', feature.text)} className="flex items-center space-x-3 cursor-pointer">
-                      <input type="checkbox" checked={selectedMVP[step]?.has(feature.text)} readOnly className="form-checkbox sm:h-5 sm:w-5 h-3 w-3 textBlue" />
-                      <span className="text-[12px] sm:text-[15px]">{feature.text}
-                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">{feature.hours} hours</span>
-                      </span>
-                    </li>
-                  ))}
+                  {currentQuestion?.featuresForMVP?.map((feature, index) => {
+                    const isFirstFeature = index === 0;
+                    const isChecked = selectedMVP[step]?.has(feature.text);
+                    return (
+                      <li
+                        key={index}
+                        onClick={() => !isFirstFeature && toggleFeature('mvp', feature.text)}
+                        className="flex items-center space-x-3 cursor-pointer"
+                      >
+                        <div
+                          className={clsx(
+                            'w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center text-white text-[10px] font-bold',
+                            isFirstFeature
+                              ? 'bg-gray-400 border-gray-400'
+                              : isChecked
+                                ? 'bgBlue borderBlue'
+                                : 'border-[#0000004D]'
+                          )}
+                        >
+                          {isChecked && <span>✔</span>}
+                        </div>
+
+                        <span className="text-[12px] sm:text-[15px]">
+                          {feature.text}
+                          <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">
+                            {feature.hours} hours
+                          </span>
+                        </span>
+                      </li>
+                    );
+                  })}
+
                 </ul>
               </div>
 
@@ -248,7 +289,17 @@ export default function ChooseBusiness() {
                   <ul className="space-y-3">
                     {currentQuestion?.additionalFeatures?.map((feature, index) => (
                       <li key={index} onClick={() => toggleFeature('additional', feature.text)} className="flex items-center space-x-3 cursor-pointer">
-                        <input type="checkbox" checked={selectedAdditional[step]?.has(feature.text)} readOnly className="form-checkbox sm:h-5 sm:w-5 h-3 w-3 text-black" />
+                        <div
+                          className={clsx(
+                            'w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center text-white text-[10px] font-bold',
+                            selectedAdditional[step]?.has(feature.text)
+                              ? 'bgBlue borderBlue'
+                              : 'border-[#0000004D]'
+                          )}
+                        >
+                          {selectedAdditional[step]?.has(feature.text) && <span>✔</span>}
+                        </div>
+
                         <span className="text-[12px] sm:text-[15px]">{feature.text}
                           <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">{feature.hours} hours</span>
                         </span>
@@ -287,7 +338,6 @@ export default function ChooseBusiness() {
           if (add.has(feature.text)) total += feature.hours;
         }
       }
-
       // Add designHours if it's defined and a number
 
     });
@@ -330,7 +380,7 @@ export default function ChooseBusiness() {
                 </button>
 
               </div>
-              <Estimate estimate={calculateTotalHours(currentStep)} />
+              <Estimate estimate={calculateTotalHours(currentStep)} selectedMVP={selectedMVP} selectedAdditional={selectedAdditional}/>
 
             </div>
 
@@ -555,19 +605,36 @@ export default function ChooseBusiness() {
                   {category !== '+ Add New Category' &&
                     <>
                       <hr className="mb-4 gray-text" />
-                      <div className="flex gap-4 text-[10px] sm:text-sm text-gray-600">
-                        <div>
-                          <strong>Platform:</strong>{' '}
-                          <span>{selectedPlatform || 'Not selected'}</span>
+                      <div className="flex gap-8 text-[10px] sm:text-sm text-gray-600">
+                        <div className='flex flex-col gap-4'>
+                          <strong>Platform:</strong>
+                            <div>
+                              {selectedPlatform
+                                ? <span className='bg-[rgba(23,66,115,0.6)] text-white sm:text-sm sm:px-4 sm:py-2 px-2 py-1 text-[8px] rounded-full'>{selectedPlatform}</span>
+                                : <span className="text-gray-400">Not Selected</span>}
+                            </div>
                         </div>
-                        <div>
+                        {currentQuestion?.id !== 'q0' && (
+                        <div className='flex flex-col gap-2'>
                           <strong>Features: </strong>
-                          <span>
-                            {features && features.size > 0
-                              ? Array.from(features).join(", ")
-                              : "Not Selected"}
+                          <span className='max-h-20 overflow-y-auto'>
+                              {features && features.size > 0 ? (
+                                <div className="flex flex-wrap gap-2 ">
+                                  {Array.from(features).map((feature, idx) => (
+                                    <span
+                                      key={idx}
+                                      className="bg-[rgba(23,66,115,0.6)] text-white sm:text-sm sm:px-4 sm:py-2 px-2 py-1 text-[8px] rounded-full"
+                                    >
+                                      {feature}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <span className="text-gray-400">Not Selected</span>
+                              )}
                           </span>
                         </div>
+                        )}
                       </div>
                     </>
                   }
