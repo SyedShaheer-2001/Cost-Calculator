@@ -200,6 +200,16 @@ const toggleFeature = (type, text) => {
       <>
         <div className="grid grid-cols-2 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
 
+           <div
+            onClick={handleYesNo}
+            className={clsx(
+              'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition hover:border-[#174273]',
+              yesNo[step] === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
+            )}
+          >
+            <span className="text-[18px] sm:text-[23px] font-medium">No</span>
+          </div>
+
           <div
             onClick={() => {
               const copy = [...yesNo];
@@ -227,15 +237,7 @@ const toggleFeature = (type, text) => {
             <span className="text-[18px] sm:text-[23px] font-medium ">Yes</span>
           </div>
 
-          <div
-            onClick={handleYesNo}
-            className={clsx(
-              'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition hover:border-[#174273]',
-              yesNo[step] === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
-            )}
-          >
-            <span className="text-[18px] sm:text-[23px] font-medium">No</span>
-          </div>
+         
 
         </div>
 
