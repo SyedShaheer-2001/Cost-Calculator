@@ -87,8 +87,7 @@ function Estimate({ estimate }) {
               Leave request to start a project in 2 days
             </p>
             <a
-              href="#"
-              className="inline-flex items-center text-[#0066FF] text-[12px] sm:text-[18px]  hover:underline"
+              className="inline-flex items-center text-[#0066FF] text-[12px] sm:text-[18px] font-thin  cursor-pointer"
             >
               Free quote <FiArrowRight className="ml-2" />
             </a>

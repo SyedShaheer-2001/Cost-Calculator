@@ -311,7 +311,7 @@ export default function ChooseBusiness() {
       {lastscreen ? (
         <>
         <div className='container relative'>
-          <div className="absolute top-7 left-5">
+          <div className="absolute top-8 left-6">
             <button
               onClick={() => handleabc()}
               className="text-sm text-gray-600 hover:underline flex items-center gap-1"
@@ -330,8 +330,8 @@ export default function ChooseBusiness() {
         <>
           {!category ? (
             // ======= Category Selection View =======
-            <div className='pt-12 max-w-[1440px] mx-auto relative'>
-              <div className="absolute top-7 left-5">
+            <div className='pt-12 max-w-[1440px] mx-auto relative bgGray rounded-2xl pb-16 shadow-md'>
+              <div className="absolute top-8 left-6">
                 <button
                   onClick={() => router.push('/')}
                   className="text-sm text-gray-600 hover:underline flex items-center gap-1"
@@ -341,15 +341,15 @@ export default function ChooseBusiness() {
                 </button>
 
               </div>
-              <h1 className=" tex-sm sm:text-xl md:text-2xl font-semibold text-black mx-4 mt-8">
+              <h1 className=" tex-sm sm:text-xl md:text-2xl font-semibold text-black mx-8 mt-8">
                 Choose your Business
               </h1>
-              <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-16 pt-8 mx-2 sm:mx-4">
+              <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-16 pt-8 mx-2 sm:mx-8">
                 {Object.entries(data).map(([categoryName, categoryData]) => (
                   <button
                     key={categoryName}
                     onClick={() => handleCategorySelect(categoryName)}
-                    className="cursor-pointer border borderBlue text-[#174273] py-[16px] sm:px-[52px] px-[5px]  rounded-full hover:bg-[#174273] hover:text-white transition text-[12px] sm:text-[18px]"
+                    className="cursor-pointer border border-[#0000004D] py-[16px] sm:px-[52px] px-[5px]  rounded-full hover:bg-[#174273] hover:text-white transition text-[12px] sm:text-[18px]"
                   >
                     {categoryName}
                   </button>
