@@ -567,7 +567,7 @@ export const data = {
     }
 
   ],
-  'Music And Audio': [
+  'Music & Audio': [
     {
       id: 'q0',
       title: 'What type of app are you building?',

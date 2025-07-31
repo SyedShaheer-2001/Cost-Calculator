@@ -1,3 +1,6 @@
+'use client'
+import Link from "next/link";
+
 const Hero = () => {
     return (
         <section className="container py-[102px] text-center px-4">
@@ -10,14 +13,15 @@ const Hero = () => {
                         <p className="mb-[48px] textsm leading-[30px]">Uber, Intagram, Airbnb, Whatsapp etc.</p>
                         <img src="/Home/mobile.svg" alt="App Preview" className=" " />
                     </div>
-
-                    <div className="bgPink text-white rounded-xl max-w-[507px] pt-[47px] px-[88px] lg:mx-0 mx-auto">
-                        <h3 className="textmd font-thin">For my own business</h3>
-                        <p className="mb-[32px] text-[18px] max-w-[360px] text-center leading-[30px] mb-[2px]">
-                            Cars & Transport, Social networking, Travel, Health & Beauty etc.
-                        </p>
-                        <img src="/Home/purse.png" alt="Business Preview" className=" " />
-                    </div>
+                    <Link href="/pricing">
+                        <div className="bgPink text-white rounded-xl max-w-[507px] pt-[47px] px-[88px] lg:mx-0 mx-auto">
+                            <h3 className="textmd font-thin">For my own business</h3>
+                            <p className="mb-[32px] text-[18px] max-w-[360px] text-center leading-[30px] mb-[2px]">
+                                Cars & Transport, Social networking, Travel, Health & Beauty etc.
+                            </p>
+                            <img src="/Home/purse.png" alt="Business Preview" className=" " />
+                        </div>
+                    </Link>
                 </div>
 
             </div>

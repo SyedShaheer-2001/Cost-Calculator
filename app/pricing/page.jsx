@@ -43,9 +43,11 @@ export default function ChooseBusiness() {
     // Your submit logic here
     console.log(formData);
     setFormData(
-      {category: "",
-    name: "",
-    email: ""}
+      {
+        category: "",
+        name: "",
+        email: ""
+      }
     )
   };
 
@@ -193,7 +195,7 @@ export default function ChooseBusiness() {
     return (
       <>
         <div className="grid grid-cols-2 lg:grid-cols-2 lg:gap-16 gap-4 mb-4">
-          
+
           <div
             onClick={() => {
               const copy = [...yesNo];
@@ -217,7 +219,7 @@ export default function ChooseBusiness() {
           >
             <span className="text-[18px] sm:text-[23px] font-medium">No</span>
           </div>
-          
+
         </div>
 
         {isYes && (
@@ -241,19 +243,19 @@ export default function ChooseBusiness() {
 
               {/* Additional Features */}
               {currentQuestion?.additionalFeatures && currentQuestion.additionalFeatures.length > 0 && (
-              <div>
-                <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Additional Features</h3>
-                <ul className="space-y-3">
-                  {currentQuestion?.additionalFeatures?.map((feature, index) => (
-                    <li key={index} onClick={() => toggleFeature('additional', feature.text)} className="flex items-center space-x-3 cursor-pointer">
-                      <input type="checkbox" checked={selectedAdditional[step]?.has(feature.text)} readOnly className="form-checkbox sm:h-5 sm:w-5 h-3 w-3 text-black" />
-                      <span className="text-[12px] sm:text-[15px]">{feature.text}
-                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">{feature.hours} hours</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <div>
+                  <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Additional Features</h3>
+                  <ul className="space-y-3">
+                    {currentQuestion?.additionalFeatures?.map((feature, index) => (
+                      <li key={index} onClick={() => toggleFeature('additional', feature.text)} className="flex items-center space-x-3 cursor-pointer">
+                        <input type="checkbox" checked={selectedAdditional[step]?.has(feature.text)} readOnly className="form-checkbox sm:h-5 sm:w-5 h-3 w-3 text-black" />
+                        <span className="text-[12px] sm:text-[15px]">{feature.text}
+                          <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">{feature.hours} hours</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
 
             </div>
@@ -312,35 +314,15 @@ export default function ChooseBusiness() {
 
   return (
     <>
-    <Navbar/>
-    <div className=" p-4 sm:p-6 md:p-10 max-w-[1460px] mx-auto md:mt-8 mt-0">
+      <Navbar />
+      <div className=" p-4 sm:p-6 md:p-10 max-w-[1460px] mx-auto md:mt-8 mt-0">
 
-      {lastscreen ? (
-        <>
-        <div className='container relative'>
-          <div className="absolute top-8 left-6">
-            <button
-              onClick={() => handleabc()}
-              className="text-sm text-gray-600 hover:underline flex items-center gap-1"
-            >
-              <ArrowLeft size={16} />
-              Back
-            </button>
-
-          </div>
-          <Estimate estimate={calculateTotalHours(currentStep)} />
-
-        </div>
-          
-        </>
-      ) : (
-        <>
-          {!category ? (
-            // ======= Category Selection View =======
-            <div className='pt-12 max-w-[1440px] mx-auto relative  rounded-2xl'>
+        {lastscreen ? (
+          <>
+            <div className='container relative'>
               <div className="absolute top-8 left-6">
                 <button
-                  onClick={() => router.push('/')}
+                  onClick={() => handleabc()}
                   className="text-sm text-gray-600 hover:underline flex items-center gap-1"
                 >
                   <ArrowLeft size={16} />
@@ -348,247 +330,277 @@ export default function ChooseBusiness() {
                 </button>
 
               </div>
-              <h1 className=" tex-sm sm:text-xl md:text-2xl font-semibold text-black mx-8 mt-8">
-                Choose your Business
-              </h1>
-              <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-16 pt-8 mx-2 sm:mx-8">
-                {Object.entries(data).map(([categoryName, categoryData]) => (
-                  <button
-                    key={categoryName}
-                    onClick={() => handleCategorySelect(categoryName)}
-                    className="cursor-pointer border border-[#0000004D] py-[20px] sm:px-[52px] px-[5px]  rounded-[12px] hover:bg-[#174273] hover:text-white transition text-[12px] sm:text-[18px]"
-                  >
-                    {categoryName}
-                  </button>
-                ))
-                }
-              </div>
+              <Estimate estimate={calculateTotalHours(currentStep)} />
+
             </div>
-          ) : (
-            // ======= Step One: Platform Selection =======
-            <div className="flex flex-col lg:flex-row gap-6">
-              {/* Left Section */}
-              <div className="flex-1  rounded-2xl sm:p-6 p-4 shadow-xl">
-                <div>
-                  <div className="flex items-center justify-between sm:mb-8 mb-4">
-                    <button
-                      onClick={() => handleBack()}
-                      className="flex items-center text-sm text-gray-500 hover:underline"
-                    >
-                      <ArrowLeft size={16} className="mr-1" />
-                      Back
-                    </button>
-                    <span className="text-[12px] sm:text-sm bgPink text-white px-4 py-2 rounded-full">
-                      Step {currentStep + 1} of {questions.length}
-                    </span>
+
+          </>
+        ) : (
+          <>
+            {!category ? (
+              // ======= Category Selection View =======
+              <div className='pt-12 max-w-[1440px] mx-auto relative  rounded-2xl'>
+                <div className="absolute top-8 left-6">
+                  <button
+                    onClick={() => router.push('/')}
+                    className="text-sm text-gray-600 hover:underline flex items-center gap-1"
+                  >
+                    <ArrowLeft size={16} />
+                    Back
+                  </button>
+
+                  
+
+                </div>
+                  <div className='flex justify-between items-center'>
+                    <h1 className="text-sm sm:text-xl md:text-2xl font-semibold text-black mx-8 mt-8">
+                      Choose your Business
+                    </h1>
+
+                    <div className="mx-8 mt-12">
+                      <img src="/logo-light.png" alt="Logo" className="h-4 sm:h-10 md:h-12" />
+                    </div>
                   </div>
 
-                  <h2 className="text-[15px] sm:text-2xl font-semibold sm:mb-12 mb-4">
-                    {currentQuestion?.title}
-                  </h2>
-                  {currentStep === 0 && category !== '+ Add New Category' && (
-                    <>
-                      <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
-                        {currentQuestion?.options?.map((platform, key) => (
-                          <div
-                            key={key}
-                            onClick={() => setSelectedPlatform(platform.text)}
-                            className={clsx(
-                              'border rounded-[18px] px-3 py-5 sm:px-6 sm:py-8 flex items-center justify-between cursor-pointer transition hover:border-[#174273]',
-                              selectedPlatform === platform.text
-                                ? 'borderBlue bg-blue-100'
-                                : 'border-[#0000004D]'
-                            )}
-                          >
-                            <span className={`text-[15px] sm:text-[23px] font-medium ${selectedPlatform === platform.text ? 'textBlue' : ''}`}>
-                              {platform.text}
-                            </span>
+                
+                <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-8 pt-8 mx-2 sm:mx-8">
+                  {Object.entries(data).map(([categoryName, categoryData]) => (
+                    <button
+                      key={categoryName}
+                      onClick={() => handleCategorySelect(categoryName)}
+                      className="cursor-pointer border border-[#0000004D] py-[20px] sm:px-[52px] px-[5px]  rounded-[12px] hover:bg-[#174273] hover:text-white transition text-[12px] sm:text-[18px]"
+                    >
+                      {categoryName}
+                    </button>
+                  ))
+                  }
+                </div>
+              </div>
+            ) : (
+              // ======= Step One: Platform Selection =======
+              <div className="flex flex-col lg:flex-row gap-6">
+                {/* Left Section */}
+                <div className="flex-1  rounded-2xl sm:p-6 p-4 shadow-xl">
+                  <div>
+                    <div className="flex items-center justify-between sm:mb-8 mb-4">
+                      <button
+                        onClick={() => handleBack()}
+                        className="flex items-center text-sm text-gray-500 hover:underline"
+                      >
+                        <ArrowLeft size={16} className="mr-1" />
+                        Back
+                      </button>
+                      <span className="text-[12px] sm:text-sm bgPink text-white px-4 py-2 rounded-full">
+                        Step {currentStep + 1} of {questions.length}
+                      </span>
+                    </div>
 
-                            {/* Circle with check inside */}
+                    <h2 className="text-[15px] sm:text-2xl font-semibold sm:mb-12 mb-4">
+                      {currentQuestion?.title}
+                    </h2>
+                    {currentStep === 0 && category !== '+ Add New Category' && (
+                      <>
+                        <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
+                          {currentQuestion?.options?.map((platform, key) => (
                             <div
+                              key={key}
+                              onClick={() => setSelectedPlatform(platform.text)}
                               className={clsx(
-                                'w-8 h-8 sm:w-16 sm:h-16 border rounded-full flex items-center justify-center transition-all duration-200',
+                                'border rounded-[18px] px-3 py-5 sm:px-6 sm:py-8 flex items-center justify-between cursor-pointer transition hover:border-[#174273]',
                                 selectedPlatform === platform.text
-                                  ? 'borderBlue bgBlue'
+                                  ? 'borderBlue bg-blue-100'
                                   : 'border-[#0000004D]'
                               )}
                             >
-                              {selectedPlatform === platform.text && (
-                                <Check size={36} className="text-white" />
+                              <span className={`text-[15px] sm:text-[23px] font-medium ${selectedPlatform === platform.text ? 'textBlue' : ''}`}>
+                                {platform.text}
+                              </span>
+
+                              {/* Circle with check inside */}
+                              <div
+                                className={clsx(
+                                  'w-8 h-8 sm:w-16 sm:h-16 border rounded-full flex items-center justify-center transition-all duration-200',
+                                  selectedPlatform === platform.text
+                                    ? 'borderBlue bgBlue'
+                                    : 'border-[#0000004D]'
+                                )}
+                              >
+                                {selectedPlatform === platform.text && (
+                                  <Check size={36} className="text-white" />
+                                )}
+                              </div>
+                            </div>
+
+                          ))}
+                        </div>
+                      </>
+                    )}
+                    {currentStep > 0 && currentStep <= lenght - 2 && (
+                      <QuestionStep step={currentStep} />
+                    )}
+                    {currentQuestion.id === 'qn' && (
+                      <>
+                        <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
+                          {currentQuestion?.options?.map((platform, key) => (
+                            <div
+                              key={key}
+                              onClick={() => {
+                                setDesign(platform.text);
+                                setDesignHours(platform.hours);
+                              }}
+                              className={clsx(
+                                'border rounded-[18px] px-3 py-5 sm:px-6 sm:py-8 flex items-center justify-between cursor-pointer transition hover:border-[#174273]',
+                                design === platform.text ? 'borderBlue bg-blue-100' : 'border-[#0000004D]'
                               )}
+                            >
+                              <div className="flex flex-col gap-2">
+                                <span className={clsx(
+                                  'text-[15px] sm:text-[23px] font-medium',
+                                  design === platform.text && 'textBlue'
+                                )}>
+                                  {platform.text}
+                                </span>
+                                <span className="text-[15px] font-medium text-gray-400">+{platform.hours} hours</span>
+                              </div>
+
+                              {/* Circle with Check inside */}
+                              <div
+                                className={clsx(
+                                  'w-8 h-8 sm:w-16 sm:h-16 border rounded-full flex items-center justify-center',
+                                  design === platform.text ? 'borderBlue bgBlue' : 'border-[#0000004D]'
+                                )}
+                              >
+                                {design === platform.text && (
+                                  <Check size={36} className="text-white" />
+                                )}
+                              </div>
                             </div>
-                          </div>
+                          ))}
+                        </div>
 
-                        ))}
-                            </div>
-                    </>
-                  )}
-                  {currentStep > 0 && currentStep <= lenght - 2 && (
-                    <QuestionStep step={currentStep} />
-                  )}
-                  {currentQuestion.id === 'qn' && (
-                    <>
-                      <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
-  {currentQuestion?.options?.map((platform, key) => (
-    <div
-      key={key}
-      onClick={() => {
-        setDesign(platform.text);
-        setDesignHours(platform.hours);
-      }}
-      className={clsx(
-        'border rounded-[18px] px-3 py-5 sm:px-6 sm:py-8 flex items-center justify-between cursor-pointer transition hover:border-[#174273]',
-        design === platform.text ? 'borderBlue bg-blue-100' : 'border-[#0000004D]'
-      )}
-    >
-      <div className="flex flex-col gap-2">
-        <span className={clsx(
-          'text-[15px] sm:text-[23px] font-medium',
-          design === platform.text && 'textBlue'
-        )}>
-          {platform.text}
-        </span>
-        <span className="text-[15px] font-medium text-gray-400">+{platform.hours} hours</span>
-      </div>
+                      </>)}
 
-      {/* Circle with Check inside */}
-      <div
-        className={clsx(
-          'w-8 h-8 sm:w-16 sm:h-16 border rounded-full flex items-center justify-center',
-          design === platform.text ? 'borderBlue bgBlue' : 'border-[#0000004D]'
-        )}
-      >
-        {design === platform.text && (
-          <Check size={36} className="text-white" />
-        )}
-      </div>
-    </div>
-  ))}
-</div>
-
-                    </>)}
-
-                      {category === '+ Add New Category' &&
-                        <div className="max-w-[550px] mx-auto mb-16 sm:mt-0 mt-16">
-                          <h2 className="text-[15px] sm:text-[20px]  mb-8">Add new category</h2>
-                          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                            <input
-                              type="text"
-                              name="category"
-                              placeholder="Required category*"
-                              required
-                              value={formData.category}
-                              onChange={handleChange}
-                              className="text-[15px] mb-6 border-b border-gray-300 bg-transparent py-2 px-1 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
-                            />
-                            <input
-                              type="text"
-                              name="name"
-                              placeholder="Your name*"
-                              required
-                              value={formData.name}
-                              onChange={handleChange}
-                              className="text-[15px] mb-6 border-b border-gray-300 bg-transparent py-2 px-1 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
-                            />
-                            <input
-                              type="email"
-                              name="email"
-                              placeholder="Your business email for notification*"
-                              required
-                              value={formData.email}
-                              onChange={handleChange}
-                              className="text-[15px] mb-8 border-b border-gray-300 bg-transparent py-2 px-1 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
-                            />
-                            <div className='flex justify-end'>
-                              <button
+                    {category === '+ Add New Category' &&
+                      <div className="max-w-[550px] mx-auto mb-16 sm:mt-0 mt-16">
+                        <h2 className="text-[15px] sm:text-[20px]  mb-8">Add new category</h2>
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                          <input
+                            type="text"
+                            name="category"
+                            placeholder="Required category*"
+                            required
+                            value={formData.category}
+                            onChange={handleChange}
+                            className="text-[15px] mb-6 border-b border-gray-300 bg-transparent py-2 px-1 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                          />
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Your name*"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="text-[15px] mb-6 border-b border-gray-300 bg-transparent py-2 px-1 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                          />
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Your business email for notification*"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="text-[15px] mb-8 border-b border-gray-300 bg-transparent py-2 px-1 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                          />
+                          <div className='flex justify-end'>
+                            <button
                               type="submit"
                               className="bgPink text-white rounded-full py-2 px-6 text-center text-md font-medium transition-colors cursor-pointer"
                             >
                               Send
                             </button>
 
-                            </div>
-                            
-                          </form>
-                        </div>
-                      }
-                      {category !== '+ Add New Category' &&
-                        <div className="flex justify-end sm:mb-6 mb-4 mt-2">
-                          <button
-                            className={clsx(
-                              'sm:px-6 sm:py-3 px-5 py-3 rounded-full text-white transition sm:text-[16px] text-[12px]',
-                              !isDisabled ? 'bgPink cursor-pointer' : 'bg-[#D8216D]/40 cursor-not-allowed'
-                            )}
-                            disabled={isDisabled}
-                            onClick={() => {
-                              if (currentStep > questions.length - 2) {
-                                handleLast(); // Final action
-                              } else {
-                                handleNext(); // Proceed to next step
-                              }
-                            }}
-                          >
-                            <div className='flex flex-row justify-center items-center gap-2'>
-                              <p>Save and continue</p>
+                          </div>
+
+                        </form>
+                      </div>
+                    }
+                    {category !== '+ Add New Category' &&
+                      <div className="flex justify-end sm:mb-6 mb-4 mt-2">
+                        <button
+                          className={clsx(
+                            'sm:px-6 sm:py-3 px-5 py-3 rounded-full text-white transition sm:text-[16px] text-[12px]',
+                            !isDisabled ? 'bgPink cursor-pointer' : 'bg-[#D8216D]/40 cursor-not-allowed'
+                          )}
+                          disabled={isDisabled}
+                          onClick={() => {
+                            if (currentStep > questions.length - 2) {
+                              handleLast(); // Final action
+                            } else {
+                              handleNext(); // Proceed to next step
+                            }
+                          }}
+                        >
+                          <div className='flex flex-row justify-center items-center gap-2'>
+                            <p>Save and continue</p>
                             <ArrowRight size={20} />
 
-                            </div>
-                            
-                          </button>
-                        </div>
-                      }
-                  
-                </div>
+                          </div>
 
-                    {category !== '+ Add New Category' &&
-                      <>
-                        <hr className="mb-4 gray-text" />
-                        <div className="flex gap-4 text-[10px] sm:text-sm text-gray-600">
-                          <div>
-                            <strong>Platform:</strong>{' '}
-                            <span>{selectedPlatform || 'Not selected'}</span>
-                          </div>
-                          <div>
-                            <strong>Features: </strong>
-                            <span>
-                              {features && features.size > 0
-                                ? Array.from(features).join(", ")
-                                : "Not Selected"}
-                            </span>
-                          </div>
-                        </div>
-                      </>
+                        </button>
+                      </div>
                     }
 
-              </div>
+                  </div>
 
-              {/* Right Panel */}
-              {category !== '+ Add New Category' &&
+                  {category !== '+ Add New Category' &&
+                    <>
+                      <hr className="mb-4 gray-text" />
+                      <div className="flex gap-4 text-[10px] sm:text-sm text-gray-600">
+                        <div>
+                          <strong>Platform:</strong>{' '}
+                          <span>{selectedPlatform || 'Not selected'}</span>
+                        </div>
+                        <div>
+                          <strong>Features: </strong>
+                          <span>
+                            {features && features.size > 0
+                              ? Array.from(features).join(", ")
+                              : "Not Selected"}
+                          </span>
+                        </div>
+                      </div>
+                    </>
+                  }
 
-              <div className="flex sm:flex-col flex-row gap-4 w-full lg:w-[220px]">
-                <div className="bgBlue text-white rounded-[18px] p-4 sm:p-8 shadow-xl">
-                  <p className="text-[10px] sm:text-sm">Summary time</p>
-                  <p className="text-[15px] sm:text-xl font-bold">{calculateTotalHours(currentStep)}h</p>
                 </div>
-                <div className=" rounded-[18px] p-4 sm:p-8 shadow-xl">
-                  <p className="text-[10px] sm:text-sm text-gray-600">Development time</p>
-                  <p className="text-[13px] sm:text-xl font-semibold">0h</p>
-                </div>
-                <div className=" rounded-[18px] p-4 sm:p-8 shadow-xl">
-                  <p className="text-[10px] sm:text-sm text-gray-600">Non-dev time</p>
-                  <p className="text-[13px] sm:text-xl font-semibold">0h</p>
-                </div>
+
+                {/* Right Panel */}
+                {category !== '+ Add New Category' &&
+
+                  <div className="flex sm:flex-col flex-row gap-4 w-full lg:w-[220px]">
+                    <div className="bgBlue text-white rounded-[18px] p-4 sm:p-8 shadow-xl">
+                      <p className="text-[10px] sm:text-sm">Summary time</p>
+                      <p className="text-[15px] sm:text-xl font-bold">{calculateTotalHours(currentStep)}h</p>
+                    </div>
+                    <div className=" rounded-[18px] p-4 sm:p-8 shadow-xl">
+                      <p className="text-[10px] sm:text-sm text-gray-600">Development time</p>
+                      <p className="text-[13px] sm:text-xl font-semibold">0h</p>
+                    </div>
+                    <div className=" rounded-[18px] p-4 sm:p-8 shadow-xl">
+                      <p className="text-[10px] sm:text-sm text-gray-600">Non-dev time</p>
+                      <p className="text-[13px] sm:text-xl font-semibold">0h</p>
+                    </div>
+                  </div>
+                }
+
               </div>
-              }
-              
-            </div>
-          )}
-        </>
-      )}
-    </div>
-    <CTA/>
-    <Footer/>
+            )}
+          </>
+        )}
+      </div>
+      <CTA />
+      <Footer />
     </>
-    
+
   );
 }

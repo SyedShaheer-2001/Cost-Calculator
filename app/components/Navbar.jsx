@@ -20,10 +20,8 @@ export default function Navbar() {
 
       {/* Nav Links - hidden on small screens */}
       <ul className="hidden lg:flex text-gray-700 font-medium text-[18px]">
-        <div className="flex xl:gap-[26px] gap-[10px] items-center">
-          <li className="bg-[rgba(0,102,255,0.1)] text-[#0066FF] px-[20px] py-[10px] rounded-[100px] font-thin">
-            <Link href="/pricing">Pricing</Link>
-          </li>
+        <div className="flex xl:gap-[26px] gap-[26px] items-center">
+         
           <li><Link href="#">Services</Link></li>
           <li><Link href="#">Industries</Link></li>
           <li><Link href="#">Expertise</Link></li>
