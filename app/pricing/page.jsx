@@ -310,7 +310,8 @@ export default function ChooseBusiness() {
 
       {lastscreen ? (
         <>
-          <div className="flex items-center ">
+        <div className='container relative'>
+          <div className="absolute top-7 left-5">
             <button
               onClick={() => handleabc()}
               className="text-sm text-gray-600 hover:underline flex items-center gap-1"
@@ -321,13 +322,16 @@ export default function ChooseBusiness() {
 
           </div>
           <Estimate estimate={calculateTotalHours(currentStep)} />
+
+        </div>
+          
         </>
       ) : (
         <>
           {!category ? (
             // ======= Category Selection View =======
-            <div className='pt-12 max-w-[1190px] mx-auto'>
-              <div className="flex items-center mb-8">
+            <div className='pt-12 max-w-[1440px] mx-auto relative'>
+              <div className="absolute top-7 left-5">
                 <button
                   onClick={() => router.push('/')}
                   className="text-sm text-gray-600 hover:underline flex items-center gap-1"
@@ -337,10 +341,10 @@ export default function ChooseBusiness() {
                 </button>
 
               </div>
-              <h1 className=" tex-sm sm:text-xl md:text-2xl font-semibold text-black">
+              <h1 className=" tex-sm sm:text-xl md:text-2xl font-semibold text-black mx-4 mt-8">
                 Choose your Business
               </h1>
-              <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-16 pt-8 mx-2 sm:mx-0">
+              <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4  sm:pt-16 pt-8 mx-2 sm:mx-4">
                 {Object.entries(data).map(([categoryName, categoryData]) => (
                   <button
                     key={categoryName}

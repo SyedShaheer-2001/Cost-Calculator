@@ -4,7 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 function Estimate({ estimate }) {
   return (
-    <div className='container '>
+    <div className='container'>
       <div className="flex xl:flex-row flex-col overflow-hidden max-w-[1260px] xl:mx-auto mx-4 pt-16 gap-8 xl:gap-0">
 
         {/* Right container - 940px */}

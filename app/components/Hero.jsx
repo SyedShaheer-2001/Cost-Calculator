@@ -16,7 +16,7 @@ const Hero = () => {
                         <p className="mb-[32px] text-[18px] max-w-[360px] text-center leading-[30px] mb-[2px]">
                             Cars & Transport, Social networking, Travel, Health & Beauty etc.
                         </p>
-                        <img src="/Home/purse.svg" alt="Business Preview" className=" " />
+                        <img src="/Home/purse.png" alt="Business Preview" className=" " />
                     </div>
                 </div>
 

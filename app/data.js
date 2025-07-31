@@ -1160,35 +1160,149 @@ export const data = {
         { text: 'Both', hours: 3 },
       ],
     },
-    {
-      id: 'q1',
-      title: 'Do you need Registration & Authorization?',
-      conditional: true,
-      featuresForMVP: [
-        { text: 'via Email', hours: 2 },
-        { text: 'via Phone', hours: 4 },
-        { text: 'via Facebook', hours: 3 },
-      ],
-      additionalFeatures: [
-        { text: 'via Twitter', hours: 3 },
-        { text: 'via Google+', hours: 5 },
-      ],
-    },
-    {
-      id: 'q2',
-      title: 'Will you allow users to complete a profile?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'View Profile', hours: 2.1 },
-        { text: 'Edit Profile', hours: 3.3 },
-        { text: 'Change Password', hours: 1.2 },
-      ],
-      additionalFeatures: [
-        { text: 'Online Status', hours: 0.5 },
-        { text: 'Edit Phone', hours: 2.3 },
-      ],
-    },
-    {
+     {
+    id: 'q1',
+    title: 'Do you need Registration & Authorization?',
+    conditional: true,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'via Email', hours: 19.2 },
+      { text: 'via Phone', hours: 17.2 },
+      { text: 'via Facebook', hours: 13.8 },
+      { text: 'Add payment details', hours: 18.6 },
+      { text: 'Forgot password', hours: 10.8 }
+    ],
+    additionalFeatures: [
+      { text: 'via Twitter', hours: 13.8 },
+      { text: 'via Google+', hours: 13.8 }
+    ]
+  },
+  {
+    id: 'q2',
+    title: 'Will you send Notifications to your users?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ],
+    additionalFeatures: [
+      { text: 'Braintree', hours: 52.6 },
+      { text: 'Stripe', hours: 46.1 },
+      { text: 'Dwolla', hours: 52.6 },
+      { text: 'Authorize.net', hours: 52.6 }
+    ]
+  },
+  {
+    id: 'q3',
+    title: 'Does your app need a Tutorial?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'Select post category', hours: 10.3 },
+      { text: 'Add photo', hours: 52.6 },
+      { text: 'Comment Post', hours: 0 },
+      { text: 'Share post', hours: 49.1 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q4',
+    title: 'Do you need a Home screen in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q5',
+    title: 'Will you let jobseekers complete a Profile?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q6',
+    title: 'Will there be a Job description screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q7',
+    title: 'Will you let employers complete a profile?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q8',
+    title: 'Do you need a Post a Job screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q9',
+    title: 'Will there be a screen with Posted jobs?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q10',
+    title: 'Will the app show a list of Applicants to a job?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+  id: 'q11',
+  title: 'Do you need an Admin Panel in your app?',
+  conditional: false,
+  featuresForMVP: [
+    { text: 'Integration', hours: 52.6 },
+    { text: 'List of users', hours: 10.3 },
+    { text: 'Delete user', hours: 52.6 },
+    { text: 'Add/remove to favourites', hours: 0 }
+  ],
+  additionalFeatures: []
+}
+    
+    ,{
       id: "qn",
       title: "Do you need a design for your App?",
       options: [
@@ -1209,6 +1323,126 @@ export const data = {
         { text: 'Both', hours: 3 },
       ],
     },
+    {
+    id: 'q1',
+    title: 'Do you need Registration & Authorization?',
+    conditional: true,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'via Email', hours: 19.2 },
+      { text: 'via Phone', hours: 17.2 },
+      { text: 'via Facebook', hours: 13.8 },
+      { text: 'Add payment details', hours: 18.6 },
+      { text: 'Forgot password', hours: 10.8 }
+    ],
+    additionalFeatures: [
+      { text: 'via Twitter', hours: 13.8 },
+      { text: 'via Google+', hours: 13.8 }
+    ]
+  },
+  {
+    id: 'q2',
+    title: 'Will you send Notifications to your users?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ],
+    additionalFeatures: [
+      { text: 'Braintree', hours: 52.6 },
+      { text: 'Stripe', hours: 46.1 },
+      { text: 'Dwolla', hours: 52.6 },
+      { text: 'Authorize.net', hours: 52.6 }
+    ]
+  },
+  {
+    id: 'q3',
+    title: 'Will your app have a Splash screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of posts', hours: 46.1 },
+      { text: 'Hide posts from certain users', hours: 10.3 },
+      { text: 'Like/unlike post', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ]
+  },
+  {
+    id: 'q4',
+    title: 'Does your app need a Tutorial?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'Select post category', hours: 10.3 },
+      { text: 'Add photo', hours: 52.6 },
+      { text: 'Comment Post', hours: 0 },
+      { text: 'Share post', hours: 49.1 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q5',
+    title: 'Will you allow Passengers to complete a Profile?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q6',
+    title: 'Do you need a Payment screen for a Passenger’s app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q7',
+    title: 'Do you need a screen with Promotions?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q8',
+    title: 'Will there be a Help section?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q9',
+    title: 'Will you track users’ GPS Location?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
     {
       id: "qn",
       title: "Do you need a design for your App?",
@@ -1231,34 +1465,210 @@ export const data = {
       ],
     },
     {
-      id: 'q1',
-      title: 'Do you need Registration & Authorization?',
-      conditional: true,
-      featuresForMVP: [
-        { text: 'via Email', hours: 2 },
-        { text: 'via Phone', hours: 4 },
-        { text: 'via Facebook', hours: 3 },
-      ],
-      additionalFeatures: [
-        { text: 'via Twitter', hours: 3 },
-        { text: 'via Google+', hours: 5 },
-      ],
-    },
-    {
-      id: 'q2',
-      title: 'Will you allow users to complete a profile?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'View Profile', hours: 2.1 },
-        { text: 'Edit Profile', hours: 3.3 },
-        { text: 'Change Password', hours: 1.2 },
-      ],
-      additionalFeatures: [
-        { text: 'Online Status', hours: 0.5 },
-        { text: 'Edit Phone', hours: 2.3 },
-      ],
-    },
-    {
+    id: 'q1',
+    title: 'Do you need Registration & Authorization?',
+    conditional: true,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'via Email', hours: 19.2 },
+      { text: 'via Phone', hours: 17.2 },
+      { text: 'via Facebook', hours: 13.8 },
+      { text: 'Add payment details', hours: 18.6 },
+      { text: 'Forgot password', hours: 10.8 }
+    ],
+    additionalFeatures: [
+      { text: 'via Twitter', hours: 13.8 },
+      { text: 'via Google+', hours: 13.8 }
+    ]
+  },
+  {
+    id: 'q2',
+    title: 'Will your app accept payments?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ],
+    additionalFeatures: [
+      { text: 'Braintree', hours: 52.6 },
+      { text: 'Stripe', hours: 46.1 },
+      { text: 'Dwolla', hours: 52.6 },
+      { text: 'Authorize.net', hours: 52.6 }
+    ]
+  },
+  {
+    id: 'q3',
+    title: 'Will there be a Posts Feed in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of posts', hours: 46.1 },
+      { text: 'Hide posts from certain users', hours: 10.3 },
+      { text: 'Like/unlike post', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ]
+  },
+  {
+    id: 'q4',
+    title: 'Will you let Users create their Posts?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'Select post category', hours: 10.3 },
+      { text: 'Add photo', hours: 52.6 },
+      { text: 'Comment Post', hours: 0 },
+      { text: 'Share post', hours: 49.1 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q5',
+    title: 'Will Users be able to Tab Friends?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q6',
+    title: 'Do you need an Articles Feed in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q7',
+    title: 'Do you need a User’s Profile Screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q8',
+    title: 'Will you let users edit their own posts?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q9',
+    title: 'Will there be a Following feature in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q10',
+    title: 'Do you need an Progress Calculators in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 },
+      { text: 'Add/remove to favourites', hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+   {
+    id: 'q11',
+    title: "Will there be a List of Trainings in your app?",
+    conditional: false,
+    featuresForMVP: [
+      { text: "Integration", hours: 52.6 },
+      { text: "List of users", hours: 10.3 },
+      { text: "Delete user", hours: 52.6 },
+      { text: "Add/remove to favourites", hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q12',
+    title: "Will you let users create and manage a Training Plan?",
+    conditional: false,
+    featuresForMVP: [
+      { text: "Integration", hours: 52.6 },
+      { text: "List of users", hours: 10.3 },
+      { text: "Delete user", hours: 52.6 },
+      { text: "Add/remove to favourites", hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q13',
+    title: "Will there be an Award Screen in your app?",
+    conditional: false,
+    featuresForMVP: [
+      { text: "Integration", hours: 52.6 },
+      { text: "List of users", hours: 10.3 },
+      { text: "Delete user", hours: 52.6 },
+      { text: "Add/remove to favourites", hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q14',
+    title: "Do you need a Notifications screen in your app?",
+    conditional: false,
+    featuresForMVP: [
+      { text: "Integration", hours: 52.6 },
+      { text: "List of users", hours: 10.3 },
+      { text: "Delete user", hours: 52.6 },
+      { text: "Add/remove to favourites", hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q15',
+    title: "Do you need a Messages screen in your app?",
+    conditional: false,
+    featuresForMVP: [
+      { text: "Integration", hours: 52.6 },
+      { text: "List of users", hours: 10.3 },
+      { text: "Delete user", hours: 52.6 },
+      { text: "Add/remove to favourites", hours: 0 }
+    ],
+    additionalFeatures: []
+  },
+  {
+    id: 'q16',
+    title: "Will there be a screen with app details in your app?",
+    conditional: false,
+    featuresForMVP: [
+      { text: "Integration", hours: 52.6 },
+      { text: "List of users", hours: 10.3 },
+      { text: "Delete user", hours: 52.6 },
+      { text: "Add/remove to favourites", hours: 0 }
+    ],
+    additionalFeatures: []
+  }
+    ,{
       id: "qn",
       title: "Do you need a design for your App?",
       options: [
@@ -1280,35 +1690,146 @@ export const data = {
         { text: 'Both', hours: 3 },
       ],
     },
-    {
-      id: 'q1',
-      title: 'Do you need Registration & Authorization?',
-      conditional: true,
-      featuresForMVP: [
-        { text: 'via Email', hours: 2 },
-        { text: 'via Phone', hours: 4 },
-        { text: 'via Facebook', hours: 3 },
-      ],
-      additionalFeatures: [
-        { text: 'via Twitter', hours: 3 },
-        { text: 'via Google+', hours: 5 },
-      ],
-    },
-    {
-      id: 'q2',
-      title: 'Will you allow users to complete a profile?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'View Profile', hours: 2.1 },
-        { text: 'Edit Profile', hours: 3.3 },
-        { text: 'Change Password', hours: 1.2 },
-      ],
-      additionalFeatures: [
-        { text: 'Online Status', hours: 0.5 },
-        { text: 'Edit Phone', hours: 2.3 },
-      ],
-    },
-    {
+  {
+    id: 'q1',
+    title: 'Do you need Registration & Authorization?',
+    conditional: true,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'via Email', hours: 19.2 },
+      { text: 'via Phone', hours: 17.2 },
+      { text: 'via Facebook', hours: 13.8 },
+      { text: 'Add payment details', hours: 18.6 },
+      { text: 'Forgot password', hours: 10.8 }
+    ],
+    additionalFeatures: [
+      { text: 'via Twitter', hours: 13.8 },
+      { text: 'via Google+', hours: 13.8 }
+    ]
+  },
+  {
+    id: 'q2',
+    title: 'Will you send Notifications to your users?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ],
+    additionalFeatures: [
+      { text: 'Braintree', hours: 52.6 },
+      { text: 'Stripe', hours: 46.1 },
+      { text: 'Dwolla', hours: 52.6 },
+      { text: 'Authorize.net', hours: 52.6 }
+    ]
+  },
+  {
+    id: 'q3',
+    title: 'Will your app need a User Profile screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of posts', hours: 46.1 },
+      { text: 'Hide posts from certain users', hours: 10.3 },
+      { text: 'Like/unlike post', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ]
+  },
+  {
+    id: 'q4',
+    title: 'Will you let users manage the Settings?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'Select post category', hours: 10.3 },
+      { text: 'Add photo', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Comment Post', hours: 0 },
+      { text: 'Share post', hours: 49.1 }
+    ]
+  },
+  {
+    id: 'q5',
+    title: 'Will there be a Pregnancy Tracking screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q6',
+    title: 'Will your app have a Shopping screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q7',
+    title: 'Do you need an Order screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q8',
+    title: 'Will there be a Blog in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q9',
+    title: 'Do you need a Doctors’ side?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q10',
+    title: 'Do you need an Admin Panel in your app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  }
+    ,{
       id: "qn",
       title: "Do you need a design for your App?",
       options: [
@@ -1329,31 +1850,249 @@ export const data = {
         { text: 'Both', hours: 3 },
       ],
     },
-    {
-      id: 'q1',
-      title: 'Do you need Registration & Authorization?',
-      conditional: true,
-      featuresForMVP: [
-        { text: 'via Email', hours: 2 },
-        { text: 'via Phone', hours: 4 },
-        { text: 'via Facebook', hours: 3 },
-      ],
-      additionalFeatures: [],
-    },
-    {
-      id: 'q2',
-      title: 'Will you allow users to complete a profile?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'View Profile', hours: 2.1 },
-        { text: 'Edit Profile', hours: 3.3 },
-        { text: 'Change Password', hours: 1.2 },
-      ],
-      additionalFeatures: [
-        { text: 'Online Status', hours: 0.5 },
-        { text: 'Edit Phone', hours: 2.3 },
-      ],
-    },
+  {
+    id: 'q1',
+    title: 'Do you need Registration & Authorization?',
+    conditional: true,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'via Email', hours: 19.2 },
+      { text: 'via Phone', hours: 17.2 },
+      { text: 'via Facebook', hours: 13.8 },
+      { text: 'Add payment details', hours: 18.6 },
+      { text: 'Forgot password', hours: 10.8 }
+    ],
+    additionalFeatures: [
+      { text: 'via Twitter', hours: 13.8 },
+      { text: 'via Google+', hours: 13.8 }
+    ]
+  },
+  {
+    id: 'q2',
+    title: 'Will you let users Add Friends automatically?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ],
+    additionalFeatures: [
+      { text: 'Braintree', hours: 52.6 },
+      { text: 'Stripe', hours: 46.1 },
+      { text: 'Dwolla', hours: 52.6 },
+      { text: 'Authorize.net', hours: 52.6 }
+    ]
+  },
+  {
+    id: 'q3',
+    title: 'Does your app need a Main Screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of posts', hours: 46.1 },
+      { text: 'Hide posts from certain users', hours: 10.3 },
+      { text: 'Like/unlike post', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Integration', hours: 0 },
+      { text: 'Paypal', hours: 49.1 }
+    ]
+  },
+  {
+    id: 'q4',
+    title: 'Will users be able to Broadcast?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'Select post category', hours: 10.3 },
+      { text: 'Add photo', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Comment Post', hours: 0 },
+      { text: 'Share post', hours: 49.1 }
+    ]
+  },
+  {
+    id: 'q5',
+    title: 'Will you show users Broadcast Statistics?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q6',
+    title: 'Will you allow Group Broadcasts?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q7',
+    title: 'Will Users be able to watch Replays?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q8',
+    title: 'Will you show the list of Live Broadcasts?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q9',
+    title: 'Will you allow Location-based Broadcasts?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q10',
+    title: 'Will there be a Notification Screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q11',
+    title: 'Do you need a Screen that shows Users?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q12',
+    title: 'Will you show brief User Details?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q13',
+    title: 'Will there be Search in you app?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q14',
+    title: 'Do you need a User Profile Screen?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q15',
+    title: 'Will you allow users to edit a Profile?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q16',
+    title: 'Will users manage the Notification Settings?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q17',
+    title: 'Will users manage the Broadcast Settings?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
+  {
+    id: 'q18',
+    title: 'Will you let users manage the Settings?',
+    conditional: false,
+    featuresForMVP: [
+      { text: 'Integration', hours: 52.6 },
+      { text: 'List of users', hours: 10.3 },
+      { text: 'Delete user', hours: 52.6 }
+    ],
+    additionalFeatures: [
+      { text: 'Add/remove to favourites', hours: 0 }
+    ]
+  },
     {
       id: "qn",
       title: "Do you need a design for your App?",
