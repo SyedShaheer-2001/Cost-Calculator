@@ -7,36 +7,38 @@ import { saveAs } from 'file-saver';
 import EstimatePDF from './EstimatePDF';
 
 
-function Estimate({ estimate , selectedAdditional , selectedMVP }) {
+function Estimate({ estimate , selectedData }) {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
 
-//   const handleSubmit = async (e) => {
-//   e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-//   if (!name.trim() || !email.trim()) {
-//     alert("Please enter both name and email.");
-//     return;
-//   }
+  if (!name.trim() || !email.trim()) {
+    alert("Please enter both name and email.");
+    return;
+  }
 
-//   const blob = await pdf(
-//     <EstimatePDF
-//       name={name}
-//       email={email}
-//       // selectedMVP={selectedMVP}
-//       // selectedAdditional={selectedAdditional}
-//       estimate={estimate}
-//     />
-//   ).toBlob();
+  const blob = await pdf(
+    <EstimatePDF
+      name={name}
+      email={email}
+      selectedData={selectedData}
+      // selectedAdditional={selectedAdditional}
+      estimate={estimate}
+    />
+  ).toBlob();
 
-//   saveAs(blob, `${name}_estimate.pdf`);
-// };
+  saveAs(blob, `${name}_estimate.pdf`);
+};
 
-  console.log("estimate xc", estimate)
-  console.log('selectedAdditional xc', selectedAdditional)
-  console.log('selectedMVP xc', selectedMVP)
+
+
+const nonDevHours = Math.floor(estimate / 2.7);
+  const summaryTime = estimate + nonDevHours;
+
 
   return (
     <div className='container'>
@@ -49,7 +51,7 @@ function Estimate({ estimate , selectedAdditional , selectedMVP }) {
             {/* Left Light blue section */}
             <div className='lg:w-2/5 bg-[#174273] pt-[25px] px-[30px] pb-[25px] sm:pt-[60px] sm:px-[60px] sm:pb-[95px] flex flex-col justify-center items-center'>
               <p className='leading-[28px] text-[18px] sm:text-[22px]  text-center'>Summary time</p>
-              <p className='leading-[62px] text-[40px] sm:text-[52px] text-center' style={{ letterSpacing: '-1px', fontWeight: 200 }} >{estimate} h</p>
+              <p className='leading-[62px] text-[40px] sm:text-[52px] text-center' style={{ letterSpacing: '-1px', fontWeight: 200 }} >{summaryTime} h</p>
               <div className='flex flex-col justify-center items-center py-[40px] text-[18px] leading-[30px]'>
                 <div className='flex flex-row gap-[10px]'>
                   <p className='font-normal'>Min</p>
@@ -98,6 +100,7 @@ function Estimate({ estimate , selectedAdditional , selectedMVP }) {
                   {/* Button */}
                   <button
                     type="submit"
+                    onClick={handleSubmit}
                     className=" bg-white text-[#0066FF] font-thin cursor-pointer py-[20px] px-[30px] rounded-full hover:bg-gray-100 transition"
                   >
                     Download PDF
