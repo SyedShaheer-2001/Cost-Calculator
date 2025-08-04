@@ -6,33 +6,155 @@ import { PDFDownloadLink, pdf } from '@react-pdf/renderer';
 import { saveAs } from 'file-saver';
 import EstimatePDF from './EstimatePDF';
 
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
-function Estimate({ estimate , selectedData }) {
+
+function Estimate({ estimate , selectedData , category }) {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage]= useState("");
 
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (!name.trim() || !email.trim()) {
-    alert("Please enter both name and email.");
+    setMessage("Please enter name and email.");
     return;
   }
 
-  const blob = await pdf(
-    <EstimatePDF
-      name={name}
-      email={email}
-      selectedData={selectedData}
-      // selectedAdditional={selectedAdditional}
-      estimate={estimate}
-    />
-  ).toBlob();
+  try {
+    // 1. Save form metadata (not PDF) to Firestore
+    await addDoc(collection(db, "estimates"), {
+      name,
+      email,
+      category,
+      estimate,
+      selectedData,
+      timestamp: new Date()
+    });
 
-  saveAs(blob, `${name}_estimate.pdf`);
+    // 2. Generate PDF
+    const blob = await pdf(
+      <EstimatePDF
+        name={name}
+        email={email}
+        category={category}
+        selectedData={selectedData}
+        estimate={estimate}
+      />
+    ).toBlob();
+
+     const base64Pdf = `<h1>test</h1>`;
+
+    // 4. Create and submit form to Formspree
+    const form = document.createElement("form");
+    form.action = "https://formspree.io/f/mwpqrpla"; 
+    form.method = "POST";
+    form.style.display = "none";
+
+    const fields = [
+      // { name: "name", value: name },
+      // { name: "email", value: email },
+      // { name: "category", value: category },
+      // { name: "estimate", value: estimate.toFixed(1) },
+      {
+        name: "pdf",
+        value: base64Pdf,
+      },
+    ];
+
+    fields.forEach(({ name, value }) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+
+    // 4. Optional: download locally
+    saveAs(blob, `${name}_estimate.pdf`);
+
+    setMessage("Estimate submitted and emailed!");
+  } catch (error) {
+    console.error("Error:", error);
+    setMessage("Something went wrong");
+  }
 };
+
+const blobToBase64 = (blob) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64data = reader.result.split(",")[1]; // remove `data:application/pdf;base64,`
+      resolve(base64data);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+};
+
+console.log('selectedData', selectedData)
+
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   if (!name.trim() || !email.trim()) {
+//     alert("Please enter both name and email.");
+//     return;
+//   }
+
+//   try {
+//     // 1. Generate PDF blob from EstimatePDF component
+//     const blob = await pdf(
+//       <EstimatePDF
+//         name={name}
+//         email={email}
+//         selectedData={selectedData}
+//         estimate={estimate}
+//       />
+//     ).toBlob();
+
+//     // 2. Define filename and storage path
+//     const sanitizedFileName = name.replace(/\s+/g, "_");
+//     const timestamp = Date.now();
+//     const fileName = `${sanitizedFileName}_${timestamp}.pdf`;
+//     const fileRef = ref(storage, `estimates/${fileName}`);
+
+//     // 3. Upload the PDF blob to Firebase Storage
+//     await uploadBytes(fileRef, blob);
+
+//     // 4. Get the public download URL
+//     const downloadURL = await getDownloadURL(fileRef);
+
+//     // 5. Save submission data in Firestore
+//     await addDoc(collection(db, "estimates"), {
+//       name,
+//       email,
+//       pdfUrl: downloadURL,
+//       timestamp: new Date(),
+//     });
+
+//     // 6. Optionally trigger local download
+//     saveAs(blob, fileName);
+
+//     // 7. Clear the form and show success message
+//     setName("");
+//     setEmail("");
+//     setSuccessMessage("Estimate submitted and PDF saved");
+
+//     setTimeout(() => setSuccessMessage(""), 3000);
+//   } catch (error) {
+//     console.error("Error during estimate submission:", error);
+//     setSuccessMessage("Something went wrong");
+//   }
+// };
 
 
 
@@ -96,6 +218,9 @@ const nonDevHours = Math.floor(estimate / 2.7);
                       className="w-full bg-transparent border-b  outline-none text-white placeholder-white pb-2"
                     />
                   </div>
+                  {message && (
+                    <div className='text-[#120B09]'>{message}</div>
+                  )}
 
                   {/* Button */}
                   <button

@@ -34,7 +34,7 @@ export default function ChooseBusiness() {
   const [design, setDesign] = useState(null);
   const [designHours, setDesignHours] = useState(0);
   const [features, setFeatures] = useState(); 
-const [successMessage, setSuccessMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   // Add category form
   const [formData, setFormData] = useState({
@@ -58,7 +58,7 @@ const [successMessage, setSuccessMessage] = useState("");
       timestamp: new Date()
     });
 
-    console.log("Submitted:", formData);
+   // console.log("Submitted:", formData);
 
     setFormData({ category: "", name: "", email: "" });
      setSuccessMessage("Form submitted successfully! ✅");
@@ -192,7 +192,7 @@ const [successMessage, setSuccessMessage] = useState("");
   console.log('category', category)
   console.log('yesno', yesNo)
 
- function extractSelectedFeaturesWithHours({ questions, yesNo, selectedMVP, selectedAdditional }) {
+ function extractSelectedFeaturesWithHours({ questions, yesNo, selectedMVP, selectedAdditional, category }) {
   const result = [];
 
   questions?.forEach((question, index) => {
@@ -241,7 +241,8 @@ const selectedData = extractSelectedFeaturesWithHours({
   questions,
   yesNo,
   selectedMVP,
-  selectedAdditional
+  selectedAdditional,
+  category
 });
 
 console.log("Selected Data:", selectedData);
@@ -266,6 +267,7 @@ console.log("Selected Data:", selectedData);
               <Estimate
                 estimate={calculateTotalHours(currentStep)}
                 selectedData={selectedData}
+                category={category}
               />
             </div>
           </>

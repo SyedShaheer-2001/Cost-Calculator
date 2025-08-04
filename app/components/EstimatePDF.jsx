@@ -1,13 +1,37 @@
 // components/EstimatePDF.jsx
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-const EstimatePDF = ({ name, email, estimate, selectedData }) => {
+const EstimatePDF = ({ name, email, estimate, selectedData , category }) => {
   const totalDevHours = estimate;
 
   const nonDevHours = Math.floor(totalDevHours / 2.7);
   const summaryTime = totalDevHours + nonDevHours;
-  const hourlyRate = 35; // You can change this if needed
+  const hourlyRate = 35; 
   const developmentCost = summaryTime * hourlyRate;
+
+  // 1. Define percentage weights for each task
+const nonDevTasks = [
+  { label: 'Project setup', weight: 0.10 },
+  { label: 'Architecture', weight: 0.20 },
+  { label: 'Database', weight: 0.12 },
+  { label: 'Network', weight: 0.10 },
+  { label: 'Swagger', weight: 0.05 },
+  { label: 'Meetings', weight: 0.15 },
+  { label: 'CI', weight: 0.05 },
+  { label: 'CD', weight: 0.05 },
+  { label: 'Release Prep', weight: 0.10 },
+  { label: 'Release to Production', weight: 0.08 },
+];
+
+// 2. Normalize weights to ensure they sum to 1 (optional if already exact)
+const totalWeight = nonDevTasks.reduce((acc, t) => acc + t.weight, 0);
+const normalizedTasks = nonDevTasks.map(task => ({
+  ...task,
+  hours: parseFloat(((task.weight / totalWeight) * nonDevHours).toFixed(1)),
+}));
+
+
+
 
   const today = new Date().toLocaleDateString('en-US', {
     day: 'numeric',
@@ -21,16 +45,26 @@ const EstimatePDF = ({ name, email, estimate, selectedData }) => {
     fontFamily: 'Helvetica',
     fontSize: 11,
   },
+  flex:{
+    display:'flex'
+  },
   header: {
     marginBottom: 20,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    paddingBottom:10,
   },
   subtitle: {
     fontSize: 14,
     marginTop: 4,
+    paddingBottom:4,
+  },
+   category: {
+    fontSize: 12,
+    marginTop: 2,
+    color: '#174273',
   },
   date: {
     fontSize: 10,
@@ -46,21 +80,21 @@ const EstimatePDF = ({ name, email, estimate, selectedData }) => {
   },
   summaryCard: {
     width: '48%',
-    backgroundColor: '#EAF2FB',
-    paddingVertical: 10,
-    paddingBottom:30,
+    backgroundColor: '#174273',
+    paddingLeft: 20,
     paddingTop:30,
+    paddingBottom:30,
     borderRadius: 4,
   },
   cardTitle: {
     fontSize: 11,
-    color: '#174273',
+    color: '#ffffffff',
     marginBottom: 4,
   },
   cardValue: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#174273',
+    color: '#ffffffff',
   },
   sectionHeading: {
     fontSize: 14,
@@ -100,8 +134,13 @@ const EstimatePDF = ({ name, email, estimate, selectedData }) => {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>Rough Estimate</Text>
-          <Text style={styles.subtitle}>{name || 'App'}</Text>
+          
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={styles.subtitle}>{name || 'Cost of your App'}</Text>
           <Text style={styles.date}>{today}</Text>
+          </View>
+
+            <Text style={styles.category}>Your {category} App</Text>
         </View>
 
         {/* Cost Summary */}
@@ -135,18 +174,7 @@ const EstimatePDF = ({ name, email, estimate, selectedData }) => {
         {/* Non-Development Time */}
         <View style={styles.table}>
           <Text style={styles.tableSectionTitle}>Non-Development Time</Text>
-          {[
-            { label: 'Project setup', hours: 10.5 },
-            { label: 'Architecture', hours: 44.0 },
-            { label: 'Database', hours: 15.3 },
-            { label: 'Network', hours: 12.1 },
-            { label: 'Swagger', hours: 1.8 },
-            { label: 'Meetings', hours: 11.1 },
-            { label: 'CI', hours: 0.8 },
-            { label: 'CD', hours: 1.2 },
-            { label: 'Release Prep', hours: 2.5 },
-            { label: 'Release to Production', hours: 1.3 },
-          ].map((item, index) => (
+          {normalizedTasks.map((item, index) => (
             <View key={index} style={styles.row}>
               <Text style={styles.cell}>{item.label}</Text>
               <Text style={styles.cellRight}>{item.hours.toFixed(1)} h</Text>

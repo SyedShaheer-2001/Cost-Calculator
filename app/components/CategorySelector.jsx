@@ -7,7 +7,7 @@ export default function CategorySelector({ categories, onSelectCategory }) {
   const router = useRouter();
 
   return (
-    <div className="pt-12 max-w-[1440px] mx-auto relative rounded-2xl">
+    <div className="pt-12 max-w-[1440px] mx-auto relative rounded-2xl pb-36">
       {/* Back Button */}
       <div className="absolute top-8 left-6">
         <button

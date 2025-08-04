@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex justify-between items-center px-8 py-4 shadow-md bg-white relative z-50 ">
-      <div className="text-xl font-bold">COST-CALCULATOR</div>
+      <Link href="/"><div className="text-xl font-bold">COST-CALCULATOR</div></Link> 
 
       {/* Hamburger icon (mobile only) */}
       <button

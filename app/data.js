@@ -27,195 +27,195 @@ export const data = {
         { text: 'via Google+', hours: 13.8 },
       ],
     },
-    {
-      id: 'q2',
-      title: 'Will you allow users to complete a profile?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 8.8 },
-        { text: 'View Profile', hours: 21.1 },
-        { text: 'Edit Profile', hours: 13.3 },
-        { text: 'Edit profile details', hours: 16.1 },
-        { text: 'Change Password', hours: 10.3 },
-      ],
-      additionalFeatures: [
-        { text: 'Online Status', hours: 6.9 },
-        { text: 'Edit Phone', hours: 12.3 },
-      ],
-    },
-    {
-      id: 'q3',
-      title: 'Do you need Chats in your app?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 59.8 },
-        { text: 'List of chats', hours: 25 },
-        { text: 'Delete chat', hours: 24 },
-        { text: 'Chat details screen', hours: 18.1 },
-        { text: 'Send text', hours: 71.3 },
-      ],
-      additionalFeatures: [
-        { text: 'Send location', hours: 26.9 },
-        { text: 'Send audio record', hours: 26.9 },
-        { text: 'Clear chat', hours: 22.6 },
-        { text: 'Delete user from chat', hours: 11.3 },
-        { text: 'Typing status', hours: 13.3 },
-      ],
-    },
-    {
-      id: 'q4',
-      title: 'Do you need Group Chats in your app?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 40.3 },
-        { text: 'Select users', hours: 15.2 },
-        { text: 'Send invitation to users', hours: 24 },
-      ],
-      additionalFeatures: [],
-    },
-    {
-      id: 'q5',
-      title: 'Will you send Notifications to your users?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 7.5 },
-        { text: 'Push notifications', hours: 36.4 },
-        { text: 'Pop up notifications', hours: 23.6 },
-      ],
-      additionalFeatures: [
-        { text: 'Deep linking', hours: 14.5 },
-      ],
-    },
-    {
-      id: 'q6',
-      title: 'Will your app have a Splash screen?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 2 },
-        { text: 'Simple animation', hours: 7.8 },
-      ],
-      additionalFeatures: [
-        { text: 'Custom animation effects', hours: 11.8 },
-      ],
-    },
-    {
-      id: 'q7',
-      title: 'Will you need an Info screen in your app?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 3.9 },
-        { text: 'Terms of Use & Privacy Policy', hours: 4.9 },
-        { text: 'About us screen', hours: 4.9 },
+    // {
+    //   id: 'q2',
+    //   title: 'Will you allow users to complete a profile?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 8.8 },
+    //     { text: 'View Profile', hours: 21.1 },
+    //     { text: 'Edit Profile', hours: 13.3 },
+    //     { text: 'Edit profile details', hours: 16.1 },
+    //     { text: 'Change Password', hours: 10.3 },
+    //   ],
+    //   additionalFeatures: [
+    //     { text: 'Online Status', hours: 6.9 },
+    //     { text: 'Edit Phone', hours: 12.3 },
+    //   ],
+    // },
+    // {
+    //   id: 'q3',
+    //   title: 'Do you need Chats in your app?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 59.8 },
+    //     { text: 'List of chats', hours: 25 },
+    //     { text: 'Delete chat', hours: 24 },
+    //     { text: 'Chat details screen', hours: 18.1 },
+    //     { text: 'Send text', hours: 71.3 },
+    //   ],
+    //   additionalFeatures: [
+    //     { text: 'Send location', hours: 26.9 },
+    //     { text: 'Send audio record', hours: 26.9 },
+    //     { text: 'Clear chat', hours: 22.6 },
+    //     { text: 'Delete user from chat', hours: 11.3 },
+    //     { text: 'Typing status', hours: 13.3 },
+    //   ],
+    // },
+    // {
+    //   id: 'q4',
+    //   title: 'Do you need Group Chats in your app?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 40.3 },
+    //     { text: 'Select users', hours: 15.2 },
+    //     { text: 'Send invitation to users', hours: 24 },
+    //   ],
+    //   additionalFeatures: [],
+    // },
+    // {
+    //   id: 'q5',
+    //   title: 'Will you send Notifications to your users?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 7.5 },
+    //     { text: 'Push notifications', hours: 36.4 },
+    //     { text: 'Pop up notifications', hours: 23.6 },
+    //   ],
+    //   additionalFeatures: [
+    //     { text: 'Deep linking', hours: 14.5 },
+    //   ],
+    // },
+    // {
+    //   id: 'q6',
+    //   title: 'Will your app have a Splash screen?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 2 },
+    //     { text: 'Simple animation', hours: 7.8 },
+    //   ],
+    //   additionalFeatures: [
+    //     { text: 'Custom animation effects', hours: 11.8 },
+    //   ],
+    // },
+    // {
+    //   id: 'q7',
+    //   title: 'Will you need an Info screen in your app?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 3.9 },
+    //     { text: 'Terms of Use & Privacy Policy', hours: 4.9 },
+    //     { text: 'About us screen', hours: 4.9 },
 
-      ],
-      additionalFeatures: [
-        { text: 'Feedback form', hours: 11.3 },
-      ],
-    },
-    {
-      id: 'q8',
-      title: 'Will your app accept payments?',
-      conditional: false,
-      featuresForMVP: [
-        { text: 'Integration', hours: 0 },
-        { text: 'Paypal', hours: 49.1 },
-      ],
-      additionalFeatures: [
-        { text: 'Braintree', hours: 52.6 },
-        { text: 'Stripe', hours: 46.1 },
-        { text: 'Dwolla', hours: 52.6 },
-        { text: 'Authorize.net', hours: 52.6 },
-      ],
-    },
-    {
-      id: "q9",
-      title: "Do you need an Admin Panel in your app?",
-      conditional: false,
-      featuresForMVP: [
-        { text: "Integration", hours: 0 },
-        { text: "Authorization", hours: 11 },
-        { text: "User management", hours: 25 }
-      ],
-      additionalFeatures: [
-        { text: "Posts management", hours: 25 },
-        { text: "Categories management", hours: 9 },
-        { text: "Languages management", hours: 9 },
-        { text: "Payment administration", hours: 25 }
-      ]
-    },
-    {
-      id: "q10",
-      title: "Will your app have the Events screen?",
-      conditional: false,
-      featuresForMVP: [
-        { text: "Integration", hours: 5.8 },
-        { text: "List of events by category", hours: 15.7 },
-        { text: "Join event", hours: 9.8 },
-        { text: "Create event screen", hours: 15.3 },
-        { text: "Add details of event", hours: 12.3 }
-      ],
-      additionalFeatures: [
-        { text: "Category details screen", hours: 12.8 },
-        { text: "Add users for event", hours: 26.5 },
-        { text: "Multiselect users from friends list", hours: 10.8 }
-      ]
-    },
-    {
-      id: "q11",
-      title: "Do you need a Home screen in your app?",
-      conditional: false,
-      featuresForMVP: [
-        { text: "Integration", hours: 7.8 },
-        { text: "Friends posts in feed", hours: 14.3 },
-        { text: "Invites in feed", hours: 15.3 }
-      ],
-      additionalFeatures: []
-    },
-    {
-      id: "q12",
-      title: "Will there be a screen to manage the Matches?",
-      conditional: false,
-      featuresForMVP: [
-        { text: "Integration", hours: 6.8 },
-        { text: "List of profiles", hours: 28.4 },
-        { text: "Add to friends", hours: 6.9 },
-        { text: "Start chat", hours: 5.9 }
-      ],
-      additionalFeatures: [
-        { text: "Invite to friend", hours: 6.9 },
-        { text: "Filter screen", hours: 14.3 },
-        { text: "Swipe navigation", hours: 29.3 }
-      ]
-    },
-    {
-      id: "q13",
-      title: "Does your app need a Tutorial?",
-      conditional: false,
-      featuresForMVP: [
-        { text: "Integration", hours: 0 },
-        { text: "Simple animation", hours: 7.8 }
-      ],
-      additionalFeatures: [
-        { text: "Custom animation effects", hours: 11.8 }
-      ]
-    },
-    {
-      id: "q14",
-      title: "Will you let users manage the Settings?",
-      conditional: false,
-      featuresForMVP: [
-        { text: "Integration", hours: 19.5 },
-        { text: "Payment method screen", hours: 32.8 },
-        { text: "On/off calendar sync", hours: 11.5 },
-        { text: "Terms of service screen", hours: 5.8 },
-        { text: "Privacy policy screen", hours: 5.8 }
-      ],
-      additionalFeatures: [
-        { text: "On/off notification", hours: 11.5 },
-        { text: "On/off sounds/vibration", hours: 9.8 },
-        { text: "Feedback screen", hours: 16.4 }
-      ]
-    },
+    //   ],
+    //   additionalFeatures: [
+    //     { text: 'Feedback form', hours: 11.3 },
+    //   ],
+    // },
+    // {
+    //   id: 'q8',
+    //   title: 'Will your app accept payments?',
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: 'Integration', hours: 0 },
+    //     { text: 'Paypal', hours: 49.1 },
+    //   ],
+    //   additionalFeatures: [
+    //     { text: 'Braintree', hours: 52.6 },
+    //     { text: 'Stripe', hours: 46.1 },
+    //     { text: 'Dwolla', hours: 52.6 },
+    //     { text: 'Authorize.net', hours: 52.6 },
+    //   ],
+    // },
+    // {
+    //   id: "q9",
+    //   title: "Do you need an Admin Panel in your app?",
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: "Integration", hours: 0 },
+    //     { text: "Authorization", hours: 11 },
+    //     { text: "User management", hours: 25 }
+    //   ],
+    //   additionalFeatures: [
+    //     { text: "Posts management", hours: 25 },
+    //     { text: "Categories management", hours: 9 },
+    //     { text: "Languages management", hours: 9 },
+    //     { text: "Payment administration", hours: 25 }
+    //   ]
+    // },
+    // {
+    //   id: "q10",
+    //   title: "Will your app have the Events screen?",
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: "Integration", hours: 5.8 },
+    //     { text: "List of events by category", hours: 15.7 },
+    //     { text: "Join event", hours: 9.8 },
+    //     { text: "Create event screen", hours: 15.3 },
+    //     { text: "Add details of event", hours: 12.3 }
+    //   ],
+    //   additionalFeatures: [
+    //     { text: "Category details screen", hours: 12.8 },
+    //     { text: "Add users for event", hours: 26.5 },
+    //     { text: "Multiselect users from friends list", hours: 10.8 }
+    //   ]
+    // },
+    // {
+    //   id: "q11",
+    //   title: "Do you need a Home screen in your app?",
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: "Integration", hours: 7.8 },
+    //     { text: "Friends posts in feed", hours: 14.3 },
+    //     { text: "Invites in feed", hours: 15.3 }
+    //   ],
+    //   additionalFeatures: []
+    // },
+    // {
+    //   id: "q12",
+    //   title: "Will there be a screen to manage the Matches?",
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: "Integration", hours: 6.8 },
+    //     { text: "List of profiles", hours: 28.4 },
+    //     { text: "Add to friends", hours: 6.9 },
+    //     { text: "Start chat", hours: 5.9 }
+    //   ],
+    //   additionalFeatures: [
+    //     { text: "Invite to friend", hours: 6.9 },
+    //     { text: "Filter screen", hours: 14.3 },
+    //     { text: "Swipe navigation", hours: 29.3 }
+    //   ]
+    // },
+    // {
+    //   id: "q13",
+    //   title: "Does your app need a Tutorial?",
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: "Integration", hours: 0 },
+    //     { text: "Simple animation", hours: 7.8 }
+    //   ],
+    //   additionalFeatures: [
+    //     { text: "Custom animation effects", hours: 11.8 }
+    //   ]
+    // },
+    // {
+    //   id: "q14",
+    //   title: "Will you let users manage the Settings?",
+    //   conditional: false,
+    //   featuresForMVP: [
+    //     { text: "Integration", hours: 19.5 },
+    //     { text: "Payment method screen", hours: 32.8 },
+    //     { text: "On/off calendar sync", hours: 11.5 },
+    //     { text: "Terms of service screen", hours: 5.8 },
+    //     { text: "Privacy policy screen", hours: 5.8 }
+    //   ],
+    //   additionalFeatures: [
+    //     { text: "On/off notification", hours: 11.5 },
+    //     { text: "On/off sounds/vibration", hours: 9.8 },
+    //     { text: "Feedback screen", hours: 16.4 }
+    //   ]
+    // },
     {
       id: "qn",
       title: "Do you need a design for your App?",
