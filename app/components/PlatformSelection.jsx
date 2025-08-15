@@ -18,7 +18,7 @@ export default function PlatformSelection({ options = [], selectedPlatform, onSe
           )}
         >
           <span className={clsx(
-            'text-[15px] sm:text-[23px] font-medium',
+            'text-[15px] sm:text-[23px]',
             selectedPlatform === platform.text && 'textBlue'
           )}>
             {platform.text}

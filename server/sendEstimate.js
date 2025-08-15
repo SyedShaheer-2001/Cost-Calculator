@@ -1,29 +1,24 @@
-require("dotenv").config(); 
+require("dotenv").config();
 const express = require("express");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 const multer = require("multer");
 const cors = require("cors");
-const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Enable CORS
- app.use(cors());
+app.use(cors({
+  origin: '*', // Replace with your frontend origin in production
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type'],
+}));
 
-// Configure Multer to handle file upload
+// Multer for file upload in memory
 const upload = multer({ storage: multer.memoryStorage() });
 
-// Nodemailer transporter setup (use real credentials or OAuth for production)
-const transporter = nodemailer.createTransport({
-   host: "mail.appcostcalculator.ca",
-  port: 465,
-  secure: true, // true for port 465 (SSL)
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // load from env
-  },
-});
+// Initialize Resend with your API key
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post("/send-estimate", upload.single("pdf"), async (req, res) => {
   try {
@@ -36,27 +31,27 @@ app.post("/send-estimate", upload.single("pdf"), async (req, res) => {
     console.log("Email:", req.body.email);
     console.log("PDF size:", req.file.buffer.length);
 
-    const mailOptions = {
-      from: "info@appcostcalculator.ca",
+    // Send email via Resend API
+    const response = await resend.emails.send({
+      from: "info@appcostcalculator.ca", // must be a verified sender in Resend
       to: req.body.email,
       subject: `Your Estimate, ${req.body.name}`,
       text: `Hi ${req.body.name},\n\nAttached is the estimate for your app.`,
       attachments: [
         {
           filename: `${req.body.name}_estimate.pdf`,
-          content: req.file.buffer,
-          contentType: "application/pdf",
+          content: req.file.buffer.toString("base64"),
+          type: "application/pdf",
         },
       ],
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
+    console.log("Email sent, ID:", response.id);
     res.status(200).json({ message: "Email sent!" });
   } catch (err) {
     console.error("Email error:", err);
     res.status(500).json({ error: "Failed to send email." });
   }
 });
-
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

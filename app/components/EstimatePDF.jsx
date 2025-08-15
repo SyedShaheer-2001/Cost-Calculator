@@ -1,7 +1,7 @@
 // components/EstimatePDF.jsx
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-const EstimatePDF = ({ name, email, estimate, selectedData , category }) => {
+const EstimatePDF = ({ name, email, estimate, selectedData , category, selectedPlatform}) => {
   const totalDevHours = estimate;
 
   const nonDevHours = Math.floor(totalDevHours / 2.7);
@@ -79,7 +79,7 @@ const normalizedTasks = nonDevTasks.map(task => ({
     paddingBottom: 10,
   },
   summaryCard: {
-    width: '48%',
+    width: '49%',
     backgroundColor: '#174273',
     paddingLeft: 20,
     paddingTop:30,
@@ -110,7 +110,7 @@ const normalizedTasks = nonDevTasks.map(task => ({
   tableSectionTitle: {
     fontSize: 12,
     fontWeight: 'bold',
-    marginBottom: 6,
+    marginBottom: 12,
     color: '#174273',
   },
   row: {
@@ -125,6 +125,26 @@ const normalizedTasks = nonDevTasks.map(task => ({
     width: '30%',
     textAlign: 'right',
   },
+  moduleBlock: {
+  marginBottom: 10,
+},
+
+moduleTitle: {
+  fontWeight: 'bold',
+  color: '#D8216D',
+  fontSize: 10,
+},
+
+moduleHours: {
+  fontWeight: 'bold',
+  color: '#174273',
+},
+
+featureText: {
+  marginLeft: 10,
+  fontSize: 10,
+},
+
 });
 
 
@@ -150,7 +170,7 @@ const normalizedTasks = nonDevTasks.map(task => ({
             <Text style={styles.cardValue}>${developmentCost.toFixed(0)}</Text>
           </View>
           <View style={styles.summaryCard}>
-            <Text style={styles.cardTitle}>Summary time</Text>
+            <Text style={styles.cardTitle}>Total time</Text>
             <Text style={styles.cardValue}>{summaryTime.toFixed(1)} h</Text>
           </View>
         </View>
@@ -159,17 +179,30 @@ const normalizedTasks = nonDevTasks.map(task => ({
         <Text style={styles.sectionHeading}>Summary</Text>
 
         {/* Development Time */}
-        <View style={styles.table}>
-          <Text style={styles.tableSectionTitle}>Development Time</Text>
-          {selectedData.map((item, index) => (
-            <View key={index} style={styles.row}>
-              <Text style={styles.cell}>{item.questionTitle}</Text>
-              <Text style={styles.cellRight}>
-                {(item.mvpHours + item.additionalHours).toFixed(1)} h
-              </Text>
-            </View>
-          ))}
+       <View style={styles.table}>
+  <Text style={styles.tableSectionTitle}>Development Time</Text>
+
+  {selectedData.map((item, index) => (
+    <View key={index} style={styles.moduleBlock}>
+      {/* Module Header */}
+      <View style={styles.row}>
+        <Text style={[styles.cell, styles.moduleTitle]}>{item.questionTitle}</Text>
+        <Text style={[styles.cellRight, styles.moduleHours]}>
+          {(item.mvpHours + item.additionalHours).toFixed(1)} h
+        </Text>
+      </View>
+
+      {/* Features List */}
+      {[...item.selectedMVP, ...item.selectedAdditional].map((feature, i) => (
+        <View key={i} style={styles.row}>
+          <Text style={[styles.cell, styles.featureText]}>• {feature.text}</Text>
+          <Text style={styles.cellRight}>{feature.hours.toFixed(1)} h</Text>
         </View>
+      ))}
+    </View>
+  ))}
+</View>
+
 
         {/* Non-Development Time */}
         <View style={styles.table}>

@@ -9,6 +9,7 @@ export default function FeatureSelectionStep({
   setYesNo,
   selectedMVP,
   setSelectedMVP,
+  selectedPlatform,
   selectedAdditional,
   setSelectedAdditional,
 }) {
@@ -55,9 +56,19 @@ export default function FeatureSelectionStep({
 function getMVPFeatureHours(question) {
   if (!question?.featuresForMVP) return 0;
 
-  const total = question.featuresForMVP.reduce((sum, feature) => sum + (feature.hours || 0), 0);
+  let total = 0;
+
+  if (selectedPlatform === 'Android') {
+    total = question.featuresForMVP.reduce((sum, feature) => sum + (feature.AndroidHours || 0), 0);
+  } else if (selectedPlatform === 'IOS') {
+    total = question.featuresForMVP.reduce((sum, feature) => sum + (feature.IOSHours || 0), 0);
+  } else if (selectedPlatform === 'Both') {
+    total = question.featuresForMVP.reduce((sum, feature) => sum + (feature.BothHours || 0), 0);
+  }
+
   return parseFloat(total.toFixed(1)); // rounds to 1 decimal place
 }
+
 
 
   return (
@@ -99,11 +110,11 @@ function getMVPFeatureHours(question) {
       {/* Feature Selection */}
       {isYes && (
         <div>
-          <p className="text-gray-500 text-sm sm:mb-6 mb-4">Please choose required features below:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-h-42 overflow-y-auto">
+          <p className="text-gray-500 text-sm lg:text-xl sm:mb-6 mb-4">Please choose required features below:</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-h-44 overflow-y-auto min-h-42">
             {/* MVP Features */}
             <div>
-              <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Enough for MVP</h3>
+              <h3 className="font-semibold text-[16px] sm:text-lg lg:text-xl mb-4">Enough for MVP</h3>
               <ul className="space-y-3">
                 {currentQuestion?.featuresForMVP?.map((feature, index) => {
                   const isFirst = index === 0;
@@ -126,10 +137,12 @@ function getMVPFeatureHours(question) {
                       >
                         {isChecked && <span>✔</span>}
                       </div>
-                      <span className="text-[12px] sm:text-[15px]">
+                      <span className="text-[12px] sm:text-[15px] lg:text-[18px]">
                         {feature.text}
-                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">
-                          {feature.hours} hours
+                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px] lg:text-[16px]">
+                          {selectedPlatform === 'Android' && feature.AndroidHours}
+                          {selectedPlatform === 'IOS' && feature.IOSHours}
+                          {selectedPlatform === 'Both' && feature.BothHours} hours
                         </span>
                       </span>
                     </li>
@@ -141,7 +154,7 @@ function getMVPFeatureHours(question) {
             {/* Additional Features */}
             {currentQuestion?.additionalFeatures?.length > 0 && (
               <div>
-                <h3 className="font-semibold text-[16px] sm:text-lg mb-4">Additional Features</h3>
+                <h3 className="font-semibold text-[16px] sm:text-lg lg:text-xl mb-4">Additional Features</h3>
                 <ul className="space-y-3">
                   {currentQuestion.additionalFeatures.map((feature, index) => (
                     <li
@@ -159,10 +172,12 @@ function getMVPFeatureHours(question) {
                       >
                         {selectedAdditional[step]?.has(feature.text) && <span>✔</span>}
                       </div>
-                      <span className="text-[12px] sm:text-[15px]">
+                      <span className="text-[12px] sm:text-[15px] lg:text-[18px]">
                         {feature.text}
-                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px]">
-                          {feature.hours} hours
+                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px] lg:text-[16px]">
+                          {selectedPlatform === 'Android' && feature.AndroidHours}
+                          {selectedPlatform === 'IOS' && feature.IOSHours}
+                          {selectedPlatform === 'Both' && feature.BothHours} hours
                         </span>
                       </span>
                     </li>

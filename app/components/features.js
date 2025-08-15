@@ -74,5 +74,250 @@ const titleToFeature = {
   "Will you allow users to edit a Profile?": "Edit Profile",
   "Will users manage the Notification Settings?": "Notification Settings",
   "Will users manage the Broadcast Settings?": "Broadcast Settings",
+  
+// Events
+
+   "Do you need Registration & Authorization?": "Authorization",
+  "Do you want to let users Invite friends?": "Invite Friends",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash Screen",
+  "Will there be a Home screen?": "Home Screen",
+  "Do you need a Locations screen?": "Locations Screen",
+  "Will you allow users to complete a profile?": "Profile",
+  "Do you need an Admin Panel in your app?": "Admin Panel",
+
+
+// Communications
+
+    "Do you need Registration & Authorization?": "Authorization",
+  "Do you want to let users Invite friends?": "Invite Friends",
+  "Will you allow users to complete a profile?": "Profile",
+  "Do you need a Contacts screen in your app?": "Contacts",
+  "Do you need Chats in your app?": "Chats",
+  "Do you need Group Chats in your app?": "Group Chats",
+  "Will you let users manage the Settings?": "Settings",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash Screen",
+  "Do you need an Admin Panel in your app?": "Admin Panel",
+
+  // Shopping
+
+    "Do you need Registration & Authorization?": "Authorization",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash Screen",
+  "Will you let users organize Channels in your app?": "Channels",
+  "Will users manage tracks in 'Favorites'?": "Favorites",
+  "Will you allow users to manage their playlists?": "Playlists",
+  "Will users have access to other users' pages?": "User Pages",
+  "Will there be a Music player screen?": "Music Player",
+  "Do you need separate pages for Artists?": "Artists",
+  "Do you need separate pages for Albums?": "Albums",
+  "Will you let users manage the Settings?": "Settings",
+  "Do you need a Home screen in your Music app?": "Home Screen",
+  "Do you need an Admin Panel in your app?": "Admin Panel",
+
+  // photos
+
+   "Do you need Registration & Authorization?": "Authorization",
+  "Do you want to let users Invite friends?": "Invites",
+  "Do you need Chats in your app?": "Chats",
+  "Do you need Group Chats in your app?": "Group Chats",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash Screen",
+  "Will you need an Info screen in your app?": "Info Screen",
+  "Will your app accept payments?": "Payments",
+  "Do you need an Admin Panel in your app?": "Admin Panel",
+  "Do you need a Home screen in your app?": "Home Screen",
+  "Will you allow users to complete a profile?": "User Profiles",
+  "Will you let users manage the Settings?": "Settings",
+  "What will there be on the Add post screen?": "Add Post",
+  "Will you let users customize their photos?": "Photo Customization",
+
+  // Jobs
+
+    "Will you send Notifications to your users?": "Notifications",
+  "Does your app need a Tutorial?": "Tutorial",
+  "Do you need a Home screen in your app?": "Home Screen",
+  "Will you let jobseekers complete a Profile?": "Jobseeker Profile",
+  "Will there be a Job description screen?": "Job Description Screen",
+  "Will you let employers complete a profile?": "Employer Profile",
+  "Do you need a Post a Job screen?": "Post a Job Screen",
+  "Will there be a screen with Posted jobs?": "Posted Jobs Screen",
+  "Will the app show a list of Applicants to a job?": "Applicants List",
+  "Do you need an Admin Panel in your app?": "Admin Panel",
+
+  // Cars
+
+    "Do you need Registration & Authorization?": "Authorization",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash Screen",
+  "Does your app need a Tutorial?": "Tutorial",
+  "Will you allow Passengers to complete a Profile?": "Profile",
+  "Do you need a Payment screen for a Passenger’s app?": "Payment Screen",
+  "Do you need a screen with Promotions?": "Promotions",
+  "Will there be a Help section?": "Help Section",
+  "Will you track users’ GPS Location?": "GPS Location",
+
+
+  // Health
+
+   "Do you need Registration & Authorization?": "Authorization",
+  "Will your app accept payments?": "Payments",
+  "Will there be a Posts Feed in your app?": "Posts Feed",
+  "Will you let Users create their Posts?": "User Posts",
+  "Will Users be able to Tab Friends?": "Friends Tab",
+  "Do you need an Articles Feed in your app?": "Articles Feed",
+  "Do you need a User’s Profile Screen?": "Profile Screen",
+  "Will you let users edit their own posts?": "Edit Posts",
+  "Will there be a Following feature in your app?": "Following Feature",
+  "Do you need an Progress Calculators in your app?": "Progress Calculators",
+  "Will there be a List of Trainings in your app?": "Trainings List",
+  "Will you let users create and manage a Training Plan?": "Training Plan",
+  "Will there be an Award Screen in your app?": "Award Screen",
+  "Do you need a Notifications screen in your app?": "Notifications Screen",
+  "Do you need a Messages screen in your app?": "Messages Screen",
+  "Will there be a screen with app details in your app?": "App Details Screen",
+
+  // maternity
+
+  "Do you need Registration & Authorization?": "Registration & Authorization",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app need a User Profile screen?": "User Profile",
+  "Will you let users manage the Settings?": "Settings Management",
+  "Will there be a Pregnancy Tracking screen?": "Pregnancy Tracking",
+  "Will your app have a Shopping screen?": "Shopping Screen",
+  "Do you need an Order screen?": "Order Screen",
+  "Will there be a Blog in your app?": "Blog",
+  "Do you need a Doctors’ side?": "Doctors’ Side",
+  "Do you need an Admin Panel in your app?": "Admin Panel",
+
+  // Videos
+
+   "Do you need Registration & Authorization?": "Authorization",
+  "Will you let users Add Friends automatically?": "Friends",
+  "Does your app need a Main Screen?": "Main Screen",
+  "Will users be able to Broadcast?": "Broadcasting",
+  "Will you show users Broadcast Statistics?": "Broadcast Stats",
+  "Will you allow Group Broadcasts?": "Group Broadcasts",
+  "Will Users be able to watch Broadcasts?": "Broadcast Viewing",
+  "Will Users be able to watch Replays?": "Replay Viewing",
+  "Will you show the list of Live Broadcasts?": "Live Broadcasts",
+  "Will you allow Location-based Broadcasts?": "Location Broadcasts",
+  "Will there be a Notification Screen?": "Notification Screen",
+  "Do you need a Screen that shows Users?": "User Directory",
+  "Will you show brief User Details?": "User Details",
+  "Will there be Search in you app?": "Search",
+  "Do you need a User Profile Screen?": "User Profile",
+  "Will you allow users to edit a Profile?": "Profile Editing",
+  "Will users manage the Notification Settings?": "Notification Settings",
+  "Will users manage the Broadcast Settings?": "Broadcast Settings",
+  "Will you let users manage the Settings?": "App Settings",
+
+  //Uber
+
+   "Do you need Registration & Authorization?": "Authorization",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash",
+  "Does your app need a Tutorial?": "Tutorial",
+  "Will you allow Passengers to complete a Profile?": "Profile",
+  "Do you need a Payment screen for a Passengers app?": "Payments",
+  "Do you need a screen with Promotions?": "Promotions",
+  "Will there be a Help section?": "Help",
+  "Will you track users GPS Location?": "Location",
+
+
+  // Whatsapp
+
+   "Do you need Chats in your app?": "Chats",
+  "Do you need Group Chats in your app?": "GroupChats",
+  "Will your app accept payments?": "Payments",
+  "Do you need a Sign up page?": "Signup",
+  "Do you need a Home screen in your app?": "HomeScreen",
+  "Will you allow users to make Audio calls?": "AudioCalls",
+  "Will you allow users to make Video calls?": "VideoCalls",
+  "Will users be able to create Stories?": "Stories",
+  "Do you need a Contacts page in your app?": "Contacts",
+
+  //Uber For Drivers
+
+  "Do you need Registration & Authorization?": "Authorization",
+  "Will you send Notifications to your users?": "Notifications",
+  "Will your app have a Splash screen?": "Splash",
+  "Does your app need a Tutorial?": "Tutorial",
+  "Will you track users’ GPS Location?": "Location",
+  "Do you need Setup screens in a Driver’s app?": "SetupScreens",
+  "Will you allow Drivers to complete a Profile?": "Profile",
+  "Do you need a Main screen in a Driver’s app?": "MainScreen",
+
+  // pericsope
+
+   "Do you need Registration & Authorization?": "Authorization",
+  "Will you let users Add Friends automatically?": "AutoAddFriends",
+  "Does your app need a Main Screen?": "MainScreen",
+  "Will users be able to Broadcast?": "Broadcasting",
+  "Will you show users Broadcast Statistics?": "BroadcastStats",
+  "Will you allow Group Broadcasts?": "GroupBroadcasts",
+  "Will Users be able to watch Broadcasts?": "WatchBroadcasts",
+
+  // Snapchat
+  "Will your app accept payments?": "Payments",
+  "Do you need a Sign up page?": "Sign Up",
+  "Do you want to let users Add friends?": "Add Friends",
+  "Will allow users to Take Photos?": "Take Photos",
+  "Do you need a Friend List for users?": "Friend List",
+  "Will users be able to create Stories?": "Stories",
+  "Will you let users Edit their Photos?": "Photo Editing",
+  "Will you let users Edit their Videos?": "Video Editing",
+  "Will you allow users to make Calls?": "Calls",
+
+  // Netflix
+
+   "Will your app accept payments?": "Payments",
+  "Do you need a Sign up page?": "Sign Up",
+  "Will users be able to browse movies and TV shows?": "Browse Content",
+  "Will users be able to watch movies and TV shows?": "Watch Content",
+  "Will users be able to rate or review movies/shows?": "Ratings & Reviews",
+  "Will users have their personal profiles and viewing history?": "User Profiles",
+  "Will users be able to create playlists or collections of movies/shows?": "Playlists",
+
+  //Spotify
+
+    "Will your app accept payments?": "Payments",
+  "Do you need a Sign up page?": "Sign Up",
+  "Will users be able to search for music?": "Search Music",
+  "Will users be able to listen to music?": "Listen Music",
+  "Will users be able to create and manage playlists?": "Playlists",
+  "Will users be able to follow other users and artists?": "Follow",
+  "Will users be able to share music?": "Share Music",
+  "Will users have personal profiles?": "User Profiles",
+  "Will users be able to listen to podcasts?": "Podcasts",
+
+  // instagram
+
+   "Will users be able to create a profile?": "User Profile",
+  "Will users be able to post photos and videos?": "Posts",
+  "Will users be able to like and comment on posts?": "Likes & Comments",
+  "Will users be able to follow each other?": "Follow",
+  "Will users be able to send direct messages?": "Direct Messages",
+  "Will users be able to view Stories or Reels?": "Stories & Reels",
+  "Will there be a feed of user posts?": "Feed",
+  "Will users get notifications?": "Notifications",
+  "Will users be able to search for others or content?": "Search",
+
+
+  // Airbnb
+
+   "Will your app accept payments?": "Payments",
+  "Do you need a Sign up page?": "Sign Up",
+  "Will users be able to search for listings?": "Search Listings",
+  "Will users be able to book listings?": "Booking",
+  "Will users be able to list properties?": "Listing Properties",
+  "Will users be able to communicate with hosts?": "Messaging",
+  "Will users be able to leave reviews for properties?": "Reviews",
+  "Will users be able to search for experiences?": "Search Experiences",
+  "Will users be able to filter listings?": "Filters",
+
+
+
 };
 export default titleToFeature

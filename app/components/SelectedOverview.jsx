@@ -7,7 +7,7 @@ export default function SelectedOverview({ selectedPlatform, features, currentQu
       <div className="flex gap-8 text-[10px] sm:text-sm text-gray-600">
         {/* Selected Platform */}
         <div className="flex flex-col gap-4">
-          <strong>Platform:</strong>
+          <strong className="text-sm lg:text-xl">Platform:</strong>
           <div>
             {selectedPlatform ? (
               <span className="bg-[rgba(23,66,115,0.6)] text-white sm:text-sm sm:px-4 sm:py-2 px-2 py-1 text-[8px] rounded-full">
@@ -22,7 +22,7 @@ export default function SelectedOverview({ selectedPlatform, features, currentQu
         {/* Selected Features */}
         {currentQuestion?.id !== 'q0' && (
           <div className="flex flex-col gap-2">
-            <strong>Features:</strong>
+            <strong className="text-sm lg:text-xl">Features:</strong>
             <span className="max-h-20 overflow-y-auto">
               {features && features.size > 0 ? (
                 <div className="flex flex-wrap gap-2">

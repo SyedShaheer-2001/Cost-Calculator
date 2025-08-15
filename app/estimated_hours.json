@@ -1,0 +1,260 @@
+{
+  "Authentication": [
+    {
+      "task": "Sign Up (Email, Password, Name)",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Sign In (Email, Password)",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Forgot Password (Email)",
+      "AndroidHours": 3,
+      "IOSHours": 2.1,
+      "BothHours": 3.9
+    },
+    {
+      "task": "Two-Factor Authentication (SMS/Email)",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    }
+  ],
+  "User Profile": [
+    {
+      "task": "View Profile",
+      "AndroidHours": 3,
+      "IOSHours": 2.1,
+      "BothHours": 3.9
+    },
+    {
+      "task": "Edit Profile (Name, Email, Password)",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Upload Profile Picture",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    }
+  ],
+  "Dashboard": [
+    {
+      "task": "Overview Widgets",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Quick Access Links",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    }
+  ],
+  "Inventory Management": [
+    {
+      "task": "Add Item",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Edit Item",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Delete Item",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "View Item List",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Item Details Page",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Search and Filter Items",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    }
+  ],
+  "Order Management": [
+    {
+      "task": "Create Order",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Update Order Status",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Cancel Order",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "Order History",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    }
+  ],
+  "Customer Management": [
+    {
+      "task": "Add Customer",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "Edit Customer Info",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "Delete Customer",
+      "AndroidHours": 3,
+      "IOSHours": 2.1,
+      "BothHours": 3.9
+    },
+    {
+      "task": "View Customer List",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Customer Details Page",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    }
+  ],
+  "Reports": [
+    {
+      "task": "Sales Reports",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Inventory Reports",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Customer Reports",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    }
+  ],
+  "Notifications": [
+    {
+      "task": "Push Notifications Setup",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "Email Notifications",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    }
+  ],
+  "Settings": [
+    {
+      "task": "General Settings",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "Notification Settings",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    },
+    {
+      "task": "Account Settings",
+      "AndroidHours": 4,
+      "IOSHours": 2.8,
+      "BothHours": 5.2
+    }
+  ],
+  "Integration": [
+    {
+      "task": "Payment Gateway Integration",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "3rd Party API Integration",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    }
+  ],
+  "Admin Panel": [
+    {
+      "task": "User Management",
+      "AndroidHours": 6,
+      "IOSHours": 4.2,
+      "BothHours": 7.8
+    },
+    {
+      "task": "Role Management",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    },
+    {
+      "task": "Access Control",
+      "AndroidHours": 5,
+      "IOSHours": 3.5,
+      "BothHours": 6.5
+    }
+  ],
+  "Help & Support": [
+    {
+      "task": "FAQ Section",
+      "AndroidHours": 3,
+      "IOSHours": 2.1,
+      "BothHours": 3.9
+    },
+    {
+      "task": "Contact Support Form",
+      "AndroidHours": 3,
+      "IOSHours": 2.1,
+      "BothHours": 3.9
+    }
+  ]
+}

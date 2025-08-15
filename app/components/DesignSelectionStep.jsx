@@ -5,14 +5,27 @@ import { Check } from 'lucide-react';
 
 export default function DesignSelectionStep({
   options,
-  selectedDesign,
-  setSelectedDesign,
   setDesignHours,
+  selectedDesign,
+  selectedPlatform,
+  setSelectedDesign,
 }) {
   const handleSelect = (option) => {
-    setSelectedDesign(option.text);
-    setDesignHours(option.hours);
-  };
+  setSelectedDesign(option.text);
+
+  let hours = 0;
+
+  if (selectedPlatform === 'Android') {
+    hours = option.AndroidHours || 0;
+  } else if (selectedPlatform === 'IOS') {
+    hours = option.IOSHours || 0;
+  } else if (selectedPlatform === 'Both') {
+    hours = option.BothHours || 0;
+  }
+
+  setDesignHours(hours);
+};
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-4 sm:mb-24 mb-4">
@@ -27,12 +40,16 @@ export default function DesignSelectionStep({
         >
           <div className="flex flex-col gap-2">
             <span className={clsx(
-              'text-[15px] sm:text-[23px] font-medium',
+              'text-[15px] sm:text-[23px]',
               selectedDesign === option.text && 'textBlue'
             )}>
               {option.text}
             </span>
-            <span className="text-[15px] font-medium text-gray-400">+{option.hours} hours</span>
+            <span className="text-[15px] font-medium text-gray-400">
+              +{selectedPlatform === 'Android' && option.AndroidHours}
+              {selectedPlatform === 'IOS' && option.IOSHours}
+              {selectedPlatform === 'Both' && option.BothHours}hours
+            </span>
           </div>
 
           <div
