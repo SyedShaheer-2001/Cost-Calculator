@@ -43,13 +43,13 @@ const Benefits = () => {
             Benefits Of Using Our{' '}
             <span className="text-[#E81D6C]">App Development Cost Calculator</span>
           </h2>
-          <p className="text-gray-600 mx-auto mt-4 text-subheading leading-relaxed">
+          <p className="text-gray-600 mx-auto mt-4 text-subheading leading-relaxed max-w-[1200px] mx-auto">
             Our App Development Cost Calculator empowers you to get a fast, transparent, and accurate estimate for building a mobile app. Whether you're developing for iOS, Android, or both, this tool breaks down app development costs by platform, features, and design complexity. Perfect for startups, entrepreneurs, and businesses, it helps you plan budgets more effectively, avoid hidden costs, and make data-driven decisions. Use our app cost calculator to save time, reduce guesswork, and start your project with clarity and confidence.
           </p>
         </div>
 
         {/* Benefit Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 px-2 sm:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 px-2 sm:px-0 max-w-[1200px] mx-auto">
           {benefits.map((benefit, index) => (
             <div
               key={index}
@@ -60,10 +60,10 @@ const Benefits = () => {
 
               {/* Text */}
               <div className="flex-1">
-                <h4 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-black mb-3">
+                <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-black mb-3">
                   {benefit.title}
                 </h4>
-                <p className="text-gray-600 text-subheading leading-relaxed">
+                <p className="text-gray-600 text-para leading-relaxed">
                   {benefit.description}
                 </p>
               </div>

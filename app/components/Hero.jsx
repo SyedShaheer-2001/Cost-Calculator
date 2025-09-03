@@ -13,10 +13,10 @@ const Hero = ({ onTypeSelect }) => {
 
                     {/* Existing Apps Option */}
                     <div className="bg-black text-white py-[35px] px-[26px] sm:py-[70px] sm:px-[76px] rounded-xl lg:max-w-[627px] w-full flex flex-col items-center justify-center sm:gap-14 gap-8">
-                        <h3 className=" text-para leading-[34px]">Like existing Apps</h3>
+                        <h3 className=" text-[30px] leading-[34px]">Like existing Apps</h3>
                         <p className=" text-subheading  font-semibold">Uber, Instagram, Airbnb, WhatsApp etc.</p>
                         <div
-                            className="cursor-pointer rounded-full py-[12px] px-[30px] sm:py-[20px] sm:px-[50px] border-2 sm:border-3 border-white text-para ease-in-out hover:bg-gradient-to-br hover:from-[#7250D9] hover:to-[#E81D6C] hover:border-none sm:hover:py-[23px] hover:py-[12px]"
+                            className="cursor-pointer rounded-full py-[12px] px-[30px] sm:py-[15px] sm:px-[40px] border-2 sm:border-3 border-white text-para ease-in-out hover:bg-gradient-to-br hover:from-[#7250D9] hover:to-[#E81D6C] hover:border-none sm:hover:py-[18px] hover:py-[14px]"
                             onClick={() => onTypeSelect('existing')}
                         >
                             GET A COST
@@ -25,10 +25,10 @@ const Hero = ({ onTypeSelect }) => {
 
                     {/* Business Apps Option */}
                     <div className="bgPinkGradient text-white py-[35px]  px-[26px] sm:py-[70px] sm:px-[76px] rounded-xl lg:max-w-[627px] w-full flex flex-col items-center justify-center gap-9">
-                        <h3 className=" text-para leading-[34px]">For my own business</h3>
+                        <h3 className=" text-[30px] font-bold leading-[34px]">For my own business</h3>
                         <p className=" text-subheading  font-semibold">Cars & Transport, Social networking, Travel, Health & Beauty etc.</p>
                         <div
-                            className="cursor-pointer rounded-full py-[12px] px-[30px] sm:py-[20px] sm:px-[50px] border-2 sm:border-3 border-white text-para hover:border-black hover:bg-black"
+                            className="cursor-pointer rounded-full py-[12px] px-[30px] sm:py-[15px] sm:px-[40px] border-2 sm:border-3 border-white text-para hover:border-black hover:bg-black"
                             onClick={() => onTypeSelect('business')}
                         >
                             GET A COST

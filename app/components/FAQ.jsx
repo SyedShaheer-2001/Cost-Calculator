@@ -57,7 +57,7 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`p-8 shadow-md hover:shadow-xl transition-all duration-100 ${
+              className={`p-6 shadow-md hover:shadow-xl transition-all duration-100 max-w-[700px] mx-auto  ${
                     activeIndex === index ? 'border-2 border-[#174273] rounded-4xl' : 'border border-gray-200 rounded-2xl'
                   }`}
             >

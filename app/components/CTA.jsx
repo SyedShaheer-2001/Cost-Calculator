@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
 
       {/* Blue Card */}
       <div className="px-4 relative z-10 mx-4 xl:mx-auto">
-        <div className="max-w-[1600px] mx-auto bgPinkGradient text-white rounded-[14px] md:rounded-[54px] sm:rounded-[34px] flex flex-col lg:flex-row shadow-2xl overflow-hidden">
+        <div className="max-w-[1300px] mx-auto bgPinkGradient text-white rounded-[14px] md:rounded-[54px] sm:rounded-[34px] flex flex-col lg:flex-row shadow-2xl overflow-hidden">
           {/* Left Side - Form */}
           <div className="lg:w-7/12 w-full pr-6 lg:pl-24 pl-6 pt-12 pb-16">
             <h2 className="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[58px] font-light mb-8 leading-tight">

@@ -30,16 +30,16 @@ const Testimonial = () => {
           What Our Users Are Saying
         </h2>
 
-        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3 max-w-[1200px] mx-auto">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
               className="bgPinkGradient rounded-xl p-8 flex flex-col justify-between shadow-lg transition-transform hover:-translate-y-2 duration-300"
             >
-              <p className="text-subheading italic mb-6">“{testimonial.quote}”</p>
+              <p className="text-para italic mb-6 font-light">“{testimonial.quote}”</p>
               <div className="mt-auto">
-                <h4 className="font-semibold text-subheading">{testimonial.name}</h4>
-                <p className="text-subheading italic">{testimonial.role}</p>
+                <h4 className="font-semibold text-para">{testimonial.name}</h4>
+                <p className="text-para italic font-light">{testimonial.role}</p>
               </div>
             </div>
           ))}

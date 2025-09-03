@@ -31,7 +31,7 @@ export default function Navbar() {
       </button>
 
       {/* Desktop nav */}
-      <ul className="hidden lg:flex text-gray-700 text-[20px]">
+      <ul className="hidden lg:flex text-gray-700 text-[15px]">
         <div className="flex xl:gap-[35px] gap-[28px] items-center ">
           {/* <li className='cursor-pointer'><button  className='cursor-pointer' onClick={() => handleScroll('content')}>Content</button></li> */}
           <li className='cursor-pointer'><button  className='cursor-pointer' onClick={() => handleScroll('testimonial')}>Testimonial</button></li>
@@ -42,7 +42,7 @@ export default function Navbar() {
           <li>
             <button
               onClick={() => handleScroll('cta')}
-              className="bgPinkGradient py-3 px-8 sm:px-10 rounded-full text-white font-semibold text-lg sm:text-xl hover:opacity-90 transition cursor-pointer"
+              className="bgPinkGradient py-3 px-8 sm:px-10 rounded-full text-white font-semibold text-[15px] hover:opacity-90 transition cursor-pointer"
             >
               Contact us
             </button>
