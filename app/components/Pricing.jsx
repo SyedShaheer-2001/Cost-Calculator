@@ -336,7 +336,7 @@ export default function Pricing() {
 
                     {lastscreen ? (
                         <>
-                            <div className='max-w-[1600px] mx-auto relative shadow-2xl rounded-[18px]'>
+                            <div className='max-w-[1400px] mx-auto relative shadow-2xl rounded-[18px]'>
                                 <div className="absolute top-8 left-6">
                                     <button
                                         onClick={() => handleBackLastScreen()}
@@ -366,7 +366,7 @@ export default function Pricing() {
                                 />
                             ) : (
                                 // ======= Step One: Platform Selection =======
-                                <div className="flex flex-col lg:flex-row gap-6 max-w-[1540px] mx-auto">
+                                <div className="flex flex-col lg:flex-row gap-6 max-w-[1340px] mx-auto">
                                     {/* Left Section */}
                                     <div className="flex-1  rounded-2xl sm:p-6 p-4 shadow-2xl">
                                         <div>
@@ -383,7 +383,7 @@ export default function Pricing() {
                                                 </span>
                                             </div>
 
-                                            <h2 className="text-[15px] sm:text-2xl lg:text-3xl xl:text-4xl font-semibold sm:mb-12 mb-4">
+                                            <h2 className="text-heading font-semibold sm:mb-12 mb-4">
                                                 {currentQuestion?.title}
                                             </h2>
                                             {currentStep === 0 && category !== '+ Add' && (

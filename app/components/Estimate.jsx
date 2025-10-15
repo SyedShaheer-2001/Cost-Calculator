@@ -64,15 +64,25 @@ function Estimate({ estimate , selectedData , category , selectedPlatform}) {
 
     // https://appcostcalculator.ca/server/send-estimate
     // http://localhost:5000/send-estimate
-
-    const response = await fetch("https://appcostcalculator.ca/server/send-estimate", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) throw new Error("Email failed");
-    // 4. Optional: download locally
     saveAs(blob, `${name}_estimate.pdf`);
+
+
+//  .................... backend code comented ...............
+
+    // const response = await fetch("https://appcostcalculator.ca/server/send-estimate", {
+    //   method: "POST",
+    //   body: formData,
+    // });
+
+    // if (!response.ok) throw new Error("Email failed");
+
+// .............. backend code comented  ...........................
+
+
+    // 4. Optional: download locally
+   
+
+    console.log('formData', blob, name, email)
 
     setMessage("Estimate submitted and emailed!");
   } catch (error) {

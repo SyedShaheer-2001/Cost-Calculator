@@ -59,7 +59,7 @@ const handleSubmit = async (e) => {
       <div className="px-4 relative z-10 mx-4 xl:mx-auto">
         <div className="max-w-[1300px] mx-auto bgPinkGradient text-white rounded-[14px] md:rounded-[54px] sm:rounded-[34px] flex flex-col lg:flex-row shadow-2xl overflow-hidden">
           {/* Left Side - Form */}
-          <div className="lg:w-7/12 w-full pr-6 lg:pl-24 pl-6 pt-12 pb-16">
+          <div className="w-full w-full pr-6 lg:pl-24 pl-6 pt-12 pb-16">
             <h2 className="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[58px] font-light mb-8 leading-tight">
               Start growing your <br /> business with us
             </h2>
@@ -127,9 +127,9 @@ const handleSubmit = async (e) => {
           </div>
 
           {/* Right Side - Testimonial */}
-          <div className="lg:w-5/12 w-full flex flex-col justify-between bgOrange pt-16 px-6 sm:px-10 pb-12">
+          {/* <div className="lg:w-5/12 w-full flex flex-col justify-between bgOrange pt-16 px-6 sm:px-10 pb-12">
             <div>
-              {/* User Info */}
+             
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src="/Home/user.svg"
@@ -146,12 +146,14 @@ const handleSubmit = async (e) => {
                 </div>
               </div>
 
-              {/* Quote */}
+            
               <p className="text-[18px] sm:text-[22px] leading-[28px] font-extralight text-center sm:text-left">
                 "The team is very organized, communicative, and proactive. They keep the project on track and provide excellent suggestions to improve the product."
               </p>
             </div>
-          </div>
+          </div> */}
+
+          
         </div>
       </div>
     </div>

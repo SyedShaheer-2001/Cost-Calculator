@@ -47,7 +47,7 @@ const categoryHoverStyles = {
 
 
   return (
-    <div className="pt-12 max-w-[1540px] mx-auto relative rounded-2xl pb-32 px-4 shadow-2xl min-h-36">
+    <div className="pt-12 max-w-[1340px] mx-auto relative rounded-2xl pb-32 px-4 shadow-2xl min-h-36">
       {/* Back Button */}
       <div className="absolute top-8 left-6">
         <button
@@ -61,7 +61,7 @@ const categoryHoverStyles = {
 
       {/* Header and Logo */}
       <div className="flex justify-between items-center">
-        <h1 className="text-sm sm:text-xl  md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-black mx-8 mt-8">
+        <h1 className="text-heading font-semibold text-black mx-8 mt-8">
           {type === 'existing' ? 'Choose Application' : 'Choose your Business'}
         </h1>
         {/* <div className="mx-8 mt-12">
@@ -92,7 +92,7 @@ const categoryHoverStyles = {
       <button
         key={name}
         onClick={() => onSelectCategory(name)}
-        className={`cursor-pointer border border-[#0000004D] py-[20px] sm:px-[52px] px-[5px] text-[15px] sm:text-[20px] 2xl:text-[24px] bg-white rounded-[12px] transition flex justify-center items-center gap-3 ${hoverClasses}`}
+        className={`cursor-pointer border border-[#0000004D] py-[20px] sm:px-[52px] px-[5px] text-subheading bg-white rounded-[12px] transition flex justify-center items-center gap-3 ${hoverClasses}`}
       >
         {isExisting ? (
           <div className="flex items-center gap-2">
