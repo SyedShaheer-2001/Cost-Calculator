@@ -8,6 +8,7 @@ import EstimatePDF from './EstimatePDF';
 
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import ReactCountryFlag from 'react-country-flag';
 
 function Estimate({ estimate , selectedData , category , selectedPlatform}) {
 
@@ -15,6 +16,24 @@ function Estimate({ estimate , selectedData , category , selectedPlatform}) {
   const [phone, setPhone]= useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage]= useState("");
+const [errors, setErrors] = useState({});
+
+
+const validateForm = () => {
+  const newErrors = {};
+
+  if (!name.trim()) newErrors.name = "Please enter your name";
+  if (!email.trim()) newErrors.email = "Please enter your email";
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    newErrors.email = "Please enter a valid email address";
+
+  if (!phone.trim()) newErrors.phone = "Please enter your phone number";
+  else if (!/^\d{7,15}$/.test(phone))
+    newErrors.phone = "Enter a valid phone number (7–15 digits)";
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
 
   console.log('xs category', category)
   console.log('xs estimate', estimate)
@@ -24,6 +43,7 @@ function Estimate({ estimate , selectedData , category , selectedPlatform}) {
 
  const handleSubmit = async (e) => {
   e.preventDefault();
+  if (!validateForm()) return;
 
   if (!name.trim() || !email.trim()) {
     setMessage("Please enter name and email.");
@@ -165,6 +185,7 @@ const formattedDate = futureDate.toLocaleDateString('en-US', {
                       placeholder="Your name"
                       className="w-full bg-transparent border-b  outline-none text-white placeholder-white pb-2"
                     />
+                    {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
                   </div>
                   <div className='text-[#80AAE5] text-[12px] sm:text-[18px] mb-8'>
                     <input
@@ -174,16 +195,23 @@ const formattedDate = futureDate.toLocaleDateString('en-US', {
                       placeholder="Your business email"
                       className="w-full bg-transparent border-b  outline-none text-white placeholder-white pb-2"
                     />
+                    {errors.email && <p className="text-red-300 text-sm mt-1">{errors.email}</p>}
                   </div>
                   <div className='text-[#80AAE5] text-[12px] sm:text-[18px] mb-8'>
-                    <input
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      type="phone"
-                      placeholder="Your phone number"
-                      className="w-full bg-transparent border-b  outline-none text-white placeholder-white pb-2"
-                    />
-                  </div>
+  <div className="text-[#80AAE5] text-[12px] sm:text-[18px] mb-8">
+
+
+    <input
+      value={phone}
+      onChange={(e) => setPhone(e.target.value)}
+      type="tel"
+      placeholder="Your phone number"
+      className="w-full bg-transparent border-b outline-none text-white placeholder-white pb-2"
+    />
+  </div>
+  {errors.phone && <p className="text-red-300 text-sm mt-1">{errors.phone}</p>}
+</div>
+
                   {message && (
                     <div className='text-[#120B09]'>{message}</div>
                   )}
