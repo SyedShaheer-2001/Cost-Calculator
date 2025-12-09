@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
@@ -40,47 +40,49 @@ const FAQ = () => {
   console.log('setActiveIndex', activeIndex)
 
   return (
-    <section className="bg-[#ffffff] py-28 sm:py-36 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="bg-[#171717] text-white py-24 px-6">
+      <div className="max-w-[1100px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-heading font-semibold text-black leading-tight mb-8">
-            Frequently Asked <span className="text-[#E81D6C]">Questions</span>
+          <h2 className="text-heading font-semibold  leading-tight mb-8">
+            Frequently Asked Questions
           </h2>
-          <p className="text-gray-600 text-subheading leading-relaxed">
+          <p className=" text-para font-thin">
             Everything you need to know about our App Cost Calculator.
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-6">
+        <div className="space-y-2">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`p-6 shadow-md hover:shadow-xl transition-all duration-100 max-w-[700px] mx-auto  ${
-                    activeIndex === index ? 'border-2 border-[#174273] rounded-4xl' : 'border border-gray-200 rounded-2xl'
+              className={`p-6 shadow-md hover:shadow-xl bg-[#222222] rounded-lg  ${
+                    activeIndex === index ? ' transition-all duration-100 border-2 border-white' : ''
                   }`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex justify-between items-center text-left"
               >
-                <span className="text-subheading font-semibold text-black">
+                <span className="text-subheading font-semibold ">
                   {faq.question}
                 </span>
-                <ChevronDown
-                  className={`w-7 h-7 sm:w-8 sm:h-8 text-gray-600 transition-transform duration-100 ${
-                    activeIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
+
+                {activeIndex === index ? (
+                  <Minus className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-100" />
+                ) : (
+                  <Plus className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-100" />
+                )}
               </button>
 
+
               <div
-                className={`overflow-hidden transition-all duration-100 ease-in-out ${
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   activeIndex === index ? 'max-h-96 mt-5 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <p className="text-gray-600 text-subheading leading-relaxed">
+                <p className=" text-para font-thin">
                   {faq.answer}
                 </p>
               </div>

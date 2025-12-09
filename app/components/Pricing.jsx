@@ -322,7 +322,8 @@ export default function Pricing() {
     }
 
     return (
-        <div className='min-h-[700px] mx-4 px-4'>
+       
+        <div className='min-h-[700px] '>
             {hero ? (
                 <>
                     <Hero onTypeSelect={(selectedType) => {
@@ -481,6 +482,7 @@ export default function Pricing() {
             </>
             )}
         </div>
+     
 
     );
 }

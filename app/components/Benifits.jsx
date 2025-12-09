@@ -35,38 +35,41 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section className="bg-white pt-24 sm:pt-38 px-6">
+    <section className="py-24 sm:pt-38 px-10" style={{
+        backgroundImage: "url('/myGallery/benifitBG.jpg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}>
       <div className="max-w-[1600px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-heading font-semibold text-black mb-6 leading-tight">
-            Benefits Of Using Our{' '}
-            <span className="text-[#E81D6C]">App Development Cost Calculator</span>
+        <div className="text-center mb-20 max-w-[820px] mx-auto text-white">
+          <h2 className="text-heading font-semibold mb-6 leading-[100%] ">
+            Benefits Of Using Our App Development Cost Calculator
           </h2>
-          <p className="text-gray-600 mx-auto mt-4 text-subheading leading-relaxed max-w-[1200px] mx-auto">
+          <p className="font-thin text-para">
             Our App Development Cost Calculator empowers you to get a fast, transparent, and accurate estimate for building a mobile app. Whether you're developing for iOS, Android, or both, this tool breaks down app development costs by platform, features, and design complexity. Perfect for startups, entrepreneurs, and businesses, it helps you plan budgets more effectively, avoid hidden costs, and make data-driven decisions. Use our app cost calculator to save time, reduce guesswork, and start your project with clarity and confidence.
           </p>
         </div>
 
         {/* Benefit Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 px-2 sm:px-0 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 px-2 sm:px-0 max-w-[1100px] mx-auto text-white" >
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-[#f9f9f9] rounded-3xl p-8 sm:p-10 flex gap-6 items-start shadow-md hover:shadow-xl transition-all duration-300"
+              className="bg-black/30 rounded-xl gradient-border  sm:py-[60px] sm:px-[110px] py-[20px] px-[40px] flex gap-4 items-center justify-center transition-all duration-300 flex-col text-center"
             >
-              {/* Icon Container */}
               
 
               {/* Text */}
-              <div className="flex-1">
-                <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-black mb-3">
+              
+                <h4 className="text-xl sm:text-2xl lg:text-3xl  ">
                   {benefit.title}
                 </h4>
-                <p className="text-gray-600 text-para leading-relaxed">
+                <p className=" text-para font-thin ">
                   {benefit.description}
                 </p>
-              </div>
+             
               
             </div>
           ))}
