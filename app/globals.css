@@ -268,7 +268,6 @@ html {
   background: linear-gradient(135deg, #E81D6C 0%, #7250D9 100%);
   padding: 12px 32px;
   border-radius: 9999px;
-  color: white;
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
@@ -302,6 +301,7 @@ html {
 
 .gradient-button:hover {
   background: transparent;
+  
 }
 
 .gradient-button:hover::before {

@@ -4,7 +4,7 @@ const Breakdown = () => {
 
     return (
         <>
-            <div className='bg-black text-white py-[134px] px-10'>
+            <div className='bg-black text-white md:py-32 py-16 px-10'>
                 <div className='flex flex-col max-w-[850px] mx-auto gap-4 text-center '>
                     <h1 className='text-heading '>Get a Personalized Price Breakdown</h1>
                     <p className='font-thin text-para'>. Select your preferred app platform (iOS, Android, or both), choose core features, design preferences, and overall project complexity — and our app cost calculator will instantly estimate your mobile app development cost.</p>

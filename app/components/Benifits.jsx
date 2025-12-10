@@ -35,7 +35,7 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section className="py-24 sm:pt-38 px-10" style={{
+    <section className="py-24 px-10" style={{
         backgroundImage: "url('/myGallery/benifitBG.jpg')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -57,10 +57,8 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-black/30 rounded-xl gradient-border  sm:py-[60px] sm:px-[110px] py-[20px] px-[40px] flex gap-4 items-center justify-center transition-all duration-300 flex-col text-center"
+              className="bg-black/30 rounded-xl gradient-border  sm:py-[60px] sm:px-[60px] py-[20px] px-[40px] flex gap-4 items-center justify-center transition-all duration-300 flex-col text-center"
             >
-              
-
               {/* Text */}
               
                 <h4 className="text-xl sm:text-2xl lg:text-3xl  ">
@@ -69,8 +67,6 @@ const Benefits = () => {
                 <p className=" text-para font-thin ">
                   {benefit.description}
                 </p>
-             
-              
             </div>
           ))}
         </div>

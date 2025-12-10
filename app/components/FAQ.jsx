@@ -40,7 +40,7 @@ const FAQ = () => {
   console.log('setActiveIndex', activeIndex)
 
   return (
-    <section className="bg-[#171717] text-white py-24 px-6">
+    <section className="bg-[#171717] text-white md:py-24 py-16 px-6">
       <div className="max-w-[1100px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">

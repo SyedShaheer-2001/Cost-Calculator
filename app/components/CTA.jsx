@@ -48,7 +48,7 @@ export default function CTA() {
   };
 
   return (
-    <div className="py-36 relative z-10 xl:mx-auto px-10" style={{
+    <div className=" relative z-10 xl:mx-auto md:py-36 py-16 px-10" style={{
       backgroundImage: "url('/myGallery/footerBG.png')",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
@@ -68,7 +68,7 @@ export default function CTA() {
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Name + Email */}
-            <div className="flex flex-col md:flex-row gap-28 mb-4">
+            <div className="flex flex-col md:flex-row gap-12 md:gap-28 mb-4">
               <div className='flex flex-col gap-4 w-full'>
                 <p>Full Name</p>
                 <input
@@ -120,7 +120,7 @@ export default function CTA() {
             </label>
 
             {/* Policy + Button */}
-            <div className="flex flex-col xl:flex-row justify-between xl:items-center gap-6 ">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-6 ">
               <p className="text-sm font-light max-w-[300px]">
                 By sending this form I confirm that I have read and accept the privacy policy
               </p>

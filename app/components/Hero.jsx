@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hero = ({ onTypeSelect }) => {
     return (
-        <section className="text-center py-8 sm:py-20 flex items-center justify-center text-white px-10"
+        <section className="text-center py-8 sm:py-20 flex items-center justify-center text-white px-10 "
         >
             <div className="max-w-[1600px] mx-auto flex flex-col items-center gap-8">
                 <h2 className="text-mainheading mb-12 mx-4 font-bold max-w-[661px] text-center leading-[95%]">

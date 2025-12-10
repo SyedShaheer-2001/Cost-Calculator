@@ -31,7 +31,7 @@ const Content = () => {
             With just a few clicks, our mobile app development cost calculator considers key factors such as app complexity, functionality, user interface design, back-end infrastructure, third-party integrations, and platform selection (iOS, Android, or both) to give you a realistic budget estimate.
           </p>
 
-          <button onClick={scrollToPricing} className="gradient-button">
+          <button onClick={scrollToPricing} className="gradient-button text-white hover:text-black">
             Calculate Your App Cost
           </button>
         </div>
