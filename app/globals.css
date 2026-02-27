@@ -92,6 +92,9 @@ body {
   background-color: #D8216D ;
   color:#ffffff;
 }
+.text-pink{
+color: #D8216D ;
+}
 /* .bgPink:hover{
   background-color: #db347a ;
   color:#ffffff;
@@ -108,9 +111,19 @@ body {
   color:#0066FF
 }
 .bg-gradient-blue {
-  background-image: linear-gradient(to right, #174273, #D8216D);
+  background-image: linear-gradient(155deg, #D8216D, #174273);
   color:#ffffff;
 }
+
+
+
+
+
+
+
+
+
+
 .bgGray{
   background-color: #F8F8FB;
 }
@@ -150,7 +163,7 @@ html {
 
 
 .text-mainheading {
-  font-size: 35px;
+  font-size: 30px;
   
   /* small devices (1024px and up) */
   @media (min-width: 640px) {
@@ -203,6 +216,34 @@ html {
 
   @media (min-width: 1536px) {
     font-size: 52px; /* ~2xl screen */
+  }
+}
+
+.text-screenheading {
+  font-size: 26px;
+  
+  /* small devices (1024px and up) */
+  @media (min-width: 640px) {
+    font-size: 30px; /* ~text-2xl */
+  }
+
+    /* Medium devices (768px and up) */
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  /* Large devices (1024px and up) */
+  @media (min-width: 1024px) {
+    font-size: 32px; /* ~text-3xl */
+  }
+
+  /* Extra large devices (1280px and up) */
+  @media (min-width: 1280px) {
+    font-size: 37px; /* ~text-4xl */
+  }
+
+  @media (min-width: 1536px) {
+    font-size: 42px; /* ~2xl screen */
   }
 }
 
@@ -343,13 +384,14 @@ html {
   inset: 0;
   border-radius: inherit;
   padding: 3px; /* border thickness */
-  background: linear-gradient(135deg, #7250D9 0%, #E81D6C 100%);
+  background: linear-gradient(135deg, #b91151 0%, #5a4891 100%);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
+  color: #fff !important;
 }
 
 .text-gradient {
@@ -393,5 +435,68 @@ html {
 .submit-btn .arrow-icon {
   width: 43px;
   height: 43px;
+}
+.bg-gradient {
+  background: linear-gradient(135deg, #b91151 0%, #5a4891 100%);
+  color: #fff !important;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.hover-bg-gradient {
+  position: relative;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.hover-bg-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #b91151 0%, #5a4891 100%);
+   color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hover-bg-gradient:hover::before {
+  opacity: 1;
+}
+
+/* Make sure text stays above the gradient */
+.hover-bg-gradient > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #fff #000000;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #8f3636;
+  border-radius: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2b5aa1;
+  border-radius: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8f4579;
 }
 

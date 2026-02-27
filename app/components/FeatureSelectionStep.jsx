@@ -75,12 +75,12 @@ function getMVPFeatureHours(question) {
     <>
       {/* Yes/No Choice */}
       {yesNo[step] !== 'yes'  &&
-      <div className="grid grid-cols-2 lg:grid-cols-2 lg:gap-16 gap-4 mb-32">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-4 mb-[44px] sm:mb-[106px] lg:mb-[143px]">
         <div
           onClick={handleNoClick}
           className={clsx(
-            'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition hover:border-[#174273]',
-            yesNo[step] === 'no' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
+            'border rounded-[18px] sm:px-6 sm:py-8 px-6 py-8 flex items-center justify-between  cursor-pointer transition gradient-border',
+            yesNo[step] === 'no' ? ' bg-gradient border-[#000] ' : 'border-[#0000004D]'
           )}
         >
           <span className="text-[18px] sm:text-[23px] font-medium">No</span>
@@ -89,15 +89,15 @@ function getMVPFeatureHours(question) {
           <div
             onClick={handleYesClick}
             className={clsx(
-              'border rounded-[18px] sm:px-6 sm:py-8 px-2 py-3 flex items-center sm:justify-between justify-center cursor-pointer transition hover:border-[#174273]',
-              yesNo[step] === 'yes' ? 'borderBlue text-white bgBlue' : 'border-[#0000004D]'
+              'border rounded-[18px] sm:px-6 sm:py-8 px-6 py-8 flex items-center justify-between cursor-pointer transition gradient-border',
+              yesNo[step] === 'yes' ? ' text-white bg-white' : 'border-[#0000004D]'
             )}
           >
             <span className="text-[18px] sm:text-[23px] font-medium">
               Yes
               
             </span>
-            <span className="mr-4 text-sm sm:text-[16px] font-normal text-gray-400">
+            <span className="mr-4 text-sm sm:text-[16px] font-normal ">
                 + {getMVPFeatureHours(currentQuestion)}h
               </span>
           </div>
@@ -110,11 +110,11 @@ function getMVPFeatureHours(question) {
       {/* Feature Selection */}
       {isYes && (
         <div>
-          <p className="text-gray-500 text-sm lg:text-xl sm:mb-6 mb-4">Please choose required features below:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-h-44 overflow-y-auto min-h-42">
+          <p className="text-white text-sm lg:text-xl sm:mb-4 mb-4 font-medium">Please choose required features below:</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8  overflow-y-auto custom-scrollbar min-h-[194px] max-h-[194px] md:min-h-[273px] md:max-h-[273px] lg:min-h-[183px] lg:max-h-[183px]">
             {/* MVP Features */}
             <div>
-              <h3 className="font-semibold text-[16px] sm:text-lg lg:text-xl mb-4">Enough for MVP</h3>
+              <h3 className="font-semibold text-[16px] lg:text-[17px] mb-4 font-medium">Enough for MVP</h3>
               <ul className="space-y-3">
                 {currentQuestion?.featuresForMVP?.map((feature, index) => {
                   const isFirst = index === 0;
@@ -127,19 +127,19 @@ function getMVPFeatureHours(question) {
                     >
                       <div
                         className={clsx(
-                          'w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center text-white text-[10px] font-bold',
+                          'w-4 h-4  rounded border-2 flex items-center justify-center text-white text-[10px] font-bold',
                           isFirst
                             ? 'bg-gray-400 border-gray-400'
                             : isChecked
-                            ? 'bgBlue borderBlue'
-                            : 'border-[#0000004D]'
+                            ? 'bg-[#5a4891] border-none'
+                            : 'border-gray-500'
                         )}
                       >
                         {isChecked && <span>✔</span>}
                       </div>
-                      <span className="text-[12px] sm:text-[15px] lg:text-[18px]">
+                      <span className="text-[12px] sm:text-[13px] lg:text-[15px] font-medium">
                         {feature.text}
-                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px] lg:text-[16px]">
+                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[12px] lg:text-[14px] font-medium">
                           {selectedPlatform === 'Android' && feature.AndroidHours}
                           {selectedPlatform === 'IOS' && feature.IOSHours}
                           {selectedPlatform === 'Both' && feature.BothHours} hours
@@ -154,7 +154,7 @@ function getMVPFeatureHours(question) {
             {/* Additional Features */}
             {currentQuestion?.additionalFeatures?.length > 0 && (
               <div>
-                <h3 className="font-semibold text-[16px] sm:text-lg lg:text-xl mb-4">Additional Features</h3>
+                <h3 className="font-semibold text-[16px] lg:text-[17px] mb-4 font-medium">Additional Features</h3>
                 <ul className="space-y-3">
                   {currentQuestion.additionalFeatures.map((feature, index) => (
                     <li
@@ -164,17 +164,17 @@ function getMVPFeatureHours(question) {
                     >
                       <div
                         className={clsx(
-                          'w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center text-white text-[10px] font-bold',
+                          'w-4 h-4 rounded border-2 flex items-center justify-center text-white text-[10px] font-bold',
                           selectedAdditional[step]?.has(feature.text)
-                            ? 'bgBlue borderBlue'
-                            : 'border-[#0000004D]'
+                            ? 'bg-[#5a4891] border-none'
+                            : 'border-white'
                         )}
                       >
                         {selectedAdditional[step]?.has(feature.text) && <span>✔</span>}
                       </div>
-                      <span className="text-[12px] sm:text-[15px] lg:text-[18px]">
+                      <span className="text-[12px] sm:text-[13px] lg:text-[15px] font-medium">
                         {feature.text}
-                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[14px] lg:text-[16px]">
+                        <span className="text-gray-400 sm:ml-2 ml-[3px] text-[10px] sm:text-[12px] lg:text-[14px] font-medium">
                           {selectedPlatform === 'Android' && feature.AndroidHours}
                           {selectedPlatform === 'IOS' && feature.IOSHours}
                           {selectedPlatform === 'Both' && feature.BothHours} hours

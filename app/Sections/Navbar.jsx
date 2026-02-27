@@ -21,12 +21,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4  relative z-50 max-w-[1300px] mx-auto">
+    <nav className="flex justify-between items-center px-4 sm:px-8 py-4  relative z-50 max-w-[1300px] mx-auto">
       <Link href="/"><div className="">
         <Image 
             src={navLogo} 
             alt="Logo" 
-            className="h-12 w-auto" // tailwind classes for styling
+            className="h-10 sm:h-12 w-auto" // tailwind classes for styling
           />
         </div></Link>
 

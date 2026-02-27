@@ -333,27 +333,19 @@ export default function Pricing() {
                 </>
             ): (
             <>
-                <div className="pt-16   ">
+                <div className="pt-4 sm:pt-8  mx-2 ">
 
                     {lastscreen ? (
                         <>
-                            <div className='max-w-[1400px] mx-auto relative shadow-2xl rounded-[18px]'>
-                                <div className="absolute top-8 left-6">
-                                    <button
-                                        onClick={() => handleBackLastScreen()}
-                                        className="text-sm text-gray-600 hover:underline flex items-center gap-1"
-                                    >
-                                        <ArrowLeft size={16} />
-                                        Back
-                                    </button>
-                                </div>
+                            
                                 <Estimate
                                     estimate={calculateTotalHours(currentStep)}
                                     selectedData={selectedData}
                                     category={category}
                                     selectedPlatform={selectedPlatform}
+                                    onBack={handleBackLastScreen}
                                 />
-                            </div>
+                            
                         </>
                     ) : (
                         <>
@@ -367,24 +359,24 @@ export default function Pricing() {
                                 />
                             ) : (
                                 // ======= Step One: Platform Selection =======
-                                <div className="flex flex-col lg:flex-row gap-6 max-w-[1340px] mx-auto">
+                                <div className="flex flex-col lg:flex-row sm:gap-6 gap-2 max-w-[1340px] mx-auto">
                                     {/* Left Section */}
-                                    <div className="flex-1  rounded-2xl sm:p-6 p-4 shadow-2xl">
+                                    <div className="flex-1  rounded-2xl sm:p-6 p-4 shadow-2xl gradient-border text-white bg-black/90">
                                         <div>
                                             <div className="flex items-center justify-between sm:mb-8 mb-4">
                                                 <button
                                                     onClick={() => handleBack()}
-                                                    className="flex items-center text-sm text-gray-500 hover:underline"
+                                                    className="flex items-center text-sm text-white hover:underline"
                                                 >
                                                     <ArrowLeft size={16} className="mr-1" />
                                                     Back
                                                 </button>
-                                                <span className="text-[12px] sm:text-sm bgPink text-white px-4 py-2 rounded-full">
+                                                <span className="text-[12px] sm:text-sm bg-gradient text-white px-4 py-2 rounded-full">
                                                     Step {currentStep + 1} of {questions.length}
                                                 </span>
                                             </div>
 
-                                            <h2 className="text-heading font-semibold sm:mb-12 mb-4">
+                                            <h2 className="text-screenheading font-semibold sm:mb-6 mb-4">
                                                 {currentQuestion?.title}
                                             </h2>
                                             {currentStep === 0 && category !== '+ Add' && (
@@ -430,45 +422,24 @@ export default function Pricing() {
 
                                             )}
 
-                                            {category !== '+ Add' &&
-                                                <div className="flex justify-end sm:mb-6 mb-4 mt-2">
-                                                    <button
-                                                        className={clsx(
-                                                            'sm:px-6 sm:py-3 px-5 py-3 rounded-full text-white transition sm:text-[16px] text-[12px]',
-                                                            !isDisabled ? 'bgPink cursor-pointer' : 'bg-[#D8216D]/40 cursor-not-allowed'
-                                                        )}
-                                                        disabled={isDisabled}
-                                                        onClick={() => {
-                                                            if (currentStep > questions.length - 2) {
-                                                                handleLast(); // Final action
-                                                            } else {
-                                                                handleNext(); // Proceed to next step
-                                                            }
-                                                        }}
-                                                    >
-                                                        <div className='flex flex-row justify-center items-center gap-2'>
-                                                            <p>Save and continue</p>
-                                                            <ArrowRight size={20} />
-
-                                                        </div>
-
-                                                    </button>
-                                                </div>
-                                            }
+                                            {category !== '+ Add' && (
+  <SelectedOverview
+    selectedPlatform={selectedPlatform}
+    features={features}
+    currentQuestion={currentQuestion}
+    questions={questions}
+    selectedMVP={selectedMVP}
+    selectedAdditional={selectedAdditional}
+    setCurrentStep={setCurrentStep}
+    // Pass the new props
+    isDisabled={isDisabled}
+    handleLast={handleLast}
+    handleNext={handleNext}
+    currentStep={currentStep}
+  />
+)}
 
                                         </div>
-                                        {category !== '+ Add' && (
-                                            <SelectedOverview
-                                                selectedPlatform={selectedPlatform}
-                                                features={features}
-                                                currentQuestion={currentQuestion}
-                                                questions={questions}
-                                                selectedMVP={selectedMVP}
-                                                selectedAdditional={selectedAdditional}
-                                                setCurrentStep={setCurrentStep}
-                                            />
-
-                                        )}
                                     </div>
                                     {/* Right Panel */}
                                     {category !== '+ Add' && (
