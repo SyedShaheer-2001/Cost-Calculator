@@ -82,27 +82,12 @@ export default function CategorySelector({ categories, onSelectCategory, onBack,
         <>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:pt-8 pt-8 mx-2 sm:mx-8 relative overflow-y-auto custom-scrollbar max-h-[352px]">
             {Object.entries(categories).map(([name, _]) => {
-              const isExisting = type === 'existing';
-              const icon = categoryIcons[name];
-              const hoverClasses = isExisting
-                ? categoryHoverStyles[name] || 'hover:bg-[#444] hover:text-white'
-                : 'hover-bg-gradient ';
-
               return (
                 <button
                   key={name}
                   onClick={() => onSelectCategory(name)}
                   className={` cursor-pointer py-[20px] sm:px-[52px] px-[5px] text-subheading text-white gradient-border rounded-[12px] transition flex justify-center items-center gap-3 overflow-hidden hover-bg-gradient`}
-                >
-                  {isExisting ? (
-                    <div className="flex items-center gap-2">
-                      <span>{name} </span>
-                    </div>
-                  ) : (
-                   <>
-                   {name} 
-                   </>
-                  )}
+                > {name} 
                 </button>
               );
             })}
