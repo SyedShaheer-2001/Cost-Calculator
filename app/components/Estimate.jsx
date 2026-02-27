@@ -146,98 +146,52 @@ function Estimate({ estimate, selectedData, category, selectedPlatform, onBack }
             <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Name + Email */}
 
-              {/* mobile view */}
-
-              <div className="sm:hidden flex flex-col gap-6 ">
-                <div className='flex gap-6 '>
-                  <div className='w-[50%]'>
-                    <p className='text-[14px]'>Full Name</p>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Enter your name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="w-36 pb-2 border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white bg-transparent placeholder:text-[12px]"
-                    />
-                    {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
-
-                  </div>
-
-                  <div className='w-[50%]'>
-                    <p className='text-[14px]'>Your email</p>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Enter your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-36 pb-2 bg-transparent border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white placeholder:text-[12px]"
-                    />
-                    {errors.email && <p className="text-red-300 text-sm mt-1">{errors.email}</p>}
-
-                  </div>
-                </div>
-                <div>
-                   <p className='text-[14px]'>Phone Number</p>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Enter your phone number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="pb-2 border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white bg-transparent w-36 placeholder:text-[12px]"
-                />
-                {errors.phone && <p className="text-red-300 text-sm mt-1">{errors.phone}</p>}
-
-
-                </div>
-
-               
-
-              </div>
-
-              <div className="hidden sm:flex flex-col gap-2 sm:gap-12 md:gap-4 mb-4">
+              <div className=" flex-col gap-2  mb-4">
                 {/* Name Field */}
-                <div className='flex flex-col gap-2 sm:gap-4 w-full'>
-                  <p>Full Name</p>
+                <div className='flex flex-col gap-2 w-full mb-4'>
+                  <div className='flex gap-2 items-center'>
+                  <p className='text-sm sm:text-[16px]'>Full Name</p> {errors.name && <p className="text-red-300 text-[11px]">({errors.name})</p>}
+                  </div>
                   <input
                     type="text"
                     name="name"
                     placeholder="Enter your name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="pb-2 border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white bg-transparent"
+                    className="pb-2 border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white bg-transparent  placeholder:text-[12px]  sm:placeholder:text-[15px]"
                   />
-                  {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
+                  
                 </div>
 
                 {/* Email Field */}
-                <div className='flex flex-col gap-2 sm:gap-4 w-full'>
-                  <p>Your email</p>
+                <div className='flex flex-col gap-2 w-full mb-4'>
+                  <div className='flex gap-2 items-center'>
+                  <p className='text-sm sm:text-[16px]'>Your email</p> {errors.email && <p className="text-red-300 text-[11px]">({errors.email})</p>}
+                  </div>
                   <input
                     type="email"
                     name="email"
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pb-2 bg-transparent border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white"
+                    className="pb-2 bg-transparent border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white placeholder:text-[12px]  sm:placeholder:text-[15px]"
                   />
-                  {errors.email && <p className="text-red-300 text-sm mt-1">{errors.email}</p>}
+                  
                 </div>
 
                 {/* Phone Field */}
-                <div className='flex flex-col gap-2 sm:gap-4 w-full'>
-                  <p>Phone Number</p>
+                <div className='flex flex-col gap-2 w-full mb-4'>
+                  <div className='flex gap-2 items-center'>
+                  <p className='text-sm sm:text-[16px]'>Phone Number</p> {errors.phone && <p className="text-red-300 text-[11px]">({errors.phone})</p>}
+                  </div>
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Enter your phone number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="pb-2 border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white bg-transparent"
+                    className="pb-2 border-b border-[#FBFBF8]/30 outline-none placeholder-[#FBFBF8]/30 text-white bg-transparent placeholder:text-[12px]  sm:placeholder:text-[15px]"
                   />
-                  {errors.phone && <p className="text-red-300 text-sm mt-1">{errors.phone}</p>}
                 </div>
 
               </div>
@@ -293,7 +247,7 @@ function Estimate({ estimate, selectedData, category, selectedPlatform, onBack }
 
           {/* Release Date */}
           <div className="bg-white/10 rounded-xl p-4">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
               <div className="text-center sm:text-left">
                 <p className="text-para text-white/70">Projected Completion</p>
               </div>
